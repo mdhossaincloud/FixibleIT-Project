@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#102A35"/>
+  <text x="600" y="290" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="96" font-weight="800" fill="#FFFFFF" letter-spacing="-2">Fixible IT</text>
+  <line x1="520" y1="336" x2="680" y2="336" stroke="#00A896" stroke-width="4"/>
+  <text x="600" y="404" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="28" font-weight="600" fill="#00A896" letter-spacing="8">TOP TECH. TOTAL SUPPORT.</text>
+  <text x="600" y="560" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="18" font-weight="400" fill="#7A8C99">fixibleit.com</text>
+</svg>
