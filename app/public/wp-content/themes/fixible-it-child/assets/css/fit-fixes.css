@@ -1,0 +1,197 @@
+/*
+ * Fixible IT - Phase 1 Critical Layout Fixes
+ * Restores Grids, Forms, and Squished Containers
+ */
+
+/* =========================================================
+   1. BACKGROUND FIX (Remove Kadence pale green on Cart/Checkout)
+   ========================================================= */
+body.woocommerce-cart .site,
+body.woocommerce-checkout .site,
+body.woocommerce-cart .site-content,
+body.woocommerce-checkout .site-content {
+    background-color: #F8F9FA !important;
+}
+
+/* =========================================================
+   2. FORM LAYOUT FIX (Contact, Support, PC Builder)
+   ========================================================= */
+.fit-form-group {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    margin-bottom: 16px !important;
+}
+.fit-form-group label {
+    display: block !important;
+    margin-bottom: 6px !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    color: #102A35 !important;
+}
+.fit-form-group input,
+.fit-form-group textarea,
+.fit-form-group select {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    height: 48px !important;
+    padding: 0 14px !important;
+    border: 1px solid #EAEAEA !important;
+    border-radius: 6px !important;
+    background: #F8F9FA !important;
+    float: none !important;
+}
+.fit-form-group textarea {
+    height: auto !important;
+    min-height: 120px !important;
+    padding: 14px !important;
+}
+
+/* WooCommerce Checkout Form Fields (Fix Overlaps) */
+.woocommerce form .form-row {
+    display: block !important;
+    width: 100% !important;
+    float: none !important;
+    padding: 0 !important;
+    margin-bottom: 16px !important;
+}
+.woocommerce form .form-row-first,
+.woocommerce form .form-row-last {
+    width: 48% !important;
+    float: left !important;
+}
+.woocommerce form .form-row-last {
+    float: right !important;
+}
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea,
+.woocommerce form .form-row select {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    height: 48px !important;
+}
+
+/* =========================================================
+   3. CART & CHECKOUT LAYOUT (Fix Squished Sidebars)
+   ========================================================= */
+.fit-classic-cart-layout,
+.fit-classic-checkout-layout {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 380px !important;
+    gap: 40px !important;
+    max-width: 1200px !important;
+    margin: 40px auto !important;
+    padding: 0 20px !important;
+    align-items: start !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.fit-cart-main, .fit-checkout-main {
+    min-width: 0 !important;
+    width: 100% !important;
+}
+
+.fit-cart-sidebar, .fit-checkout-sidebar {
+    min-width: 0 !important;
+    width: 100% !important;
+    position: sticky !important;
+    top: 30px !important;
+}
+
+.fit-cart-sidebar .cart_totals,
+.fit-order-summary-box {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 25px !important;
+    background: #fff !important;
+    border: 1px solid #EAEAEA !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 15px rgba(16, 42, 53, 0.04) !important;
+}
+
+/* Fix Button Text Wrapping (Proceed to Checkout) */
+.fit-cart-sidebar .wc-proceed-to-checkout a.checkout-button {
+    display: block !important;
+    width: 100% !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    text-align: center !important;
+    line-height: 1.4 !important;
+}
+
+/* Payment Option Fix (Cash on Delivery) */
+#payment ul.payment_methods li {
+    display: block !important;
+    position: relative !important;
+    padding: 15px 15px 15px 45px !important;
+}
+#payment ul.payment_methods li input[type="radio"] {
+    position: absolute !important;
+    left: 15px !important;
+    top: 18px !important;
+}
+#payment ul.payment_methods li label {
+    display: block !important;
+    margin: 0 !important;
+    white-space: normal !important;
+}
+
+/* =========================================================
+   4. SHOP & ABOUT PAGE GRID FIX
+   ========================================================= */
+/* About Page 3-column Grid */
+.fit-about-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 30px !important;
+}
+
+/* Shop Page Layout */
+.fit-shop-layout {
+    display: grid !important;
+    grid-template-columns: 260px minmax(0, 1fr) !important;
+    gap: 30px !important;
+    align-items: start !important;
+    width: 100% !important;
+}
+.fit-shop-content {
+    min-width: 0 !important;
+    width: 100% !important;
+}
+/* Ensure Products Show in Grid */
+.woocommerce ul.products {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+    gap: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* =========================================================
+   5. RESPONSIVE FIXES (Mobile)
+   ========================================================= */
+@media (max-width: 992px) {
+    .fit-classic-cart-layout,
+    .fit-classic-checkout-layout,
+    .fit-shop-layout {
+        grid-template-columns: 1fr !important;
+    }
+    .fit-cart-sidebar, .fit-checkout-sidebar {
+        position: static !important;
+    }
+    .fit-about-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+@media (max-width: 768px) {
+    .woocommerce form .form-row-first,
+    .woocommerce form .form-row-last {
+        width: 100% !important;
+        float: none !important;
+    }
+}

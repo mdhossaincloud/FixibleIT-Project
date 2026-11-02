@@ -1,0 +1,295 @@
+/* =========================================================
+   FIXIBLE IT — ULTIMATE LAYOUT & THEME FIXES (V3)
+   ========================================================= */
+
+/* 1. BACKGROUND FIX */
+body.woocommerce-cart .content-bg,
+body.woocommerce-checkout .content-bg,
+body.page-template-page-pc-builder .content-bg,
+body.woocommerce-cart .site,
+body.woocommerce-checkout .site {
+    background-color: #F8F9FA !important;
+}
+
+/* 2. NEUTRALIZE KADENCE WRAPPERS */
+body.woocommerce-cart .kadence-woo-cart-form-wrap,
+body.woocommerce-checkout .fit-checkout-form-root,
+body.woocommerce-checkout .entry-content,
+body.woocommerce-cart .entry-content {
+    display: block !important;
+    max-width: 1200px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+}
+
+/* =========================================
+   3. CART PAGE LAYOUT (FLEXBOX FIX)
+   ========================================= */
+body.woocommerce-cart .fit-classic-cart-layout {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 30px !important;
+    width: 100% !important;
+    margin: 40px 0 !important;
+    align-items: flex-start !important;
+}
+
+/* Left Column */
+body.woocommerce-cart .fit-cart-main {
+    flex: 1 1 auto !important; 
+    min-width: 0 !important;
+    background: #fff !important;
+    border: 1px solid #EAEAEA !important;
+    border-radius: 12px !important;
+    padding: 25px !important;
+    box-shadow: 0 4px 15px rgba(16,42,53,0.03) !important;
+}
+
+/* Right Column */
+body.woocommerce-cart .fit-cart-sidebar {
+    flex: 0 0 380px !important;
+    width: 380px !important;
+    max-width: 380px !important;
+    min-width: 0 !important;
+    position: sticky !important;
+    top: 30px !important;
+}
+
+body.woocommerce-cart .cart_totals {
+    background: #fff !important;
+    border: 1px solid #EAEAEA !important;
+    border-radius: 12px !important;
+    padding: 25px !important;
+    box-shadow: 0 4px 15px rgba(16,42,53,0.03) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+body.woocommerce-cart .cart_totals h2 {
+    font-size: 1.2rem !important;
+    border-bottom: 2px solid #F8F9FA !important;
+    padding-bottom: 15px !important;
+    margin-bottom: 15px !important;
+    white-space: nowrap !important;
+}
+
+/* Cart Table Fixes */
+body.woocommerce-cart table.shop_table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+}
+body.woocommerce-cart table.shop_table th,
+body.woocommerce-cart table.shop_table td {
+    padding: 15px 10px !important;
+    border-bottom: 1px solid #EAEAEA !important;
+    text-align: left !important;
+}
+body.woocommerce-cart table.shop_table th {
+    background: #F8F9FA !important;
+    font-size: 0.85rem !important;
+    text-transform: uppercase !important;
+    color: #6C757D !important;
+}
+
+/* Fix Huge Placeholder Image */
+body.woocommerce-cart table.shop_table td.product-thumbnail img {
+    width: 70px !important;
+    height: 70px !important;
+    object-fit: contain !important;
+    border-radius: 8px !important;
+    border: 1px solid #EAEAEA !important;
+}
+
+/* Proceed Button */
+body.woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
+    display: block !important;
+    width: 100% !important;
+    padding: 16px !important;
+    background: #00A896 !important;
+    color: #fff !important;
+    text-align: center !important;
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    white-space: normal !important;
+}
+body.woocommerce-cart .wc-proceed-to-checkout a.checkout-button:hover {
+    background: #102A35 !important;
+}
+
+/* =========================================
+   4. CHECKOUT PAGE LAYOUT (FLEXBOX FIX)
+   ========================================= */
+body.woocommerce-checkout .fit-classic-checkout-layout {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 30px !important;
+    width: 100% !important;
+    margin: 40px 0 !important;
+    align-items: flex-start !important;
+}
+
+/* Left Column */
+body.woocommerce-checkout .fit-checkout-main {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+}
+
+body.woocommerce-checkout #customer_details .col-1,
+body.woocommerce-checkout #customer_details .col-2 {
+    background: #fff !important;
+    border: 1px solid #EAEAEA !important;
+    border-radius: 12px !important;
+    padding: 25px !important;
+    box-shadow: 0 4px 15px rgba(16,42,53,0.03) !important;
+    margin-bottom: 25px !important;
+    width: 100% !important;
+    float: none !important;
+}
+
+/* Right Column */
+body.woocommerce-checkout .fit-checkout-sidebar {
+    flex: 0 0 400px !important;
+    width: 400px !important;
+    max-width: 400px !important;
+    min-width: 0 !important;
+    position: sticky !important;
+    top: 30px !important;
+}
+
+body.woocommerce-checkout .fit-order-summary-box {
+    background: #fff !important;
+    border: 1px solid #EAEAEA !important;
+    border-radius: 12px !important;
+    padding: 25px !important;
+    box-shadow: 0 4px 15px rgba(16,42,53,0.03) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Order Summary Table */
+body.woocommerce-checkout #order_review table {
+    width: 100% !important;
+    table-layout: fixed !important;
+}
+body.woocommerce-checkout #order_review table th,
+body.woocommerce-checkout #order_review table td {
+    padding: 12px 5px !important;
+    border-bottom: 1px dashed #EAEAEA !important;
+    font-size: 0.95rem !important;
+    word-wrap: break-word !important;
+}
+body.woocommerce-checkout #order_review table td.product-total {
+    text-align: right !important;
+}
+
+/* =========================================
+   5. PAYMENT METHOD FIX (Cash on Delivery)
+   ========================================= */
+body.woocommerce-checkout #payment {
+    background: #F8F9FA !important;
+    border: 1px solid #EAEAEA !important;
+    border-radius: 10px !important;
+    padding: 20px !important;
+}
+body.woocommerce-checkout #payment ul.payment_methods {
+    padding: 0 !important;
+    margin: 0 0 20px 0 !important;
+    list-style: none !important;
+}
+body.woocommerce-checkout #payment ul.payment_methods li {
+    display: block !important;
+    position: relative !important;
+    padding: 15px 15px 15px 45px !important;
+    background: #fff !important;
+    border: 1px solid #EAEAEA !important;
+    border-radius: 8px !important;
+    margin-bottom: 10px !important;
+}
+/* FORCE HIDDEN RADIO BUTTON TO SHOW */
+body.woocommerce-checkout #payment ul.payment_methods li input[type="radio"] {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: absolute !important;
+    left: 15px !important;
+    top: 18px !important;
+    width: 18px !important;
+    height: 18px !important;
+    accent-color: #00A896 !important;
+    appearance: radio !important;
+    -webkit-appearance: radio !important;
+}
+body.woocommerce-checkout #payment ul.payment_methods li label {
+    display: block !important;
+    margin: 0 !important;
+    font-weight: 600 !important;
+    color: #102A35 !important;
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+}
+body.woocommerce-checkout #payment #place_order {
+    width: 100% !important;
+    background: #00A896 !important;
+    color: #fff !important;
+    padding: 18px !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    text-transform: uppercase !important;
+}
+body.woocommerce-checkout #payment #place_order:hover {
+    background: #102A35 !important;
+}
+
+/* =========================================
+   6. PC BUILDER LAYOUT FIX
+   ========================================= */
+body.page-template-page-pc-builder .fit-builder-layout {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 30px !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+}
+body.page-template-page-pc-builder .fit-builder-steps {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+}
+body.page-template-page-pc-builder .fit-builder-summary-box {
+    flex: 0 0 350px !important;
+    width: 350px !important;
+    max-width: 350px !important;
+    position: sticky !important;
+    top: 30px !important;
+    background: #fff !important;
+    border: 1px solid #EAEAEA !important;
+    border-radius: 12px !important;
+    padding: 25px !important;
+    box-shadow: 0 4px 15px rgba(16,42,53,0.03) !important;
+    box-sizing: border-box !important;
+}
+
+/* =========================================
+   7. MOBILE RESPONSIVENESS (Stack them)
+   ========================================= */
+@media (max-width: 992px) {
+    body.woocommerce-cart .fit-classic-cart-layout,
+    body.woocommerce-checkout .fit-classic-checkout-layout,
+    body.page-template-page-pc-builder .fit-builder-layout {
+        flex-direction: column !important;
+        flex-wrap: wrap !important;
+    }
+    body.woocommerce-cart .fit-cart-sidebar,
+    body.woocommerce-checkout .fit-checkout-sidebar,
+    body.page-template-page-pc-builder .fit-builder-summary-box {
+        flex: 1 1 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        position: static !important;
+    }
+}

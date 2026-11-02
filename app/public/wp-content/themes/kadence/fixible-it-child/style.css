@@ -1,0 +1,61 @@
+/*
+Theme Name: Fixible IT Child
+Theme URI: https://fixibleit.com
+Description: Custom child theme for Fixible IT. TOP TECH. TOTAL SUPPORT.
+Author: Fixible IT
+Author URI: https://fixibleit.com
+Template: kadence
+Version: 1.0.0
+Text Domain: fixible-it
+*/
+
+/* Fixible IT Design Tokens */
+:root {
+    --fit-navy: #102A35;
+    --fit-teal: #00A896;
+    --fit-teal-dark: #007A6D; /* For small text/links to meet WCAG AA contrast */
+    --fit-white: #FFFFFF;
+    --fit-off-white: #F8F9FA;
+    --fit-muted: #6C757D;
+    --fit-font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Global Typography & Colors */
+body {
+    font-family: var(--fit-font-family) !important;
+    color: var(--fit-navy);
+    background-color: var(--fit-white);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fit-font-family) !important;
+    color: var(--fit-navy);
+    font-weight: 600;
+}
+
+/* Links and Accents */
+a {
+    color: var(--fit-teal-dark);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: var(--fit-navy);
+}
+
+/* Primary Buttons (WooCommerce & Kadence) */
+.button, button, input[type="submit"], .wp-block-button__link {
+    background-color: var(--fit-teal) !important;
+    color: var(--fit-white) !important;
+    border-radius: 4px !important;
+    font-weight: 500 !important;
+    border: none !important;
+    transition: background-color 0.2s ease-in-out !important;
+}
+
+.button:hover, button:hover, input[type="submit"]:hover, .wp-block-button__link:hover {
+    background-color: var(--fit-navy) !important;
+    color: var(--fit-white) !important;
+}
