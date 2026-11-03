@@ -1,12 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#00A896" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
-  <rect x="6" y="6" width="12" height="12" rx="1"/>
-  <rect x="9" y="9" width="6" height="6"/>
-  <line x1="9" y1="2" x2="9" y2="6"/>
-  <line x1="15" y1="2" x2="15" y2="6"/>
-  <line x1="9" y1="18" x2="9" y2="22"/>
-  <line x1="15" y1="18" x2="15" y2="22"/>
-  <line x1="2" y1="9" x2="6" y2="9"/>
-  <line x1="2" y1="15" x2="6" y2="15"/>
-  <line x1="18" y1="9" x2="22" y2="9"/>
-  <line x1="18" y1="15" x2="22" y2="15"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" fill="none" stroke="#00A896" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"><title>Processors (CPU)</title><rect x="100" y="100" width="200" height="200" rx="20"/><rect x="150" y="150" width="100" height="100" rx="10"/><path d="M140 60V100M140 300V340M60 140H100M300 140H340"/><path d="M200 60V100M200 300V340M60 200H100M300 200H340"/><path d="M260 60V100M260 300V340M60 260H100M300 260H340"/></svg>

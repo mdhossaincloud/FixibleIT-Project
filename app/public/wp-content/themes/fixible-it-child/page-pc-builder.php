@@ -293,18 +293,19 @@ body.page-template-page-pc-builder {
         <div class="fit-pc-steps">
             
             <?php 
+            // Added 'icon' key to the array
             $components = [
-                'Processors (CPU)' => ['id' => 'cpu', 'max' => 1],
-                'Motherboards' => ['id' => 'mb', 'max' => 1],
-                'Desktop & Laptop RAM' => ['id' => 'ram', 'max' => 4],
-                'Graphics Cards (GPU)' => ['id' => 'gpu', 'max' => 1],
-                'Internal Storage (SSD / HDD)' => ['id' => 'storage', 'max' => 4],
-                'Power Supplies (PSU)' => ['id' => 'psu', 'max' => 1],
-                'Casings' => ['id' => 'case', 'max' => 1],
-                'CPU Coolers, Fans & Thermal' => ['id' => 'cooler', 'max' => 1],
-                'Monitors' => ['id' => 'monitor', 'max' => 3],
-                'Keyboards, Mice & Combos' => ['id' => 'peripherals', 'max' => 3],
-                'UPS & Power Protection' => ['id' => 'ups', 'max' => 2]
+                'Processors (CPU)' => ['id' => 'cpu', 'max' => 1, 'icon' => 'icon-cpu.svg'],
+                'Motherboards' => ['id' => 'mb', 'max' => 1, 'icon' => 'icon-motherboards.svg'],
+                'Desktop & Laptop RAM' => ['id' => 'ram', 'max' => 4, 'icon' => 'icon-ram.svg'],
+                'Graphics Cards (GPU)' => ['id' => 'gpu', 'max' => 1, 'icon' => 'icon-gpu.svg'],
+                'Internal Storage (SSD / HDD)' => ['id' => 'storage', 'max' => 4, 'icon' => 'icon-hdd.svg'],
+                'Power Supplies (PSU)' => ['id' => 'psu', 'max' => 1, 'icon' => 'icon-psu.svg'],
+                'Casings' => ['id' => 'case', 'max' => 1, 'icon' => 'icon-casings.svg'],
+                'CPU Coolers, Fans & Thermal' => ['id' => 'cooler', 'max' => 1, 'icon' => 'icon-cooler.svg'],
+                'Monitors' => ['id' => 'monitor', 'max' => 3, 'icon' => 'icon-monitors.svg'],
+                'Keyboards, Mice & Combos' => ['id' => 'peripherals', 'max' => 3, 'icon' => 'icon-keyboards-mouse.svg'],
+                'UPS & Power Protection' => ['id' => 'ups', 'max' => 2, 'icon' => 'icon-ups.svg']
             ];
 
             $step_num = 1;
@@ -314,12 +315,15 @@ body.page-template-page-pc-builder {
                 <div class="fit-pc-step-card" data-step="<?php echo $data['id']; ?>">
                     <div class="fit-pc-step-header">
                         <span class="fit-pc-step-num"><?php echo $step_num; ?></span>
+                        
+                        <!-- Added Icon Here -->
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/<?php echo esc_attr($data['icon']); ?>" alt="<?php echo esc_attr($cat_name); ?>" style="width: 24px; height: 24px; object-fit: contain;">
+                        
                         <h3><?php echo $cat_name; ?></h3>
                     </div>
                     <div class="fit-pc-step-body">
                         <div class="fit-multi-select-group" data-max="<?php echo $data['max']; ?>" id="group-<?php echo $data['id']; ?>">
                             <div class="fit-pc-select-row">
-                                <!-- RAM/MB disabled attribute removed here -->
                                 <select class="fit-pc-select fit-<?php echo $data['id']; ?>-select" name="<?php echo $data['id']; ?>">
                                     <option value="0" data-name="" data-price="0">Select <?php echo $cat_name; ?></option>
                                     <?php

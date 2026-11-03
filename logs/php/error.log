@@ -53,3 +53,7 @@ Stack trace:
 [02-Nov-2026 09:04:50 UTC] PHP Warning:  Undefined array key "company" in C:\Users\mdhos\FixibleIT-Project - Local\app\public\wp-content\plugins\fixible-it-core\includes\class-fit-ajax.php on line 70
 [02-Nov-2026 09:04:50 UTC] PHP Warning:  Undefined array key "location" in C:\Users\mdhos\FixibleIT-Project - Local\app\public\wp-content\plugins\fixible-it-core\includes\class-fit-ajax.php on line 70
 [02-Nov-2026 09:05:36 UTC] PHP Warning:  Undefined array key "build" in C:\Users\mdhos\FixibleIT-Project - Local\app\public\wp-content\plugins\fixible-it-core\includes\class-fit-ajax.php on line 85
+[02-Nov-2026 12:26:18 UTC] PHP Warning:  Undefined array key "build" in C:\Users\mdhos\FixibleIT-Project - Local\app\public\wp-content\plugins\fixible-it-core\includes\class-fit-ajax.php on line 85
+[02-Nov-2026 12:44:56 UTC] PHP Warning:  Undefined array key "build" in C:\Users\mdhos\FixibleIT-Project - Local\app\public\wp-content\plugins\fixible-it-core\includes\class-fit-ajax.php on line 85
+[03-Nov-2026 06:14:01 UTC] PHP Warning:  Undefined array key "company" in C:\Users\mdhos\FixibleIT-Project - Local\app\public\wp-content\plugins\fixible-it-core\includes\class-fit-ajax.php on line 70
+[03-Nov-2026 06:14:01 UTC] PHP Warning:  Undefined array key "location" in C:\Users\mdhos\FixibleIT-Project - Local\app\public\wp-content\plugins\fixible-it-core\includes\class-fit-ajax.php on line 70

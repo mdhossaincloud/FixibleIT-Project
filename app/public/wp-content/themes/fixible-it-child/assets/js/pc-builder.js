@@ -29,7 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     btn.addEventListener('click', function() {
         // Check if at least 1 item is selected
-        let total = parseFloat(document.getElementById('fit-total-price').innerText.replace('৳', '').replace(/,/g, '')) || 0;
+let totalText = document.getElementById('fit-total-price').innerText;
+let numericString = totalText.replace(/[^0-9.]/g, ''); 
+let total = parseFloat(numericString) || 0;
         if(total === 0) {
             alert("Please select at least one component before requesting a quote.");
             return;

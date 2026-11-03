@@ -145,9 +145,21 @@ jQuery(document).ready(function($) {
     // 5. MODAL & QUOTE SUBMIT
     // ==========================================
     $('.fit-save-build-btn').on('click', function() {
-        if(!window.currentTotal || window.currentTotal === 0) { alert('Please select components first.'); return; }
+        let totalText = document.getElementById('fit-total-price').innerText;
+        console.log("Current Total Text: ", totalText); // ডিবাগের জন্য
+
+        let numericString = totalText.replace(/[^0-9.]/g, ''); 
+        let total = parseFloat(numericString) || 0;
+        
+        if(total === 0) { 
+            alert('Please select components first.'); 
+            return; 
+        }
+        
+        window.currentTotal = total;
         $('#fit-quote-modal').css('display', 'flex');
     });
+
     $('.fit-modal-close').on('click', function() { $('#fit-quote-modal').hide(); });
 
     $('#fit-submit-quote-btn').on('click', function() {
@@ -160,7 +172,7 @@ jQuery(document).ready(function($) {
             else { alert(res.data.message || 'Error.'); btn.text('Submit Request').prop('disabled', false); }
         }).fail(function() { alert('Server Error.'); btn.text('Submit Request').prop('disabled', false); });
     });
-
+    
     // ==========================================
     // 6. SERVICE FORM AJAX
     // ==========================================
