@@ -1,0 +1,40 @@
+﻿# Secrets and local configuration
+.env
+.env.*
+!.env.example
+**/wp-config.php
+*.pem
+*.key
+
+# Database exports and local backups
+*.sql
+*.sql.gz
+*.dump
+backups/**
+!backups/.gitkeep
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.cache
+
+# Dependencies and generated build output
+node_modules/
+vendor/
+dist/
+build/
+coverage/
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+
+# Logs and Databases
+wp-content/uploads/wc-logs/
+logs/
+app/sql/local.sql
+screenshot.png

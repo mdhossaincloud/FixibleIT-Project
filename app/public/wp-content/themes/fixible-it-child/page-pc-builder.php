@@ -1,42 +1,42 @@
 <?php
-/* Template Name: Fixible PC Builder */
+/* Template Name: Fixible PC Builder Dropdown */
 get_header(); ?>
 
 <style>
 /* =========================================================
-   PREMIUM PC BUILDER UI (Isolated & Bulletproof)
+   PREMIUM PC BUILDER V2 (Compact Dropdown UI)
    ========================================================= */
 body.page-template-page-pc-builder {
     background-color: #F8F9FA !important;
 }
 
-.fit-pc-wrapper {
-    max-width: 1240px !important;
+.fit-pcb-wrapper {
+    max-width: 1280px !important;
     margin: 40px auto !important;
     padding: 0 20px !important;
     width: 100% !important;
     box-sizing: border-box !important;
 }
 
-.fit-pc-header {
+.fit-pcb-header {
     text-align: center !important;
     margin-bottom: 40px !important;
 }
-.fit-pc-header h1 {
-    font-size: 2.2rem !important;
+.fit-pcb-header h1 {
+    font-size: 2.4rem !important;
     font-weight: 800 !important;
     color: #102A35 !important;
     margin-bottom: 10px !important;
 }
-.fit-pc-header p {
-    font-size: 1.05rem !important;
+.fit-pcb-header p {
+    font-size: 1.1rem !important;
     color: #6C757D !important;
     max-width: 600px !important;
     margin: 0 auto !important;
 }
 
-/* Flex Layout to prevent squishing */
-.fit-pc-layout {
+/* Flex Layout */
+.fit-pcb-layout {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
@@ -46,33 +46,36 @@ body.page-template-page-pc-builder {
 }
 
 /* Left Column: Steps */
-.fit-pc-steps {
-    flex: 1 1 0% !important; /* Magic fix for shrinking */
+.fit-pcb-steps {
+    flex: 1 1 0% !important;
     min-width: 0 !important;
 }
 
-.fit-pc-step-card {
+/* Step Card */
+.fit-pcb-step-card {
     background: #FFFFFF !important;
     border: 1px solid #EAEAEA !important;
     border-radius: 12px !important;
-    margin-bottom: 16px !important;
-    box-shadow: 0 2px 8px rgba(16,42,53,0.03) !important;
-    transition: border-color 0.2s ease !important;
+    margin-bottom: 20px !important;
+    box-shadow: 0 2px 10px rgba(16,42,53,0.03) !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
 }
-.fit-pc-step-card:hover {
+.fit-pcb-step-card:hover {
     border-color: #00A896 !important;
+    box-shadow: 0 4px 15px rgba(0,168,150,0.08) !important;
 }
 
-.fit-pc-step-header {
+/* Step Header */
+.fit-pcb-step-header {
     display: flex !important;
     align-items: center !important;
     gap: 15px !important;
-    padding: 16px 20px !important;
-    border-bottom: 1px solid #EAEAEA !important;
-    background: #F8F9FA !important;
+    padding: 18px 20px !important;
+    border-bottom: 1px solid #F3F4F6 !important;
+    background: #FAFAFA !important;
     border-radius: 12px 12px 0 0 !important;
 }
-.fit-pc-step-num {
+.fit-pcb-step-num {
     background: #102A35 !important;
     color: #FFF !important;
     width: 28px !important;
@@ -85,21 +88,36 @@ body.page-template-page-pc-builder {
     font-weight: 700 !important;
     flex-shrink: 0 !important;
 }
-.fit-pc-step-header h3 {
+.fit-pcb-step-header img {
+    width: 24px !important;
+    height: 24px !important;
+    object-fit: contain !important;
+    opacity: 0.8 !important;
+}
+.fit-pcb-step-header h3 {
     margin: 0 !important;
     font-size: 1.1rem !important;
     font-weight: 700 !important;
     color: #102A35 !important;
 }
 
-.fit-pc-step-body {
+/* Step Body */
+.fit-pcb-step-body {
     padding: 20px !important;
 }
 
-/* Form Elements */
+/* Select Row */
+.fit-pcb-select-row {
+    display: flex !important;
+    gap: 12px !important;
+    margin-bottom: 12px !important;
+    align-items: center !important;
+}
+
+/* Premium Dropdown */
 .fit-pc-select {
     width: 100% !important;
-    height: 52px !important;
+    height: 50px !important;
     padding: 0 16px !important;
     border: 1px solid #D1D5DB !important;
     border-radius: 8px !important;
@@ -126,20 +144,13 @@ body.page-template-page-pc-builder {
     cursor: not-allowed !important;
 }
 
-.fit-pc-select-row {
-    display: flex !important;
-    gap: 10px !important;
-    margin-bottom: 10px !important;
-    align-items: center !important;
-}
-
 /* Buttons */
-.fit-pc-add-btn, .fit-pc-remove-btn {
+.fit-pcb-add-btn, .fit-pcb-remove-btn {
     background: #FFFFFF !important;
     border: 1px solid #D1D5DB !important;
     color: #102A35 !important;
     padding: 0 16px !important;
-    height: 52px !important;
+    height: 50px !important;
     border-radius: 8px !important;
     font-weight: 600 !important;
     font-size: 0.9rem !important;
@@ -147,26 +158,27 @@ body.page-template-page-pc-builder {
     transition: all 0.2s !important;
     white-space: nowrap !important;
 }
-.fit-pc-add-btn {
+.fit-pcb-add-btn {
     width: 100% !important;
     margin-top: 10px !important;
     background: #F8F9FA !important;
     border-style: dashed !important;
 }
-.fit-pc-add-btn:hover {
+.fit-pcb-add-btn:hover {
     background: #E6F7F5 !important;
     border-color: #00A896 !important;
     color: #00A896 !important;
 }
-.fit-pc-remove-btn:hover {
+.fit-pcb-remove-btn:hover {
     background: #FEE2E2 !important;
     border-color: #EF4444 !important;
     color: #EF4444 !important;
 }
 
+/* Compatibility Message */
 .fit-pc-compat-msg {
     margin-top: 10px !important;
-    padding: 10px !important;
+    padding: 10px 15px !important;
     border-radius: 6px !important;
     font-size: 0.85rem !important;
     font-weight: 600 !important;
@@ -176,62 +188,66 @@ body.page-template-page-pc-builder {
     background: #FEE2E2 !important; color: #991B1B !important; display: block !important;
 }
 
-/* Right Column: Summary (Sticky) */
-.fit-pc-summary {
-    flex: 0 0 380px !important; /* Fixed width prevents squishing */
+/* Right Column: Summary */
+.fit-pcb-summary {
+    flex: 0 0 380px !important;
     width: 380px !important;
     position: sticky !important;
     top: 30px !important;
-    background: #FFFFFF !important;
-    border: 1px solid #EAEAEA !important;
-    border-radius: 12px !important;
-    box-shadow: 0 8px 30px rgba(16,42,53,0.06) !important;
-    padding: 25px !important;
+    background: #102A35 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 30px rgba(16,42,53,0.15) !important;
+    padding: 30px !important;
     box-sizing: border-box !important;
+    color: #ffffff !important;
 }
-.fit-pc-summary h3 {
-    font-size: 1.2rem !important;
-    color: #102A35 !important;
+.fit-pcb-summary h3 {
+    font-size: 1.3rem !important;
+    color: #ffffff !important;
     margin: 0 0 20px 0 !important;
     padding-bottom: 15px !important;
-    border-bottom: 1px solid #EAEAEA !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1) !important;
 }
 
-.fit-pc-summary-list {
+.fit-pcb-summary-list {
     max-height: 400px !important;
     overflow-y: auto !important;
     margin-bottom: 20px !important;
+    padding-right: 10px !important;
 }
-.fit-pc-summary-item {
+.fit-pcb-summary-list::-webkit-scrollbar { width: 6px; }
+.fit-pcb-summary-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+
+.fit-pcb-summary-item {
     display: flex !important;
     justify-content: space-between !important;
     font-size: 0.9rem !important;
-    padding: 8px 0 !important;
-    border-bottom: 1px dashed #EAEAEA !important;
-    color: #4B5563 !important;
+    padding: 10px 0 !important;
+    border-bottom: 1px dashed rgba(255,255,255,0.1) !important;
+    color: #D1D5DB !important;
 }
-.fit-pc-summary-item span:last-child {
+.fit-pcb-summary-item span:last-child {
     font-weight: 600 !important;
-    color: #102A35 !important;
+    color: #ffffff !important;
 }
 
-.fit-pc-total-row {
+.fit-pcb-total-row {
     display: flex !important;
     justify-content: space-between !important;
-    font-size: 1.3rem !important;
+    font-size: 1.4rem !important;
     font-weight: 800 !important;
     color: #00A896 !important;
     padding: 20px 0 !important;
-    border-top: 2px solid #EAEAEA !important;
+    border-top: 2px solid rgba(255,255,255,0.1) !important;
     margin-bottom: 20px !important;
 }
 
-.fit-pc-save-btn {
+.fit-pcb-save-btn {
     width: 100% !important;
     background: #00A896 !important;
     color: #FFF !important;
-    padding: 16px !important;
-    font-size: 1.05rem !important;
+    padding: 18px !important;
+    font-size: 1.1rem !important;
     font-weight: 700 !important;
     border: none !important;
     border-radius: 8px !important;
@@ -240,39 +256,40 @@ body.page-template-page-pc-builder {
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
 }
-.fit-pc-save-btn:hover {
-    background: #102A35 !important;
+.fit-pcb-save-btn:hover {
+    background: #007A6D !important;
 }
 
 /* Modal */
-.fit-pc-modal {
+.fit-pcb-modal {
     display: none;
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(16,42,53,0.6);
+    background: rgba(16,42,53,0.8);
     z-index: 9999;
     align-items: center;
     justify-content: center;
+    backdrop-filter: blur(4px);
 }
-.fit-pc-modal.active { display: flex; }
-.fit-pc-modal-content {
+.fit-pcb-modal.active { display: flex; }
+.fit-pcb-modal-content {
     background: #FFF;
     width: 100%;
     max-width: 500px;
     padding: 30px;
-    border-radius: 12px;
+    border-radius: 16px;
     position: relative;
     max-height: 90vh;
     overflow-y: auto;
 }
 
-/* Mobile */
+/* Responsive */
 @media (max-width: 992px) {
-    .fit-pc-layout {
+    .fit-pcb-layout {
         flex-direction: column !important;
         flex-wrap: wrap !important;
     }
-    .fit-pc-summary {
+    .fit-pcb-summary {
         flex: 1 1 100% !important;
         width: 100% !important;
         position: static !important;
@@ -280,20 +297,20 @@ body.page-template-page-pc-builder {
 }
 </style>
 
-<div class="fit-pc-wrapper">
+<div class="fit-pcb-wrapper">
     
-    <div class="fit-pc-header">
+    <div class="fit-pcb-header">
         <h1>Advanced PC Builder</h1>
-        <p>Select your components. We verify compatibility and calculate the total instantly.</p>
+        <p>Select components to see live pricing and check compatibility instantly.</p>
     </div>
 
-    <div class="fit-pc-layout">
+    <div class="fit-pcb-layout">
         
-        <!-- Left: Steps -->
-        <div class="fit-pc-steps">
+        <!-- Left: Configuration Steps -->
+        <div class="fit-pcb-steps">
             
             <?php 
-            // Added 'icon' key to the array
+            // Components array with Icons
             $components = [
                 'Processors (CPU)' => ['id' => 'cpu', 'max' => 1, 'icon' => 'icon-cpu.svg'],
                 'Motherboards' => ['id' => 'mb', 'max' => 1, 'icon' => 'icon-motherboards.svg'],
@@ -312,18 +329,16 @@ body.page-template-page-pc-builder {
             foreach($components as $cat_name => $data) : 
                 $is_multiple = $data['max'] > 1;
             ?>
-                <div class="fit-pc-step-card" data-step="<?php echo $data['id']; ?>">
-                    <div class="fit-pc-step-header">
-                        <span class="fit-pc-step-num"><?php echo $step_num; ?></span>
-                        
-                        <!-- Added Icon Here -->
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/<?php echo esc_attr($data['icon']); ?>" alt="<?php echo esc_attr($cat_name); ?>" style="width: 24px; height: 24px; object-fit: contain;">
-                        
+                <div class="fit-pcb-step-card" data-step="<?php echo $data['id']; ?>">
+                    <div class="fit-pcb-step-header">
+                        <span class="fit-pcb-step-num"><?php echo $step_num; ?></span>
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/<?php echo esc_attr($data['icon']); ?>" alt="<?php echo esc_attr($cat_name); ?>" onerror="this.style.display='none'">
                         <h3><?php echo $cat_name; ?></h3>
                     </div>
-                    <div class="fit-pc-step-body">
+                    <div class="fit-pcb-step-body">
                         <div class="fit-multi-select-group" data-max="<?php echo $data['max']; ?>" id="group-<?php echo $data['id']; ?>">
-                            <div class="fit-pc-select-row">
+                            
+                            <div class="fit-pcb-select-row">
                                 <select class="fit-pc-select fit-<?php echo $data['id']; ?>-select" name="<?php echo $data['id']; ?>">
                                     <option value="0" data-name="" data-price="0">Select <?php echo $cat_name; ?></option>
                                     <?php
@@ -334,12 +349,9 @@ body.page-template-page-pc-builder {
                                     );
                                     $q = new WP_Query($args);
                                     while($q->have_posts()) : $q->the_post(); global $product;
-                                        $socket = get_post_meta(get_the_ID(), '_fit_socket', true);
-                                        if(!$socket) { $socket = $product->get_attribute('socket'); }
-                                        $ram = get_post_meta(get_the_ID(), '_fit_ram_type', true);
-                                        if(!$ram) { $ram = $product->get_attribute('memory type'); }
-                                        $wattage = get_post_meta(get_the_ID(), '_fit_wattage', true);
-                                        if(!$wattage) { $wattage = $product->get_attribute('wattage'); }
+                                        $socket = get_post_meta(get_the_ID(), '_fit_socket', true) ?: $product->get_attribute('socket');
+                                        $ram = get_post_meta(get_the_ID(), '_fit_ram_type', true) ?: $product->get_attribute('memory type');
+                                        $wattage = get_post_meta(get_the_ID(), '_fit_wattage', true) ?: $product->get_attribute('wattage');
                                         $price = $product->get_price(); 
                                         if(empty($price)) continue;
                                     ?>
@@ -353,14 +365,16 @@ body.page-template-page-pc-builder {
                                         </option>
                                     <?php endwhile; wp_reset_postdata(); ?>
                                 </select>
-                                <button type="button" class="fit-pc-remove-btn" style="display:none;">−</button>
+                                <button type="button" class="fit-pcb-remove-btn" style="display:none;">−</button>
                             </div>
+                            
                             <?php if($is_multiple): ?>
-                                <button type="button" class="fit-pc-add-btn fit-add-more-btn" data-target="<?php echo $data['id']; ?>">+ Add More</button>
+                                <button type="button" class="fit-pcb-add-btn fit-add-more-btn" data-target="<?php echo $data['id']; ?>">+ Add Another <?php echo explode('(', $cat_name)[0]; ?></button>
                             <?php endif; ?>
                         </div>
+                        
                         <?php if($data['id'] == 'mb' || $data['id'] == 'ram' || $data['id'] == 'psu'): ?>
-                            <div class="fit-pc-compat-msg fit-compat-msg" id="msg-<?php echo $data['id']; ?>"></div>
+                            <div class="fit-pc-compat-msg" id="msg-<?php echo $data['id']; ?>"></div>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -369,122 +383,109 @@ body.page-template-page-pc-builder {
             endforeach; 
             ?>
 
-            <!-- Extras -->
-            <div class="fit-pc-step-card" data-step="extras">
-                <div class="fit-pc-step-header">
-                    <span class="fit-pc-step-num"><?php echo $step_num; ?></span>
-                    <h3>Extra Components / Accessories</h3>
-                </div>
-                <div class="fit-pc-step-body">
-                    <div class="fit-multi-select-group" data-max="5" id="group-extras">
-                        <div class="fit-pc-select-row">
-                            <select class="fit-pc-select fit-extras-select" name="extras[]">
-                                <option value="0" data-name="" data-price="0">Select Additional Item</option>
-                                <?php
-                                $args_extras = array('post_type' => 'product', 'posts_per_page' => -1);
-                                $q_extras = new WP_Query($args_extras);
-                                while($q_extras->have_posts()) : $q_extras->the_post(); global $product;
-                                    $price = $product->get_price(); 
-                                    if(empty($price)) continue;
-                                ?>
-                                    <option value="<?php echo esc_attr(get_the_ID()); ?>" 
-                                            data-name="<?php echo esc_attr(get_the_title()); ?>" 
-                                            data-price="<?php echo esc_attr($price); ?>">
-                                        <?php echo esc_html(get_the_title()); ?> (BDT <?php echo number_format($price); ?>)
-                                    </option>
-                                <?php endwhile; wp_reset_postdata(); ?>
-                            </select>
-                            <button type="button" class="fit-pc-remove-btn" style="display:none;">−</button>
-                        </div>
-                        <button type="button" class="fit-pc-add-btn fit-add-more-btn" data-target="extras">+ Add More</button>
-                    </div>
-                </div>
-            </div>
-
         </div>
 
         <!-- Right: Sticky Summary -->
-        <div class="fit-pc-summary">
-            <h3>Build Summary</h3>
-            <div class="fit-pc-summary-list" id="fit-summary-list">
-                <p style="color: #6C757D; font-style: italic; font-size: 0.9rem;">No components selected yet.</p>
+        <div class="fit-pcb-summary">
+            <h3>Your Build</h3>
+            <div class="fit-pcb-summary-list" id="fit-summary-list">
+                <p style="color: #9CA3AF; font-style: italic; font-size: 0.9rem;">No components selected yet.</p>
             </div>
-            <div class="fit-pc-total-row">
+            <div class="fit-pcb-total-row">
                 <span>Total:</span>
                 <span id="fit-total-price">BDT 0</span>
             </div>
-            <button class="fit-pc-save-btn fit-save-build-btn">Save & Request Quote</button>
+            <button class="fit-pcb-save-btn fit-save-build-btn">Request Quote</button>
         </div>
     </div>
 </div>
 
 <!-- Modal (Hidden by default) -->
-<div id="fit-quote-modal" class="fit-pc-modal">
-    <div class="fit-pc-modal-content">
+<div id="fit-quote-modal" class="fit-pcb-modal">
+    <div class="fit-pcb-modal-content">
         <span class="fit-modal-close" style="position:absolute; right:20px; top:20px; cursor:pointer; font-size:1.5rem;">&times;</span>
         <h2 style="font-size: 1.4rem; margin-bottom: 5px; color:#102A35;">Request Quotation</h2>
         <p style="color: #6C757D; font-size: 0.9rem; margin-bottom: 20px;">Review your configuration and submit your details.</p>
         
-        <div id="fit-modal-recap" style="background: #F8F9FA; padding: 15px; border-radius: 8px; margin-bottom: 20px; max-height: 150px; overflow-y: auto; font-size: 0.9rem;"></div>
+        <div id="fit-modal-recap" style="background: #F8F9FA; padding: 15px; border-radius: 8px; margin-bottom: 20px; max-height: 150px; overflow-y: auto; font-size: 0.9rem; color: #4B5563;"></div>
 
-        <div class="fit-form-group" style="margin-bottom:15px;">
-            <label style="display:block; margin-bottom:5px; font-weight:600; font-size:0.9rem;">Your Name *</label>
+        <div style="margin-bottom:15px;">
+            <label style="display:block; margin-bottom:5px; font-weight:600; font-size:0.9rem; color: #102A35;">Your Name *</label>
             <input type="text" id="fit-q-name" style="width:100%; height:44px; padding:0 15px; border:1px solid #ddd; border-radius:6px;" placeholder="e.g., Rahim Uddin" required>
         </div>
-        <div class="fit-form-group" style="margin-bottom:20px;">
-            <label style="display:block; margin-bottom:5px; font-weight:600; font-size:0.9rem;">Mobile Number *</label>
+        <div style="margin-bottom:20px;">
+            <label style="display:block; margin-bottom:5px; font-weight:600; font-size:0.9rem; color: #102A35;">Mobile Number *</label>
             <input type="tel" id="fit-q-phone" style="width:100%; height:44px; padding:0 15px; border:1px solid #ddd; border-radius:6px;" placeholder="017XXXXXXXX" required>
         </div>
         
-        <button class="fit-pc-save-btn" id="fit-submit-quote-btn" style="width:100%; padding:14px;">Submit Request</button>
+        <button class="fit-pcb-save-btn" id="fit-submit-quote-btn" style="width:100%; padding:14px;">Submit Request</button>
         <p id="fit-quote-status" style="text-align:center; margin-top:15px; font-weight: 600; color:#00A896;"></p>
     </div>
 </div>
 
-<!-- JavaScript (Unchanged Logic, updated selectors) -->
+<!-- JavaScript Logic (Preserved & Adapted for Dropdowns) -->
 <script>
 jQuery(document).ready(function($) {
-    // Add More logic
-    $('.fit-add-more-btn').on('click', function() {
-        var target = $(this).data('target');
-        var group = $('#group-' + target);
-        var max = parseInt(group.data('max'));
-        var currentRows = group.find('.fit-pc-select-row').length;
-        
-        if(currentRows >= max) {
-            alert('You can only select up to ' + max + ' items for this category.');
-            return;
+    
+    // Function to calculate total and update summary
+    function updateSummary() {
+        let total = 0;
+        let summaryHtml = '';
+        let modalRecap = '';
+        let selectedBuild = {};
+
+        $('.fit-multi-select-group').each(function() {
+            let groupId = $(this).attr('id').replace('group-', '');
+            let selectedItems = [];
+
+            $(this).find('select').each(function() {
+                let val = $(this).val();
+                let name = $(this).find(':selected').data('name');
+                let price = parseFloat($(this).find(':selected').data('price')) || 0;
+
+                if(val !== '0' && val !== '' && name) {
+                    total += price;
+                    selectedItems.push(val);
+                    
+                    summaryHtml += `<div class="fit-pcb-summary-item"><span>${name}</span><span>BDT ${price.toLocaleString()}</span></div>`;
+                    modalRecap += `<div style="padding:5px 0; border-bottom:1px solid #eee;">${name}</div>`;
+                }
+            });
+
+            if(selectedItems.length > 0) {
+                selectedBuild[groupId] = selectedItems;
+            }
+        });
+
+        if(total === 0) {
+            $('#fit-summary-list').html('<p style="color: #9CA3AF; font-style: italic; font-size: 0.9rem;">No components selected yet.</p>');
+            $('#fit-modal-recap').html('<p style="text-align:center;">No components selected.</p>');
+        } else {
+            $('#fit-summary-list').html(summaryHtml);
+            $('#fit-modal-recap').html(modalRecap);
         }
 
-        var originalRow = group.find('.fit-pc-select-row').first();
-        var newRow = originalRow.clone();
-        newRow.find('select').val('0');
-        newRow.find('button').show(); // Show remove button
-        
-        $(this).before(newRow);
-    });
+        $('#fit-total-price').text('BDT ' + total.toLocaleString('en-IN'));
+        window.currentTotal = total;
+        window.selectedBuild = selectedBuild;
+    }
 
-    // Remove Row logic
-    $(document).on('click', '.fit-pc-remove-btn', function() {
-        $(this).closest('.fit-pc-select-row').remove();
-        calculateTotal();
-    });
-
-    // On select change
+    // Handle Select Change
     $(document).on('change', '.fit-pc-select', function() {
         validateCompatibility();
-        calculateTotal();
+        updateSummary();
     });
 
+    // Compatibility Validation Logic
     function validateCompatibility() {
-        // CPU & MB Socket Check
-        var cpuSocket = $('.fit-cpu-select').find(':selected').data('socket');
-        var mbSocket = $('.fit-mb-select').find(':selected').data('socket');
-        var mbMsg = $('#msg-mb');
-        
+        // CPU -> Motherboard Check
+        let cpuSocket = $('.fit-cpu-select').find(':selected').data('socket');
+        let mbSocket = $('.fit-mb-select').find(':selected').data('socket');
+        let mbMsg = $('#msg-mb');
+
         if(cpuSocket && mbSocket) {
             if(cpuSocket !== mbSocket) {
-                mbMsg.text('Incompatible! CPU socket (' + cpuSocket + ') does not match Motherboard socket (' + mbSocket + ').').addClass('fit-pc-compat-error');
+                mbMsg.text('Incompatible! CPU socket (' + cpuSocket + ') does not match Motherboard (' + mbSocket + ').').addClass('fit-pc-compat-error');
                 $('.fit-mb-select').css('border-color', '#EF4444');
             } else {
                 mbMsg.text('Compatible!').css({'background':'#D1FAE5', 'color':'#065F46', 'display':'block'}).removeClass('fit-pc-compat-error');
@@ -495,10 +496,10 @@ jQuery(document).ready(function($) {
             $('.fit-mb-select').css('border-color', '#D1D5DB');
         }
 
-        // MB & RAM Type Check
-        var mbRam = $('.fit-mb-select').find(':selected').data('ram');
-        var ramType = $('.fit-ram-select').find(':selected').data('ram');
-        var ramMsg = $('#msg-ram');
+        // Motherboard -> RAM Check
+        let mbRam = $('.fit-mb-select').find(':selected').data('ram');
+        let ramType = $('.fit-ram-select').find(':selected').data('ram');
+        let ramMsg = $('#msg-ram');
 
         if(mbRam && ramType) {
             if(mbRam !== ramType) {
@@ -514,90 +515,60 @@ jQuery(document).ready(function($) {
         }
     }
 
-    function calculateTotal() {
-        var total = 0;
-        var summaryHtml = '';
-        var hasItems = false;
+    // Add More Row Logic
+    $('.fit-add-more-btn').on('click', function() {
+        let targetId = $(this).data('target');
+        let group = $('#group-' + targetId);
+        let max = parseInt(group.data('max'));
+        let currentRows = group.find('.fit-pcb-select-row').length;
 
-        $('.fit-multi-select-group').each(function() {
-            $(this).find('select').each(function() {
-                var price = parseFloat($(this).find(':selected').data('price')) || 0;
-                var name = $(this).find(':selected').data('name');
-
-                if(price > 0) {
-                    hasItems = true;
-                    total += price;
-                    summaryHtml += '<div class="fit-pc-summary-item"><span>' + name + '</span><span>BDT ' + price.toLocaleString() + '</span></div>';
-                }
-            });
-        });
-
-        if(hasItems) {
-            $('#fit-summary-list').html(summaryHtml);
-        } else {
-            $('#fit-summary-list').html('<p style="color: #6C757D; font-style: italic; font-size: 0.9rem;">No components selected yet.</p>');
-        }
-        $('#fit-total-price').text('BDT ' + total.toLocaleString());
-    }
-
-    // Modal Logic
-    $('.fit-save-build-btn').on('click', function() {
-        var recap = '';
-        var build_data = {}; 
-        
-        $('.fit-multi-select-group').each(function() {
-            var groupId = $(this).attr('id').replace('group-', '');
-            var selectedItems = [];
-
-            $(this).find('select').each(function() {
-                var val = $(this).val();
-                var name = $(this).find(':selected').data('name');
-                if(val !== '0' && val !== '' && name) { 
-                    recap += '<div style="padding:5px 0; border-bottom:1px solid #eee;">' + name + '</div>'; 
-                    selectedItems.push(val);
-                }
-            });
-            
-            if(selectedItems.length > 0) {
-                build_data[groupId] = selectedItems;
-            }
-        });
-        
-        if(!recap) {
-            alert('Please select at least one component.');
+        if(currentRows >= max) {
+            alert('You can only select up to ' + max + ' items for this category.');
             return;
         }
 
-        $('#fit-modal-recap').html(recap);
+        let originalRow = group.find('.fit-pcb-select-row').first();
+        let newRow = originalRow.clone();
+        newRow.find('select').val('0');
+        newRow.find('.fit-pcb-remove-btn').show();
+        
+        $(this).before(newRow);
+    });
+
+    // Remove Row Logic
+    $(document).on('click', '.fit-pcb-remove-btn', function() {
+        $(this).closest('.fit-pcb-select-row').remove();
+        updateSummary();
+    });
+
+    // Modal Open
+    $('.fit-save-build-btn').on('click', function() {
+        let totalText = document.getElementById('fit-total-price').innerText;
+        let numericString = totalText.replace(/[^0-9.]/g, ''); 
+        let total = parseFloat(numericString) || 0;
+        
+        if(total === 0) { 
+            alert('Please select at least one component before requesting a quote.'); 
+            return; 
+        }
         $('#fit-quote-modal').addClass('active');
     });
 
+    // Modal Close
     $('.fit-modal-close').on('click', function() {
         $('#fit-quote-modal').removeClass('active');
     });
 
-    // Submit Quote Ajax
+    // Submit Quote via AJAX
     $('#fit-submit-quote-btn').on('click', function() {
-        var name = $('#fit-q-name').val();
-        var phone = $('#fit-q-phone').val();
+        let name = $('#fit-q-name').val();
+        let phone = $('#fit-q-phone').val();
         if(!name || !phone) {
             alert('Please enter your name and phone number.');
             return;
         }
 
-        // Rebuild build_data to send
-        var build_data = {}; 
-        $('.fit-multi-select-group').each(function() {
-            var groupId = $(this).attr('id').replace('group-', '');
-            var selectedItems = [];
-            $(this).find('select').each(function() {
-                var val = $(this).val();
-                if(val !== '0' && val !== '') { selectedItems.push(val); }
-            });
-            if(selectedItems.length > 0) { build_data[groupId] = selectedItems; }
-        });
-
-        var btn = $(this);
+        let btn = $(this);
         btn.text('Submitting...').prop('disabled', true);
 
         $.ajax({
@@ -608,8 +579,8 @@ jQuery(document).ready(function($) {
                 _ajax_nonce: fit_ajax.nonce,
                 name: name,
                 phone: phone,
-                build: build_data, // Now sends array data properly
-                total: $('#fit-total-price').text().replace('BDT ', '').replace(/,/g, '')
+                build: window.selectedBuild,
+                total: window.currentTotal
             },
             success: function(response) {
                 if(response.success) {

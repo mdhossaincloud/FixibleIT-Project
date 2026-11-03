@@ -160,23 +160,87 @@ function fit_custom_cod_description( $description, $payment_id ) {
     }
     return $description;
 }
-// Shop Page-এ ডিফল্ট ৩০টি প্রোডাক্ট এবং ড্রপডাউন অপশন
+// Shop Page-এ ডিফল্ট 20টি প্রোডাক্ট এবং ড্রপডাউন অপশন
 add_filter( 'loop_shop_per_page', 'fit_custom_products_per_page', 20 );
 function fit_custom_products_per_page( $cols ) {
-    $per_page = isset( $_GET['per_page'] ) ? absint( $_GET['per_page'] ) : 30;
+    $per_page = isset( $_GET['per_page'] ) ? absint( $_GET['per_page'] ) : 20;
     return $per_page;
 }
 
 add_action( 'woocommerce_before_shop_loop', 'fit_add_products_per_page_dropdown', 20 );
 function fit_add_products_per_page_dropdown() {
-    $current = isset( $_GET['per_page'] ) ? absint( $_GET['per_page'] ) : 30;
+    $current = isset( $_GET['per_page'] ) ? absint( $_GET['per_page'] ) : 20;
     ?>
     <form method="get" class="fit-per-page-form" style="float: right; margin-left: 15px; margin-bottom: 20px;">
         <select name="per_page" id="fit-per-page" onchange="this.form.submit()" style="padding: 8px 12px; border-radius: 6px; border: 1px solid #ddd; background: #fff;">
-            <option value="30" <?php selected( $current, 30 ); ?>>Show 30</option>
+            <option value="20" <?php selected( $current, 20 ); ?>>Show 20</option>
             <option value="50" <?php selected( $current, 50 ); ?>>Show 50</option>
-            <option value="100" <?php selected( $current, 100 ); ?>>Show 100</option>
         </select>
     </form>
+    <?php
+}
+
+/**
+ * Add Global Floating WhatsApp Button with Hover Animation
+ */
+add_action('wp_footer', 'fit_add_floating_whatsapp_button');
+function fit_add_floating_whatsapp_button() {
+    // আপনার WhatsApp নম্বরটি এখানে দিন
+    $whatsapp_number = '8801608630784'; 
+    $whatsapp_url = 'https://wa.me/' . $whatsapp_number;
+    ?>
+    <a href="<?php echo esc_url($whatsapp_url); ?>" class="fit-floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 0C7.163 0 0 7.163 0 16c0 2.825.736 5.482 2.024 7.787L0 32l8.482-2.222A15.91 15.91 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333c-2.633 0-5.103-.76-7.17-2.072l-.515-.318-5.328 1.396 1.422-5.193-.336-.535A13.27 13.27 0 0 1 2.667 16c0-7.36 5.973-13.333 13.333-13.333S29.333 8.64 29.333 16 23.36 29.333 16 29.333z" fill="#FFF"/>
+            <path d="M23.837 19.58c-.41-.205-2.426-1.197-2.802-1.334-.376-.136-.65-.205-.924.205-.275.41-1.062 1.334-1.302 1.608-.24.274-.48.308-.89.103-.41-.205-1.73-.638-3.295-2.034-1.218-1.087-2.04-2.428-2.28-2.838-.24-.41-.026-.632.18-.836.184-.184.41-.48.616-.72.205-.24.274-.41.41-.684.137-.274.068-.513-.034-.718-.103-.205-.924-2.223-1.266-3.044-.333-.8-.672-.692-.924-.705-.24-.012-.513-.014-.788-.014-.274 0-.718.103-1.094.513-.376.41-1.436 1.402-1.436 3.42 0 2.017 1.47 3.966 1.676 4.24.205.274 2.893 4.417 7.01 6.195.98.423 1.745.676 2.343.866.985.313 1.88.268 2.588.163.79-.117 2.426-.992 2.768-1.95.342-.958.342-1.78.24-1.95-.103-.172-.376-.275-.786-.48z" fill="#FFF"/>
+        </svg>
+    </a>
+    <style>
+        .fit-floating-wa {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .fit-floating-wa svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        /* Hover Animation */
+        .fit-floating-wa:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0px 8px 25px rgba(37, 211, 102, 0.6);
+            background-color: #1EBE5B;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .fit-floating-wa {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+            .fit-floating-wa svg {
+                width: 26px;
+                height: 26px;
+            }
+        }
+    </style>
     <?php
 }

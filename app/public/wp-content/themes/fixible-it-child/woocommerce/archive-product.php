@@ -2,6 +2,94 @@
 defined( 'ABSPATH' ) || exit;
 get_header( 'shop' ); ?>
 
+<!-- ULTIMATE FIX FOR SHOP SIDEBAR -->
+<style>
+@media (min-width: 993px) {
+    /* 1. Kadence-এর সমস্ত প্যারেন্ট কন্টেইনারের overflow ফিক্স */
+    body.woocommerce-shop .site,
+    body.woocommerce-shop .site-container,
+    body.woocommerce-shop .site-content-contain,
+    body.woocommerce-shop #content,
+    body.woocommerce-shop #primary,
+    body.woocommerce-shop #main,
+    body.woocommerce-shop .content-area,
+    body.woocommerce-shop .site-main,
+    body.woocommerce-shop .entry-content,
+    body.woocommerce-shop .fit-shop-layout {
+        overflow: visible !important;
+        height: auto !important;
+        max-height: none !important;
+    }
+
+    /* 2. লেআউটকে Flexbox-এ ফোর্স করা */
+    .fit-shop-layout {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: flex-start !important;
+        gap: 30px !important;
+        width: 100% !important;
+    }
+
+    /* 3. সাইডবারে ফিক্সড হাইট এবং স্ক্রলবার নিশ্চিত করা */
+    .fit-shop-sidebar {
+        width: 280px !important;
+        flex-shrink: 0 !important;
+        
+        /* Sticky Logic */
+        position: -webkit-sticky !important;
+        position: sticky !important;
+        top: 100px !important; 
+        z-index: 99 !important;
+
+        /* Scrollbar Force Logic */
+        height: calc(100vh - 120px) !important; /* স্ক্রিনের উচ্চতার সমান হাইট */
+        max-height: calc(100vh - 120px) !important;
+        overflow-y: auto !important; /* অটো স্ক্রলবার আসবে */
+        
+        /* Visual Design */
+        background: #FFFFFF !important;
+        border: 1px solid #EAEAEA !important;
+        border-radius: 12px !important;
+        padding: 20px !important;
+        box-shadow: 0 4px 15px rgba(16,42,53,0.05) !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 4. প্রোডাক্ট কন্টেইনার */
+    .fit-shop-content {
+        flex: 1 1 0% !important;
+        min-width: 0 !important;
+    }
+
+    /* 5. কাস্টম সবুজ (Teal) স্ক্রলবার */
+    .fit-shop-sidebar::-webkit-scrollbar {
+        width: 6px !important;
+        display: block !important;
+    }
+    .fit-shop-sidebar::-webkit-scrollbar-track {
+        background: #F1F5F9 !important;
+        border-radius: 8px !important;
+    }
+    .fit-shop-sidebar::-webkit-scrollbar-thumb {
+        background: #00A896 !important;
+        border-radius: 8px !important;
+    }
+    
+    /* 6. Kadence Widget List-এর ভেতরের স্পেসিং ফিক্স */
+    .fit-shop-sidebar .widget {
+        margin-bottom: 20px !important;
+        padding-bottom: 20px !important;
+        border-bottom: 1px solid #EAEAEA !important;
+    }
+    .fit-shop-sidebar .widget:last-child {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+        border-bottom: none !important;
+    }
+}
+</style>
+
 <div id="primary" class="content-area">
     <main id="main" class="site-main">
         <div class="fit-container fit-shop-layout">

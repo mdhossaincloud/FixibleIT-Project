@@ -1,71 +1,127 @@
 <?php
-/* Template Name: About Us */
+/* Template Name: Fixible About Us */
 get_header(); ?>
 
 <style>
-.fit-about-wrapper {
-    max-width: 1140px !important; margin: 40px auto !important; padding: 0 20px !important;
+/* Scoped CSS for About Us */
+.fit-about-wrapper { background-color: #F8F9FA; font-family: 'Inter', sans-serif; }
+.fit-about-hero { text-align: center; padding: 80px 20px; background: #fff; }
+.fit-about-hero h1 { font-size: 3rem; color: #102A35; font-weight: 800; margin-bottom: 20px; }
+.fit-about-hero p { font-size: 1.2rem; color: #6C757D; max-width: 800px; margin: 0 auto; }
+.fit-about-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.fit-about-section.reverse { direction: rtl; }
+.fit-about-section.reverse .fit-about-content { direction: ltr; }
+.fit-about-content h2 { font-size: 2.2rem; color: #102A35; font-weight: 700; margin-bottom: 20px; }
+.fit-about-content p { font-size: 1rem; color: #4B5563; line-height: 1.8; margin-bottom: 15px; }
+.fit-about-image img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); aspect-ratio: 4/3; object-fit: cover; }
+.fit-about-values { background: #fff; padding: 80px 20px; text-align: center; }
+.fit-about-values-grid { max-width: 1200px; margin: 40px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.fit-about-value-item { padding: 30px; border: 1px solid #EAEAEA; border-radius: 12px; transition: 0.3s; }
+.fit-about-value-item:hover { border-color: #00A896; box-shadow: 0 5px 15px rgba(0,168,150,0.1); }
+.fit-about-value-item h4 { color: #102A35; font-size: 1.2rem; margin-bottom: 10px; }
+.fit-about-value-item p { color: #6C757D; font-size: 0.95rem; }
+@media (max-width: 992px) {
+    .fit-about-section { grid-template-columns: 1fr; }
+    .fit-about-section.reverse { direction: ltr; }
+    .fit-about-values-grid { grid-template-columns: repeat(2, 1fr); }
 }
-.fit-about-hero {
-    text-align: center !important; padding: 60px 20px !important;
-    background: linear-gradient(180deg, #FFFFFF 0%, #F8F9FA 100%) !important;
-    border-radius: 16px !important; border: 1px solid #EAEAEA !important; margin-bottom: 50px !important;
+@media (max-width: 576px) {
+    .fit-about-values-grid { grid-template-columns: 1fr; }
+    .fit-about-hero h1 { font-size: 2.2rem; }
 }
-.fit-about-hero h1 { font-size: 2.8rem !important; font-weight: 800 !important; color: #102A35 !important; margin-bottom: 15px !important; }
-.fit-about-hero p { font-size: 1.15rem !important; color: #6C757D !important; max-width: 700px !important; margin: 0 auto !important; line-height: 1.6 !important; }
-
-.fit-about-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 30px !important; margin-bottom: 50px !important; }
-.fit-about-card {
-    background: #FFFFFF !important; border: 1px solid #EAEAEA !important; border-radius: 12px !important;
-    padding: 35px 25px !important; text-align: center !important; transition: all 0.3s ease !important;
-    box-shadow: 0 4px 15px rgba(16,42,53,0.02) !important;
-}
-.fit-about-card:hover { transform: translateY(-5px) !important; box-shadow: 0 15px 35px rgba(16,42,53,0.08) !important; border-color: #00A896 !important; }
-.fit-about-icon { font-size: 2.5rem !important; margin-bottom: 20px !important; display: inline-block !important; }
-.fit-about-card h3 { font-size: 1.25rem !important; color: #102A35 !important; margin-bottom: 15px !important; font-weight: 700 !important; }
-.fit-about-card p { color: #6C757D !important; font-size: 0.95rem !important; line-height: 1.6 !important; margin: 0 !important; }
-
-.fit-about-cta {
-    background: #102A35 !important; border-radius: 16px !important; padding: 60px 30px !important;
-    text-align: center !important; color: #FFFFFF !important;
-}
-.fit-about-cta h2 { font-size: 2rem !important; color: #FFFFFF !important; margin-bottom: 15px !important; }
-.fit-about-cta p { font-size: 1.1rem !important; color: #B0C4DE !important; margin-bottom: 30px !important; }
-.fit-about-cta .fit-btn { margin: 0 10px !important; }
-
-@media (max-width: 992px) { .fit-about-grid { grid-template-columns: 1fr !important; } }
 </style>
 
 <div class="fit-about-wrapper">
-    <div class="fit-about-hero">
-        <h1>Tech Made Reliable.</h1>
-        <p>Fixible IT is Bangladesh's premier destination for genuine PC components, advanced custom builds, and professional IT services. We bridge the gap between complex technology and everyday usability.</p>
-    </div>
+    <!-- Hero -->
+    <section class="fit-about-hero">
+        <h1>Technology Made Practical. Solutions Made Personal.</h1>
+        <p>Your trusted destination for computer products, custom PC solutions and practical IT services.</p>
+    </section>
 
-    <div class="fit-about-grid">
-        <div class="fit-about-card">
-            <div class="fit-about-icon">🎯</div>
-            <h3>Our Mission</h3>
-            <p>To eliminate the guesswork from technology purchases. Whether you're building a high-end gaming rig or setting up an office network, we provide the exact parts and expert support you need.</p>
+    <!-- Our Story -->
+    <section class="fit-about-section">
+        <div class="fit-about-content">
+            <h2>Built Around Your Technology Needs</h2>
+            <p>Fixible IT brings computer products, PC customization and practical IT solutions together to help individuals and businesses make better technology decisions.</p>
+            <p>Our focus is on understanding real requirements and making technology more accessible through suitable products, practical solutions and helpful guidance.</p>
         </div>
-        <div class="fit-about-card">
-            <div class="fit-about-icon">🛡️</div>
-            <h3>100% Genuine Products</h3>
-            <p>We source directly from authorized distributors. Every product comes with official warranty support. No grey market, no compromises. Just pure, reliable technology.</p>
+        <div class="fit-about-image">
+            <!-- ID-010: Company Environment -->
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ui/ID-010__fixibleit-about-company-environment.jpg" alt="Fixible IT Company Environment" loading="lazy">
         </div>
-        <div class="fit-about-card">
-            <div class="fit-about-icon">⚙️</div>
-            <h3>Expert Support</h3>
-            <p>Our support engineers are always ready. From software troubleshooting to complex networking setups, we stand by you long after the purchase.</p>
-        </div>
-    </div>
+    </section>
 
-    <div class="fit-about-cta">
-        <h2>Need a Custom Quote?</h2>
-        <p>Use our Advanced PC Builder or contact our sales team for bulk orders.</p>
-        <a href="/pc-builder/" class="fit-btn fit-btn-primary" style="background:#00A896 !important;">Build a PC</a>
-        <a href="/contact/" class="fit-btn fit-btn-outline" style="border-color:#fff !important; color:#fff !important;">Contact Us</a>
-    </div>
+    <!-- Our Approach -->
+    <section class="fit-about-section reverse" style="background: #fff; max-width: 100%; padding-left: 10%; padding-right: 10%;">
+        <div class="fit-about-content">
+            <h2>Understand. Recommend. Support.</h2>
+            <p>We believe the right technology solution starts with understanding the actual requirement.</p>
+            <p><strong>1. Understand —</strong> Learn what the customer actually needs.</p>
+            <p><strong>2. Recommend —</strong> Suggest practical and suitable technology solutions.</p>
+            <p><strong>3. Support —</strong> Help customers move forward with clarity and confidence.</p>
+        </div>
+        <div class="fit-about-image">
+            <!-- ID-038: Customer Approach -->
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ui/ID-038__fixibleit-about-customer-approach.jpg" alt="Customer-focused Approach" loading="lazy">
+        </div>
+    </section>
+
+    <!-- Technical Expertise -->
+    <section class="fit-about-section">
+        <div class="fit-about-content">
+            <h2>Practical Knowledge. Technology That Works.</h2>
+            <p>From computer components and custom PC builds to hardware troubleshooting and networking, our expertise covers the full spectrum of IT.</p>
+            <ul style="list-style: none; padding: 0; color: #4B5563;">
+                <li style="margin-bottom: 10px;">✔ Computer components and hardware.</li>
+                <li style="margin-bottom: 10px;">✔ Custom PC builds and upgrades.</li>
+                <li style="margin-bottom: 10px;">✔ Hardware troubleshooting.</li>
+                <li style="margin-bottom: 10px;">✔ Installation and networking.</li>
+            </ul>
+        </div>
+        <div class="fit-about-image">
+            <!-- ID-058: Technical Expertise -->
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ui/ID-058__fixibleit-about-technical-expertise.jpg" alt="Technical Expertise" loading="lazy">
+        </div>
+    </section>
+
+    <!-- Our Vision -->
+    <section class="fit-about-section reverse" style="background: #fff; max-width: 100%; padding-left: 10%; padding-right: 10%;">
+        <div class="fit-about-content">
+            <h2>Our Vision</h2>
+            <p>Become a trusted technology destination for individuals and businesses. We aim to make technology accessible and practical for everyone.</p>
+        </div>
+        <div class="fit-about-image">
+            <!-- ID-063: Technology Vision -->
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ui/ID-063__fixibleit-about-technology-vision.jpg" alt="Technology Vision" loading="lazy">
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="fit-about-values">
+        <h2 style="color: #102A35; font-size: 2rem; margin-bottom: 10px;">Our Core Values</h2>
+        <div class="fit-about-values-grid">
+            <div class="fit-about-value-item">
+                <h4>Customer-First Thinking</h4>
+                <p>Your needs guide every decision we make.</p>
+            </div>
+            <div class="fit-about-value-item">
+                <h4>Practical Recommendations</h4>
+                <p>We suggest solutions that actually work for you.</p>
+            </div>
+            <div class="fit-about-value-item">
+                <h4>Quality-Conscious Choices</h4>
+                <p>We prioritize reliability and genuine products.</p>
+            </div>
+            <div class="fit-about-value-item">
+                <h4>Clear Communication</h4>
+                <p>No confusing jargon, just straightforward advice.</p>
+            </div>
+            <div class="fit-about-value-item">
+                <h4>Continuous Improvement</h4>
+                <p>We constantly learn and adapt to new technologies.</p>
+            </div>
+        </div>
+    </section>
 </div>
 
 <?php get_footer(); ?>

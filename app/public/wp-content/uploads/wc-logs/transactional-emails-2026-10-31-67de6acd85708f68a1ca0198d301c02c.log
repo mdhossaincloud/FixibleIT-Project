@@ -1,3 +1,0 @@
-2026-10-31T07:31:34+00:00 INFO Email "admin_payment_gateway_enabled" sent CONTEXT: {"email_type":"admin_payment_gateway_enabled","status":"sent","recipient":"fixible_admin","WC_Gateway_COD":null}
-2026-10-31T16:38:25+00:00 INFO Email "new_order" for order #624 sent CONTEXT: {"email_type":"new_order","status":"sent","recipient":"fixible_admin","order":624}
-2026-10-31T16:38:25+00:00 INFO Email "customer_processing_order" for order #624 sent CONTEXT: {"email_type":"customer_processing_order","status":"sent","recipient":"fixible_admin","order":624}
