@@ -18,8 +18,11 @@ if ( $product->is_in_stock() ) : ?>
         ) );
         do_action( 'woocommerce_after_add_to_cart_quantity' );
         ?>
+        
+        <!-- শুধু Add to Cart বাটন থাকবে -->
         <button type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" class="single_add_to_cart_button button alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
-        <button type="button" class="single_add_to_cart_button button alt fit-buy-now-btn" data-id="<?php echo esc_attr( $product->get_id() ); ?>" style="background-color: var(--fit-navy) !important;">Buy Now</button>
+        
+        <!-- এখান থেকে Buy Now এবং Compare বাটন অটোমেটিক যোগ হবে functions.php থেকে -->
         <?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
     </form>
     <?php do_action( 'woocommerce_after_add_to_cart_form' ); ?>
