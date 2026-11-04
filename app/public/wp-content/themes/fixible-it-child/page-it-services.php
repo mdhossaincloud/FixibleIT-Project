@@ -96,7 +96,7 @@ get_header(); ?>
             </div>
             <!-- Card 5 -->
             <div class="fit-its-card">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ui/ID-054__fixibleit-service-hardware-maintenance.jpg" alt="Computer Maintenance" loading="lazy">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ui/ID-060__fixibleit-service-router-connectivity.jpg" alt="Computer Maintenance" loading="lazy">
                 <div class="fit-its-card-body">
                     <h3>Maintenance & Diagnostics</h3>
                     <p>Hardware checks, issue identification and maintenance assistance.</p>
@@ -104,7 +104,7 @@ get_header(); ?>
             </div>
             <!-- Card 6 -->
             <div class="fit-its-card">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ui/ID-060__fixibleit-service-router-connectivity.jpg" alt="Router & Wi-Fi Configuration" loading="lazy">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ui/ID-054__fixibleit-service-hardware-maintenance.jpg" alt="Router & Wi-Fi Configuration" loading="lazy">
                 <div class="fit-its-card-body">
                     <h3>Router & Wi-Fi Config</h3>
                     <p>Router setup, connectivity configuration and troubleshooting assistance.</p>

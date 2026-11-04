@@ -1693,3 +1693,109 @@ body.admin-bar #masthead.site-header {
 #masthead .site-header .header-cart:hover svg {
     fill: #FFFFFF !important;
 }
+
+/* =========================================
+   PREMIUM HERO SLIDER (PHASE 1)
+   ========================================= */
+.fit-hero-slider-section {
+    position: relative;
+    height: 85vh; /* স্ক্রিনের ৮৫% উচ্চতা নেবে */
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: #102A35; /* Fallback color */
+}
+
+/* Slider Mechanism (Pure CSS) */
+.fit-hero-slider {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1;
+}
+
+.fit-slide {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: fitFadeSlider 25s infinite; /* ২৫ সেকেন্ডে ৫টি ছবি ঘুরবে (প্রতি ৫ সেকেন্ডে ১টি) */
+}
+
+/* Delay for each image */
+.fit-slide:nth-child(1) { animation-delay: 0s; }
+.fit-slide:nth-child(2) { animation-delay: 5s; }
+.fit-slide:nth-child(3) { animation-delay: 10s; }
+.fit-slide:nth-child(4) { animation-delay: 15s; }
+.fit-slide:nth-child(5) { animation-delay: 20s; }
+
+/* Keyframes for Fade Effect */
+@keyframes fitFadeSlider {
+    0% { opacity: 0; transform: scale(1); }
+    4% { opacity: 1; } /* ফেড ইন */
+    20% { opacity: 1; transform: scale(1.05); } /* হালকা জুম ইফেক্ট */
+    24% { opacity: 0; } /* ফেড আউট */
+    100% { opacity: 0; }
+}
+
+/* Dark Gradient Overlay (টেক্সট কনট্রাস্টের জন্য) */
+.fit-hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(90deg, rgba(16, 42, 53, 0.9) 0%, rgba(16, 42, 53, 0.6) 50%, rgba(16, 42, 53, 0.2) 100%);
+    z-index: 2;
+}
+
+/* Hero Content */
+.fit-hero-content-box {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    margin-left: 5%; /* সেন্টার বা সাইডে পজিশন */
+    color: #FFFFFF;
+}
+
+.fit-hero-eyebrow {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #00A896;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    background: rgba(0, 168, 150, 0.15);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 168, 150, 0.3);
+}
+
+.fit-hero-title {
+    font-size: 3.5rem !important;
+    font-weight: 800 !important;
+    color: #FFFFFF !important;
+    margin-bottom: 20px !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+}
+
+.fit-hero-subtitle {
+    font-size: 1.2rem !important;
+    color: #E2E8F0 !important;
+    margin-bottom: 40px !important;
+    line-height: 1.6 !important;
+}
+
+.fit-hero-actions {
+    display: flex !important;
+    gap: 15px !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .fit-hero-slider-section { height: 70vh; min-height: 500px; }
+    .fit-hero-content-box { margin-left: 0; text-align: center; padding: 0 20px; }
+    .fit-hero-title { font-size: 2.2rem !important; }
+    .fit-hero-actions { flex-direction: column; }
+    .fit-hero-overlay { background: rgba(16, 42, 53, 0.8); } /* মোবাইলে পুরো ডার্ক */
+}
