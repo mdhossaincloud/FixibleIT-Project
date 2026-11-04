@@ -1799,3 +1799,115 @@ body.admin-bar #masthead.site-header {
     .fit-hero-actions { flex-direction: column; }
     .fit-hero-overlay { background: rgba(16, 42, 53, 0.8); } /* মোবাইলে পুরো ডার্ক */
 }
+
+/* =========================================
+   HOMEPAGE PREMIUM FEATURED PRODUCTS (6 ITEMS)
+   ========================================= */
+.fit-featured-products-wrap ul.products {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; /* ৩টি কলাম */
+    gap: 30px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+/* Premium Card Design */
+.fit-featured-products-wrap ul.products li.product {
+    background: #FFFFFF !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    border: 1px solid #F1F5F9 !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02) !important;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding-bottom: 20px !important;
+}
+
+.fit-featured-products-wrap ul.products li.product:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 40px rgba(16, 42, 53, 0.08) !important;
+    border-color: rgba(0, 168, 150, 0.3) !important;
+}
+
+/* Image Styling */
+.fit-featured-products-wrap ul.products li.product img {
+    border-radius: 12px !important;
+    margin-bottom: 15px !important;
+    transition: transform 0.4s ease !important;
+    aspect-ratio: 1/1 !important;
+    object-fit: contain !important;
+    padding: 10px !important;
+}
+
+.fit-featured-products-wrap ul.products li.product:hover img {
+    transform: scale(1.05) !important;
+}
+
+/* Title Styling */
+.fit-featured-products-wrap ul.products li.product .woocommerce-loop-product__title {
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: #102A35 !important;
+    line-height: 1.4 !important;
+    padding: 0 20px !important;
+    margin-bottom: 10px !important;
+    min-height: 2.8em !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+/* Price Styling */
+.fit-featured-products-wrap ul.products li.product .price {
+    color: #00A896 !important; /* টিল কালার */
+    font-weight: 800 !important;
+    font-size: 1.2rem !important;
+    margin-bottom: 15px !important;
+    padding: 0 20px !important;
+}
+
+.fit-featured-products-wrap ul.products li.product .price del {
+    color: #a0a0a0 !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    margin-right: 5px !important;
+}
+
+.fit-featured-products-wrap ul.products li.product .price ins {
+    text-decoration: none !important;
+}
+
+/* Add to Cart Button */
+.fit-featured-products-wrap ul.products li.product .button {
+    background: #102A35 !important;
+    color: #FFFFFF !important;
+    border-radius: 8px !important;
+    padding: 12px 20px !important;
+    margin: 0 20px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    transition: 0.3s !important;
+    width: calc(100% - 40px) !important;
+    box-sizing: border-box !important;
+}
+
+.fit-featured-products-wrap ul.products li.product .button:hover {
+    background: #00A896 !important;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .fit-featured-products-wrap ul.products {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+@media (max-width: 576px) {
+    .fit-featured-products-wrap ul.products {
+        grid-template-columns: 1fr !important;
+    }
+}

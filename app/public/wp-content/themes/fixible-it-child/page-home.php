@@ -289,7 +289,7 @@ get_header(); ?>
             </div>
             
             <div class="fit-featured-products-wrap" style="margin-bottom: 40px;">
-                <?php echo do_shortcode('[products limit="4" columns="4" visibility="visible" status="publish" orderby="date"]'); ?>
+<?php echo do_shortcode('[products limit="6" columns="3" visibility="featured" status="publish"]'); ?>
             </div>
             
             <div style="text-align: center;">
