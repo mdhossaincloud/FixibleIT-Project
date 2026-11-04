@@ -1566,3 +1566,130 @@ ul.products { display: grid !important; grid-template-columns: repeat(3, 1fr) !i
 .fit-v3-single-wrapper div.product form.cart .quantity label {
     display: none !important;
 }
+
+/* =========================================================
+   FIXIBLE IT — HEADER V5.4 (PURE CSS STICKY + DEEP GLASS)
+   ========================================================= */
+
+/* 1. Force Parent Wrappers to Allow Sticky (Sticky Fix) */
+body, 
+.site, 
+.site-container, 
+#inner-wrap, 
+.site-content-contain,
+.content-area {
+    overflow: visible !important;
+    overflow-x: clip !important; /* sticky ভাঙা থেকে বাঁচাতে */
+}
+
+/* 2. Force Header Sticky */
+#masthead.site-header {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 99999 !important;
+    background-color: transparent !important; /* যাতে গ্লাস কাজ করে */
+    transition: all 0.3s ease !important;
+}
+
+/* 3. Admin Bar Fix */
+body.admin-bar #masthead.site-header {
+    top: 32px !important;
+}
+@media screen and (max-width: 782px) {
+    body.admin-bar #masthead.site-header {
+        top: 46px !important;
+    }
+}
+
+/* 4. TRUE GLASSMORPHISM (গ্লাস ইফেক্ট) */
+#masthead .site-header-row-container-inner,
+#masthead .site-header-main,
+#masthead .site-header-inner-wrap {
+    /* ৫০% সাদা, ৫০% ট্রান্সপারেন্ট - পেছনের ছবি দেখা যাবে */
+    background-color: rgba(255, 255, 255, 0.23) !important; 
+    /* ২৫ পিক্সেল ব্লার, যা ম্যাকে/অ্যাপলের মতো কাচ তৈরি করে */
+    backdrop-filter: blur(25px) saturate(200%) !important; 
+    -webkit-backdrop-filter: blur(25px) saturate(200%) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4) !important; /* কাচের বর্ডার */
+    box-shadow: 0 4px 30px rgba(16, 42, 53, 0.05) !important;
+}
+
+/* 5. Disable Kadence's broken JS Sticky Wrapper */
+.kadence-sticky-header {
+    position: static !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* 6. Text Contrast (গ্লাসের ওপর লেখা স্পষ্ট রাখার জন্য) */
+#masthead .main-navigation a,
+#masthead .site-branding .site-title,
+#masthead .site-branding a,
+#masthead .mobile-toggle-open-container .menu-toggle {
+    color: #102A35 !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5) !important; /* হালকা গ্লো, যাতে কাচের ওপর লেখা ফুটে ওঠে */
+}
+
+/* 7. Premium Hover Animation */
+#masthead .main-navigation .primary-menu-container > ul > li > a {
+    position: relative !important;
+    transition: all 0.3s ease !important;
+}
+
+#masthead .main-navigation .primary-menu-container > ul > li > a:hover {
+    background: linear-gradient(90deg, #102A35 0%, #00A896 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    text-shadow: none !important;
+}
+
+#masthead .main-navigation .primary-menu-container > ul > li > a::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 0 !important;
+    height: 3px !important;
+    background: #00A896 !important;
+    transition: width 0.3s ease !important;
+    border-radius: 3px !important;
+}
+
+#masthead .main-navigation .primary-menu-container > ul > li > a:hover::after {
+    width: 100% !important;
+}
+
+/* 8. Active Menu State */
+#masthead .main-navigation .primary-menu-container > ul > li.current-menu-item > a,
+#masthead .main-navigation .primary-menu-container > ul > li.current-menu-ancestor > a {
+    background: linear-gradient(90deg, #102A35 0%, #00A896 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    text-shadow: none !important;
+}
+
+/* 9. Super Cart Icon */
+#masthead .site-header .header-cart {
+    background: rgba(16, 42, 53, 0.08) !important;
+    border-radius: 50% !important;
+    width: 45px !important;
+    height: 45px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+    backdrop-filter: blur(5px) !important;
+}
+#masthead .site-header .header-cart svg {
+    fill: #102A35 !important;
+    transition: all 0.3s ease !important;
+}
+#masthead .site-header .header-cart:hover {
+    background: #00A896 !important;
+}
+#masthead .site-header .header-cart:hover svg {
+    fill: #FFFFFF !important;
+}
