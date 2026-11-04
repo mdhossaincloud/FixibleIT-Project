@@ -1498,3 +1498,71 @@ ul.products { display: grid !important; grid-template-columns: repeat(3, 1fr) !i
     #fit-floating-compare-btn { bottom: 80px; left: 20px; height: 36px; font-size: 13px; }
 }
 @media (max-width: 480px) { ul.products { grid-template-columns: 1fr !important; } .fit-v3-shop-header h1 { font-size: 1.8rem !important; } }
+
+/* =========================================
+   QUANTITY PLUS/MINUS BUTTONS (FINAL FIX)
+   ========================================= */
+.fit-v3-single-wrapper div.product form.cart .quantity {
+    display: inline-flex !important;
+    align-items: center !important;
+    border: 1px solid #EAEAEA !important;
+    border-radius: 8px !important;
+    background: #fff !important;
+    height: 45px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+/* র‍্যাপার */
+.fit-qty-wrapper {
+    display: inline-flex !important;
+    align-items: center !important;
+    height: 100% !important;
+}
+
+/* মাঝখানের ইনপুট */
+.fit-v3-single-wrapper div.product form.cart .quantity input.qty {
+    width: 50px !important;
+    height: 100% !important;
+    border: none !important;
+    text-align: center !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: textfield !important;
+    display: block !important;
+}
+
+/* প্লাস এবং মাইনাস বাটন */
+.fit-qty-btn {
+    width: 40px !important;
+    height: 100% !important;
+    background: #F8F9FA !important;
+    border: none !important;
+    color: #102A35 !important;
+    font-size: 1.2rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transition: 0.2s !important;
+    outline: none !important;
+}
+
+.fit-qty-btn:hover {
+    background: #EAEAEA !important;
+    color: #00A896 !important;
+}
+
+/* লেবেল সম্পূর্ণ লুকানো */
+.fit-v3-single-wrapper div.product form.cart .quantity label {
+    display: none !important;
+}

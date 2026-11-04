@@ -1,6 +1,8 @@
 jQuery(document).ready(function($) {
 
-    // 1. Compare Logic
+    // ==========================================
+    // 1. COMPARE LOGIC
+    // ==========================================
     function updateCompareUI() {
         var compareList = JSON.parse(localStorage.getItem('fit_compare')) || [];
         $('#fit-compare-count').text(compareList.length);
@@ -35,7 +37,9 @@ jQuery(document).ready(function($) {
         updateCompareUI();
     });
 
-    // 2. Buy Now Logic
+    // ==========================================
+    // 2. BUY NOW LOGIC
+    // ==========================================
     $(document).on('click', '.fit-buy-now-btn, .fit-msb-btn', function(e) {
         e.preventDefault();
         var form = $(this).closest('form.cart');
@@ -58,28 +62,67 @@ jQuery(document).ready(function($) {
         }
     });
 
-    // 3. Quantity Plus/Minus
-    if ($('form.cart .quantity').length > 0) {
-        $('form.cart .quantity').append('<button type="button" class="fit-qty-btn fit-qty-minus">-</button>');
-        $('form.cart .quantity').prepend('<button type="button" class="fit-qty-btn fit-qty-plus">+</button>');
-        $('form.cart .quantity input.qty').css({'text-align': 'center', '-moz-appearance': 'textfield'});
+    // ==========================================
+    // 3. QUANTITY PLUS / MINUS BUTTONS
+    // ==========================================
+    function initQtyButtons() {
+        $('form.cart .quantity').each(function() {
+            var $qty = $(this);
+            var $input = $qty.find('input.qty');
+            
+            if ($input.length === 0) return;
+
+            // লেবেল লুকানো
+            $qty.find('label').hide();
+
+            // যদি আগেই বাটন থাকে তবে আর নতুন করে বসাবে না
+            if ($qty.find('.fit-qty-btn').length === 2) {
+                return; 
+            }
+
+            // আগের কোনো ভুল বাটন থাকলে মুছে ফেলবে
+            $qty.find('.fit-qty-btn').remove();
+
+            // ইনপুট বক্সকে র‍্যাপ করা (যদি আগে থেকে র‍্যাপ না করা থাকে)
+            if (!$input.parent().hasClass('fit-qty-wrapper')) {
+                $input.wrap('<div class="fit-qty-wrapper"></div>');
+            }
+
+            var $wrapper = $qty.find('.fit-qty-wrapper');
+
+            // পরিষ্কারভাবে [ - ] [ Input ] [ + ] বসানো
+            $wrapper.prepend('<button type="button" class="fit-qty-btn fit-qty-minus">-</button>');
+            $wrapper.append('<button type="button" class="fit-qty-btn fit-qty-plus">+</button>');
+        });
     }
-    
-    $(document).on('click', '.fit-qty-plus', function(e) {
-        e.preventDefault();
-        var input = $(this).closest('.quantity').find('input.qty');
-        var val = parseFloat(input.val()) || 0;
-        var max = parseFloat(input.attr('max'));
-        if(max && val >= max) return;
-        input.val(val + 1).trigger('change');
+
+    // পেজ লোডে রান হবে
+    initQtyButtons();
+
+    // ভ্যারিয়েশন চেঞ্জ হলে বা AJAX আপডেট হলে আবার রান হবে
+    $(document).on('updated_wc_div woocommerce_variation_has_changed', function() {
+        setTimeout(initQtyButtons, 50);
     });
 
+    // মাইনাস (-) ক্লিক
     $(document).on('click', '.fit-qty-minus', function(e) {
         e.preventDefault();
-        var input = $(this).closest('.quantity').find('input.qty');
-        var val = parseFloat(input.val()) || 0;
-        var min = parseFloat(input.attr('min')) || 1;
-        if(val <= min) return;
-        input.val(val - 1).trigger('change');
+        var $input = $(this).closest('.fit-qty-wrapper').find('input.qty');
+        var val = parseFloat($input.val()) || 0;
+        var min = parseFloat($input.attr('min')) || 1;
+        if(val > min) {
+            $input.val(val - 1).trigger('change');
+        }
     });
+
+    // প্লাস (+) ক্লিক
+    $(document).on('click', '.fit-qty-plus', function(e) {
+        e.preventDefault();
+        var $input = $(this).closest('.fit-qty-wrapper').find('input.qty');
+        var val = parseFloat($input.val()) || 0;
+        var max = parseFloat($input.attr('max'));
+        if(max && val >= max) return; 
+        $input.val(val + 1).trigger('change');
+    });
+
 });
