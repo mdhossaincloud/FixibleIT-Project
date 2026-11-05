@@ -535,3 +535,78 @@ function fit_track_wc_order_callback() {
         'status' => wc_get_order_status_name( $order->get_status() ),
     ) );
 }
+
+// =========================================
+// CUSTOMER PORTAL: RETURN REQUEST SYSTEM
+// =========================================
+
+// 1. Register Endpoint & Menu Item
+add_action( 'init', 'fit_add_return_endpoint' );
+function fit_add_return_endpoint() {
+    add_rewrite_endpoint( 'return-request', EP_ROOT | EP_PAGES );
+}
+add_filter( 'woocommerce_account_menu_items', 'fit_add_return_menu_link' );
+function fit_add_return_menu_link( $items ) {
+    $new_items = array();
+    foreach ( $items as $key => $value ) {
+        $new_items[ $key ] = $value;
+        if ( 'orders' === $key ) {
+            $new_items['return-request'] = 'Returns';
+        }
+    }
+    return $new_items;
+}
+
+// 2. Register Custom Post Type for Returns
+add_action( 'init', 'fit_register_return_cpt' );
+function fit_register_return_cpt() {
+    register_post_type( 'fit_return', array(
+        'labels' => array( 'name' => 'Returns', 'singular_name' => 'Return Request' ),
+        'public' => false,
+        'show_ui' => true,
+        'supports' => array( 'title', 'editor', 'custom-fields' ),
+    ));
+}
+
+// 3. Handle Form Submission
+add_action( 'template_redirect', 'fit_handle_return_submission' );
+function fit_handle_return_submission() {
+    if ( isset( $_POST['fit_submit_return'] ) && isset( $_POST['fit_return_nonce'] ) && wp_verify_nonce( $_POST['fit_return_nonce'], 'fit_return_action' ) ) {
+        $user_id = get_current_user_id();
+        $order_id = absint( $_POST['return_order_id'] );
+        $reason = sanitize_text_field( $_POST['return_reason'] );
+        $details = sanitize_textarea_field( $_POST['return_details'] );
+        
+        $order = wc_get_order( $order_id );
+        // Security Check: Ensure order belongs to current user
+        if ( $order && $order->get_user_id() === $user_id ) {
+            $post_id = wp_insert_post( array(
+                'post_title' => 'Return for Order #' . $order_id . ' by User ' . $user_id,
+                'post_type' => 'fit_return',
+                'post_status' => 'publish',
+                'post_content' => $details,
+                'meta_input' => array(
+                    '_fit_return_order_id' => $order_id,
+                    '_fit_return_reason' => $reason,
+                    '_fit_return_user_id' => $user_id,
+                    '_fit_return_status' => 'Pending',
+                )
+            ));
+            if ( $post_id ) {
+                wc_add_notice( 'Your return request has been submitted successfully. We will contact you soon.', 'success' );
+            } else {
+                wc_add_notice( 'Something went wrong. Please try again.', 'error' );
+            }
+        } else {
+            wc_add_notice( 'Invalid Order ID or unauthorized access.', 'error' );
+        }
+    }
+}
+
+// =========================================
+// RENDER RETURN REQUEST TEMPLATE
+// =========================================
+add_action( 'woocommerce_account_return-request_endpoint', 'fit_render_return_request_endpoint' );
+function fit_render_return_request_endpoint() {
+    wc_get_template( 'myaccount/return-request.php' );
+}

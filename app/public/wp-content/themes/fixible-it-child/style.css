@@ -5481,3 +5481,31 @@ body.woocommerce-account .woocommerce {
         grid-template-columns: 1fr !important;
     }
 }
+
+/* =========================================================
+   PREMIUM RETURNS SYSTEM UI
+   ========================================================= */
+.fit-return-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px; margin-top: 20px; }
+.fit-return-form-box, .fit-return-history-box { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 30px; }
+.fit-return-form-box h3, .fit-return-history-box h3 { font-size: 1.2rem; font-weight: 800; color: #102A35; margin-bottom: 20px; }
+.fit-form-group { margin-bottom: 20px; }
+.fit-form-group label { display: block; font-size: 0.9rem; font-weight: 600; color: #102A35; margin-bottom: 8px; }
+.fit-form-group select, .fit-form-group textarea { width: 100%; padding: 12px 15px; border: 1px solid #CBD5E1; border-radius: 8px; background: #FFF; font-size: 0.95rem; color: #102A35; }
+.fit-form-group select:focus, .fit-form-group textarea:focus { outline: none; border-color: #00A896; box-shadow: 0 0 0 4px rgba(0,168,150,0.15); }
+.fit-portal-btn { width: 100%; background: #00A896; color: #FFF; padding: 15px; border: none; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: 0.3s; }
+.fit-portal-btn:hover { background: #102A35; transform: translateY(-2px); }
+
+/* Return History List */
+.fit-return-list { list-style: none; padding: 0; margin: 0; }
+.fit-return-list li { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px dashed #E2E8F0; }
+.fit-return-list li:last-child { border-bottom: none; }
+.fit-return-list div strong { color: #102A35; font-size: 0.95rem; }
+.fit-return-list div span { font-size: 0.85rem; color: #64748B; }
+.fit-status-badge { padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; }
+.fit-status-badge.pending { background: #FEF3C7; color: #B45309; }
+.fit-status-badge.approved { background: #D1FAE5; color: #065F46; }
+.fit-status-badge.rejected { background: #FEE2E2; color: #991B1B; }
+
+@media (max-width: 768px) {
+    .fit-return-grid { grid-template-columns: 1fr; }
+}
