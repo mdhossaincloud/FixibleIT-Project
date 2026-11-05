@@ -2980,3 +2980,55 @@ body.admin-bar #masthead.site-header {
     }
 }
 
+
+/* =========================================================
+   PHASE 03: SHOP PAGE DESKTOP 4 COLUMNS (Faster Discovery)
+   ========================================================= */
+@media (min-width: 1025px) {
+    body.woocommerce-shop ul.products,
+    body.post-type-archive-product ul.products,
+    .fit-v3-main ul.products,
+    .fit-shop-main ul.products {
+        display: grid !important;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: 20px !important; /* ? ?????? ???? ????? ?????? ????? ??? */
+        width: 100% !important;
+    }
+    
+    /* ? ?????? ???? ??????? ?????? ??????? ?????????? */
+    body.woocommerce-shop .fit-v3-content,
+    body.post-type-archive-product .fit-v3-content {
+        padding: 15px !important;
+    }
+    
+    body.woocommerce-shop .fit-v3-title,
+    body.post-type-archive-product .fit-v3-title {
+        font-size: 0.95rem !important; /* ? ????? ??? ???? ???? ???? ????? ??? */
+        min-height: 2.6em !important;
+    }
+    
+    body.woocommerce-shop .fit-v3-price,
+    body.post-type-archive-product .fit-v3-price {
+        font-size: 1.1rem !important;
+    }
+}
+
+/* =========================================================
+   DESKTOP 4 COLUMNS: FIX HOVER BUTTON SIZE
+   ========================================================= */
+@media (min-width: 1025px) {
+    body.woocommerce-shop .fit-v3-hover-action .button,
+    body.post-type-archive-product .fit-v3-hover-action .button {
+        padding: 8px 5px !important; /* ??????? ????? */
+        font-size: 0.75rem !important; /* ???? ???? ??? */
+        border-radius: 6px !important;
+        height: auto !important;
+        min-height: 32px !important; /* ?????? ????? ?????? */
+        line-height: 1.2 !important;
+    }
+    
+    body.woocommerce-shop .fit-v3-hover-action,
+    body.post-type-archive-product .fit-v3-hover-action {
+        padding: 10px !important; /* ?????? ???????? ????? ????? */
+    }
+}

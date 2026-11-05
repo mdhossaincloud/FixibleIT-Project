@@ -57,7 +57,27 @@ body.page-template-page-about { background-color: #F8F9FA !important; }
 .fit-about-why-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
 .fit-why-card { background: #F8F9FA; padding: 35px 25px; border-radius: 16px; border: 1px solid #EAEAEA; text-align: left; transition: all 0.3s ease; }
 .fit-why-card:hover { background: #FFFFFF; border-color: #00A896; box-shadow: 0 10px 30px rgba(0,168,150,0.08); transform: translateY(-5px); }
-.fit-why-icon { font-size: 2rem; margin-bottom: 15px; }
+.fit-why-icon {
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center;
+    width: 50px; 
+    height: 50px;
+    background: rgba(0, 168, 150, 0.1); 
+    border-radius: 12px;
+    color: #00A896; 
+    margin-bottom: 20px; 
+    transition: all 0.3s ease;
+}
+.fit-why-card:hover .fit-why-icon {
+    background: #00A896; 
+    color: #FFFFFF;
+}
+.fit-why-icon svg {
+    width: 24px;
+    height: 24px;
+}
+.fit-why-card:hover .fit-why-icon { background: #00A896; color: #FFFFFF; }
 .fit-why-card h4 { font-size: 1.15rem; color: #102A35; font-weight: 700; margin-bottom: 10px; }
 .fit-why-card p { font-size: 0.95rem; color: #6C757D; line-height: 1.6; margin: 0; }
 
@@ -151,28 +171,42 @@ body.page-template-page-about { background-color: #F8F9FA !important; }
         <h2>Why Choose Fixible IT?</h2>
         <p class="sub">We combine genuine products, practical expertise, and a customer-first approach to deliver an effortless technology experience.</p>
         <div class="fit-about-why-grid">
+            <!-- Card 1 -->
             <div class="fit-why-card">
-                <div class="fit-why-icon">🛡️</div>
+                <div class="fit-why-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                </div>
                 <h4>100% Genuine Products</h4>
                 <p>We source authentic components and hardware with official warranty support, so you never have to compromise on reliability.</p>
             </div>
+
+            <!-- Card 2 -->
             <div class="fit-why-card">
-                <div class="fit-why-icon">⚡</div>
+                <div class="fit-why-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                </div>
                 <h4>Proactive, Local Support</h4>
                 <p>Our team is local, responsive, and ready to solve issues before they disrupt your workflow—no long queues, no endless tickets.</p>
             </div>
+
+            <!-- Card 3 -->
             <div class="fit-why-card">
-                <div class="fit-why-icon">💡</div>
+                <div class="fit-why-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="18" x2="15" y2="18"></line><line x1="10" y1="22" x2="14" y2="22"></line><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1.08.39 2.12 1.5 3.5.76.76 1.23 1.52 1.41 2.5"></path></svg>
+                </div>
                 <h4>Practical Recommendations</h4>
                 <p>We listen first. Then we recommend the right solution for your budget and requirements—not the most expensive one.</p>
             </div>
+
+            <!-- Card 4 -->
             <div class="fit-why-card">
-                <div class="fit-why-icon">🤝</div>
+                <div class="fit-why-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                </div>
                 <h4>Long-Term Partnership</h4>
                 <p>We focus on outcomes, not activity. Our goal is to be your trusted technology partner for years, not just for a single sale.</p>
             </div>
         </div>
-    </section>
 
     <div class="fit-about-container">
         <!-- 3. Our Story -->
