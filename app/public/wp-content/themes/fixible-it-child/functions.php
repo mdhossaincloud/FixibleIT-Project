@@ -133,7 +133,7 @@ if ( ! function_exists( 'fit_add_single_product_extra_buttons' ) ) {
         global $product;
         $product_id = $product->get_id();
         ?>
-        <button type="submit" name="fit_buy_now" value="<?php echo esc_attr( $product_id ); ?>" class="single_add_to_cart_button button alt fit-buy-now-btn" style="background: var(--fit-teal); color: white; margin-left: 10px; font-weight: 600;">Buy Now</button>
+        <button type="button" name="fit_buy_now" value="<?php echo esc_attr( $product_id ); ?>" class="button alt fit-buy-now-btn" style="background: var(--fit-teal); color: white; margin-left: 10px; font-weight: 600;">Buy Now</button>
         <a href="#" class="fit-add-to-compare button" data-product-id="<?php echo esc_attr( $product_id ); ?>" style="margin-left: 10px; background: transparent; border: 1px solid var(--fit-navy); color: var(--fit-navy); font-weight: 600; display: inline-block; padding: 12px 20px; text-decoration: none; border-radius: 4px;">+ Compare</a>
         <?php
     }
@@ -363,4 +363,106 @@ function fit_bulletproof_shipping_rates_v3( $rates, $package ) {
         );
     }
     return $new_rates;
+}
+
+// =========================================
+// CHECKOUT: PHONE MANDATORY, EMAIL OPTIONAL
+// =========================================
+if ( ! function_exists( 'fit_custom_checkout_phone_email_fields' ) ) {
+    add_filter( 'woocommerce_checkout_fields', 'fit_custom_checkout_phone_email_fields', 25 );
+    function fit_custom_checkout_phone_email_fields( $fields ) {
+        // Make Phone Mandatory
+        if ( isset( $fields['billing']['billing_phone'] ) ) {
+            $fields['billing']['billing_phone']['required'] = true;
+            $fields['billing']['billing_phone']['label'] = 'Phone Number *';
+        }
+
+        // Make Email Optional
+        if ( isset( $fields['billing']['billing_email'] ) ) {
+            $fields['billing']['billing_email']['required'] = false;
+            $fields['billing']['billing_email']['label'] = 'Email Address';
+        }
+
+        return $fields;
+    }
+}
+// =========================================
+// BD E-COMMERCE MINIMAL CHECKOUT FIELDS
+// =========================================
+add_filter( 'woocommerce_checkout_fields', 'fit_bd_minimal_checkout_fields', 30 );
+function fit_bd_minimal_checkout_fields( $fields ) {
+    
+    // 1. Merge First & Last Name into a single "Full Name" field
+    unset($fields['billing']['billing_last_name']);
+    $fields['billing']['billing_first_name']['label'] = 'Full Name';
+    $fields['billing']['billing_first_name']['placeholder'] = 'Enter your full name';
+    $fields['billing']['billing_first_name']['class'] = array('form-row-wide');
+    $fields['billing']['billing_first_name']['priority'] = 10;
+
+    // 2. Phone Number (Required)
+    $fields['billing']['billing_phone']['priority'] = 20;
+    $fields['billing']['billing_phone']['class'] = array('form-row-wide'); 
+    $fields['billing']['billing_phone']['label'] = 'Mobile Number *';
+
+    // 3. Division (State) Dropdown
+    $fields['billing']['billing_state']['priority'] = 30;
+    $fields['billing']['billing_state']['class'] = array('form-row-first');
+    $fields['billing']['billing_state']['label'] = 'Division *';
+
+    // 4. City / Thana
+    $fields['billing']['billing_city']['label'] = 'Thana / Area *';
+    $fields['billing']['billing_city']['placeholder'] = 'e.g., Mirpur, Savar';
+    $fields['billing']['billing_city']['priority'] = 40;
+    $fields['billing']['billing_city']['class'] = array('form-row-last');
+
+    // 5. Full Address
+    $fields['billing']['billing_address_1']['label'] = 'Full Address (House, Road, Block) *';
+    $fields['billing']['billing_address_1']['placeholder'] = 'House #, Road #, Area details';
+    $fields['billing']['billing_address_1']['priority'] = 50;
+    $fields['billing']['billing_address_1']['class'] = array('form-row-wide');
+    
+    // 6. Remove unnecessary fields
+    unset($fields['billing']['billing_address_2']);
+    unset($fields['billing']['billing_postcode']);
+    unset($fields['billing']['billing_company']);
+
+    // 7. Email (Optional)
+    $fields['billing']['billing_email']['priority'] = 60;
+    $fields['billing']['billing_email']['required'] = false;
+    $fields['billing']['billing_email']['class'] = array('form-row-wide');
+    $fields['billing']['billing_email']['label'] = 'Email Address';
+
+    // 8. Remove Shipping Fields entirely (Force ship to billing address)
+    unset($fields['shipping']);
+    
+    // 9. Order notes
+    $fields['order']['order_comments']['placeholder'] = 'Special delivery instructions (optional)';
+    $fields['order']['order_comments']['label'] = 'Order Notes';
+
+    return $fields;
+}
+
+// =========================================
+// FORCE CLEAN EMAIL LABEL
+// =========================================
+add_filter( 'woocommerce_checkout_fields', 'fit_clean_email_label', 999 );
+function fit_clean_email_label( $fields ) {
+    if ( isset( $fields['billing']['billing_email'] ) ) {
+        $fields['billing']['billing_email']['label'] = 'Email Address';
+    }
+    return $fields;
+}
+
+// =========================================
+// FORCE SHIPPING UPDATE ON DIVISION CHANGE
+// =========================================
+add_filter( 'woocommerce_checkout_fields', 'fit_force_division_ajax_update', 9999 );
+function fit_force_division_ajax_update( $fields ) {
+    if ( isset( $fields['billing']['billing_state'] ) ) {
+        // Add the class that triggers the AJAX update in WooCommerce
+        if ( ! in_array( 'update_totals_on_change', $fields['billing']['billing_state']['class'] ) ) {
+            $fields['billing']['billing_state']['class'][] = 'update_totals_on_change';
+        }
+    }
+    return $fields;
 }

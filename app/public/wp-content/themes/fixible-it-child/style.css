@@ -3033,11 +3033,1218 @@ body.admin-bar #masthead.site-header {
     }
 }
 
+
+
+/* 1. Hide the Badge completely */
+.kadence-header-cart .cart-total,
+.kadence-header-cart .header-cart-total,
+.kadence-header-cart .kadence-cart-tooltip {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* 2. Make sure the parent has relative positioning on ALL pages */
+.kadence-header-cart,
+#masthead .header-cart {
+    position: relative !important;
+}
+
+/* 3. Force the popup to align perfectly under the icon on ALL pages */
+.kadence-header-cart .header-cart-dropdown,
+.kadence-header-cart .widget_shopping_cart_content,
+.kadence-header-cart .site-header-cart-popup {
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    left: auto !important;
+    width: 340px !important;
+    min-width: 340px !important;
+    
+    /* Premium Glass V5 */
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(25px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 15px 40px rgba(16, 42, 53, 0.15) !important;
+    
+    padding: 20px !important;
+    margin-top: 15px !important;
+    z-index: 999999 !important;
+    box-sizing: border-box !important;
+    
+    /* Prevent page layout from breaking it */
+    display: block !important;
+    float: none !important;
+    transform: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: all 0.3s ease !important;
+}
+
+/* 4. Show Popup on Hover */
+.kadence-header-cart:hover .header-cart-dropdown,
+.kadence-header-cart:hover .widget_shopping_cart_content,
+.kadence-header-cart:hover .site-header-cart-popup {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* 5. Reset hover bridge */
+.kadence-header-cart {
+    padding-bottom: 15px !important;
+    margin-bottom: -15px !important;
+}
+
+
+
+/* Hide the annoying badge */
+.kadence-header-cart .cart-total,
+.kadence-header-cart .header-cart-total,
+.kadence-cart-tooltip {
+    display: none !important;
+}
+
+/* Anchor the container */
+#masthead .kadence-header-cart {
+    position: relative !important;
+}
+
+/* Force the popup to be a floating absolute box */
+#masthead .kadence-header-cart .header-cart-dropdown,
+#masthead .kadence-header-cart .widget_shopping_cart_content {
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    left: auto !important;
+    width: 340px !important;
+    min-width: 340px !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 15px 40px rgba(16, 42, 53, 0.15) !important;
+    padding: 20px !important;
+    margin-top: 15px !important;
+    z-index: 999999 !important;
+    display: block !important;
+    float: none !important;
+    transform: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Show on Hover */
+#masthead .kadence-header-cart:hover .header-cart-dropdown,
+#masthead .kadence-header-cart:hover .widget_shopping_cart_content {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Bridge gap */
+#masthead .kadence-header-cart {
+    padding-bottom: 15px !important;
+    margin-bottom: -15px !important;
+}
+
+/* Checkout Form Fields Layout (2 columns for Name/Phone, Division/City) */
+.woocommerce form .form-row-first, 
+.woocommerce form .form-row-last {
+    width: 48% !important;
+    float: left !important;
+    margin-bottom: 20px !important;
+}
+.woocommerce form .form-row-last {
+    float: right !important;
+}
+.woocommerce form .form-row-wide {
+    width: 100% !important;
+    clear: both !important;
+    margin-bottom: 20px !important;
+}
+@media (max-width: 768px) {
+    .woocommerce form .form-row-first, 
+    .woocommerce form .form-row-last {
+        width: 100% !important;
+        float: none !important;
+    }
+}
+
+
+
+/* 1. Ensure Parent has Relative Position and High Z-Index */
+#masthead,
+#masthead .site-header,
+#masthead .kadence-header-cart,
+#masthead .header-cart {
+    position: relative !important;
+    overflow: visible !important;
+    z-index: 999999 !important;
+}
+
+/* 2. Force Dropdown to be Absolute, Right-Aligned, and Floated */
+#masthead .kadence-header-cart .header-cart-dropdown,
+#masthead .kadence-header-cart .widget_shopping_cart_content,
+#masthead .kadence-header-cart .site-header-cart-popup,
+#masthead .header-cart .header-cart-dropdown {
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    left: auto !important;
+    width: 340px !important;
+    min-width: 340px !important;
+    
+    /* Reset any grid/flex inheritance */
+    float: none !important;
+    transform: none !important;
+    display: block !important;
+    
+    /* Glassmorphism V5 */
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 15px 40px rgba(16, 42, 53, 0.15) !important;
+    padding: 20px !important;
+    margin-top: 15px !important;
+    z-index: 9999999 !important;
+    
+    /* Hover logic */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: all 0.3s ease !important;
+}
+
+/* 3. Show on Hover */
+#masthead .kadence-header-cart:hover .header-cart-dropdown,
+#masthead .kadence-header-cart:hover .widget_shopping_cart_content,
+#masthead .kadence-header-cart:hover .site-header-cart-popup {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* 4. Hover Bridge */
+#masthead .kadence-header-cart {
+    padding-bottom: 15px !important;
+    margin-bottom: -15px !important;
+}
+
 /* =========================================================
-   PHASE 06: CART & CHECKOUT STICKY SIDEBAR FIX (HEADER COMPATIBILITY)
+   FINAL ULTIMATE CART POPUP FIX (NO BREAKING ON ANY PAGE)
    ========================================================= */
-body.woocommerce-cart .fit-cart-sidebar,
-body.woocommerce-checkout .fit-checkout-sidebar {
-    position: sticky !important;
-    top: 120px !important; /* ???? ?????? ??? ???? ?????? ??????? ???? ?? ???? */
+
+/* 1. Force parent elements to allow absolute positioning */
+#masthead,
+#masthead .site-header,
+#masthead .site-header-row-container,
+#masthead .site-header-row-container-inner,
+#masthead .site-header-main,
+#masthead .kadence-header-cart {
+    overflow: visible !important;
+    transform: none !important;
+}
+
+/* 2. Force the cart wrapper to be relative */
+#masthead .kadence-header-cart {
+    position: relative !important;
+}
+
+/* 3. Lock the popup exactly under the icon */
+#masthead .kadence-header-cart .header-cart-dropdown,
+#masthead .kadence-header-cart .widget_shopping_cart_content,
+#masthead .kadence-header-cart .site-header-cart-popup {
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    left: auto !important;
+    width: 340px !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 15px 40px rgba(16, 42, 53, 0.15) !important;
+    padding: 20px !important;
+    margin-top: 15px !important;
+    z-index: 9999999 !important;
+    
+    /* Reset any weird layout */
+    float: none !important;
+    display: block !important;
+    
+    /* Hover logic */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: all 0.3s ease !important;
+}
+
+/* 4. Show on Hover */
+#masthead .kadence-header-cart:hover .header-cart-dropdown,
+#masthead .kadence-header-cart:hover .widget_shopping_cart_content,
+#masthead .kadence-header-cart:hover .site-header-cart-popup {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* 5. Hide the badge permanently */
+.kadence-header-cart .cart-total,
+.kadence-header-cart .header-cart-total {
+    display: none !important;
+}
+
+
+
+/* 1. Force remove all overflow/transform blockers from header ancestors */
+html, body, 
+#wrapper, #inner-wrap, .site, .site-container, 
+#masthead, .site-header, .site-header-row-container, 
+.site-header-row-container-inner, .site-header-main, 
+.kadence-header-cart, .header-cart {
+    overflow: visible !important;
+    transform: none !important;
+    filter: none !important;
+    perspective: none !important;
+}
+
+/* 2. Ensure all header wrappers are positioned correctly */
+#masthead, 
+.site-header, 
+.site-header-row-container, 
+.site-header-row-container-inner, 
+.site-header-main, 
+.kadence-header-cart {
+    position: relative !important;
+}
+
+/* 3. Permanently hide the badge */
+.kadence-header-cart .cart-total,
+.kadence-header-cart .header-cart-total {
+    display: none !important;
+}
+
+/* 4. Lock the Popup Box Exactly Under the Icon */
+#masthead .kadence-header-cart .header-cart-dropdown,
+#masthead .kadence-header-cart .widget_shopping_cart_content,
+#masthead .kadence-header-cart .site-header-cart-popup {
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    left: auto !important;
+    width: 340px !important;
+    min-width: 340px !important;
+    
+    /* Reset all layout contexts */
+    display: block !important;
+    float: none !important;
+    margin: 15px 0 0 0 !important;
+    padding: 20px !important;
+    
+    /* Premium Glassmorphism V5 */
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 15px 40px rgba(16, 42, 53, 0.15) !important;
+    
+    /* Highest Z-Index to stay above Checkout forms */
+    z-index: 99999999 !important;
+    
+    /* Initial Hidden State */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: all 0.3s ease !important;
+}
+
+/* 5. Force Show on Hover */
+#masthead .kadence-header-cart:hover .header-cart-dropdown,
+#masthead .kadence-header-cart:hover .widget_shopping_cart_content,
+#masthead .kadence-header-cart:hover .site-header-cart-popup {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+/* 6. Hover Bridge (Prevents closing when moving mouse down) */
+#masthead .kadence-header-cart {
+    padding-bottom: 20px !important;
+    margin-bottom: -20px !important;
+}
+
+
+
+/* 1. Reset and Lock the Popup Box */
+#masthead .kadence-header-cart .header-cart-dropdown,
+#masthead .kadence-header-cart .widget_shopping_cart_content,
+#masthead .kadence-header-cart .site-header-cart-popup {
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    width: 340px !important;
+    min-width: 340px !important;
+    
+    /* LOCK THE HEIGHT */
+    max-height: 480px !important; 
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important; /* Keeps buttons at the bottom */
+    
+    /* Premium Glass */
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(25px) !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 15px 40px rgba(16, 42, 53, 0.15) !important;
+    padding: 20px !important;
+    margin-top: 15px !important;
+    z-index: 9999999 !important;
+    
+    /* Animation */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(10px) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* 2. Show on Hover */
+#masthead .kadence-header-cart:hover .header-cart-dropdown,
+#masthead .kadence-header-cart:hover .widget_shopping_cart_content,
+#masthead .kadence-header-cart:hover .site-header-cart-popup {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+
+/* 3. Make the Product List Scrollable */
+#masthead .widget_shopping_cart_content ul.woocommerce-mini-cart {
+    max-height: 280px !important; /* Limits product list height */
+    overflow-y: auto !important; /* Adds scrollbar */
+    margin-bottom: 15px !important;
+    padding-right: 5px !important;
+    flex-grow: 1 !important;
+}
+
+/* 4. Custom Premium Scrollbar */
+#masthead .widget_shopping_cart_content ul.woocommerce-mini-cart::-webkit-scrollbar {
+    width: 4px !important;
+}
+#masthead .widget_shopping_cart_content ul.woocommerce-mini-cart::-webkit-scrollbar-thumb {
+    background: #00A896 !important;
+    border-radius: 10px !important;
+}
+
+/* 5. Fix Hover Bridge */
+#masthead .kadence-header-cart {
+    padding-bottom: 15px !important;
+    margin-bottom: -15px !important;
+}
+
+
+
+/* 1. Premium App-Style Badge (Restored) */
+#masthead .kadence-header-cart .cart-total,
+#masthead .kadence-header-cart .header-cart-total {
+    display: flex !important;
+    position: absolute !important;
+    top: -6px !important;
+    right: -8px !important;
+    background: #00A896 !important;
+    color: #FFFFFF !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 50% !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 2px solid #FFFFFF !important;
+    box-shadow: 0 2px 5px rgba(16, 42, 53, 0.2) !important;
+    z-index: 10 !important;
+    pointer-events: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+}
+
+/* 2. Base Cart Wrapper */
+#masthead .kadence-header-cart {
+    position: relative !important;
+}
+
+/* 3. Base Popup Design (For Shop & Home) */
+#masthead .kadence-header-cart .widget_shopping_cart_content,
+#masthead .kadence-header-cart .header-cart-dropdown {
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    width: 340px !important;
+    min-width: 340px !important;
+    max-height: 480px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 15px 40px rgba(16, 42, 53, 0.15) !important;
+    padding: 20px !important;
+    margin-top: 15px !important;
+    z-index: 9999999 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(10px) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Hover Show */
+#masthead .kadence-header-cart:hover .widget_shopping_cart_content,
+#masthead .kadence-header-cart:hover .header-cart-dropdown {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+
+/* 4. FIX FOR CART & CHECKOUT PAGES (The Critical Bug) */
+/* Force the parent wrappers to not interfere */
+body.woocommerce-cart #masthead,
+body.woocommerce-checkout #masthead,
+body.woocommerce-cart .site-header,
+body.woocommerce-checkout .site-header,
+body.woocommerce-cart .site-header-row-container,
+body.woocommerce-checkout .site-header-row-container,
+body.woocommerce-cart .site-header-row-container-inner,
+body.woocommerce-checkout .site-header-row-container-inner {
+    overflow: visible !important;
+    transform: none !important;
+    z-index: 999999 !important;
+}
+
+/* Force the popup strictly to the right on Cart/Checkout */
+body.woocommerce-cart #masthead .kadence-header-cart,
+body.woocommerce-checkout #masthead .kadence-header-cart {
+    position: relative !important;
+    z-index: 9999999 !important;
+}
+
+body.woocommerce-cart #masthead .kadence-header-cart .widget_shopping_cart_content,
+body.woocommerce-checkout #masthead .kadence-header-cart .widget_shopping_cart_content {
+    /* Override any grid stretching */
+    position: absolute !important;
+    float: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    top: 100% !important;
+    right: 0 !important;
+    left: auto !important;
+    width: 340px !important;
+    max-width: 340px !important;
+    height: auto !important;
+    max-height: 480px !important;
+    margin: 15px 0 0 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* 5. Inner List Scroll (Prevents long popup) */
+#masthead .widget_shopping_cart_content ul.woocommerce-mini-cart {
+    max-height: 280px !important;
+    overflow-y: auto !important;
+    flex-grow: 1 !important;
+    margin-bottom: 15px !important;
+    padding-right: 5px !important;
+}
+
+/* Custom Premium Scrollbar */
+#masthead .widget_shopping_cart_content ul.woocommerce-mini-cart::-webkit-scrollbar {
+    width: 4px !important;
+}
+#masthead .widget_shopping_cart_content ul.woocommerce-mini-cart::-webkit-scrollbar-thumb {
+    background: #00A896 !important;
+    border-radius: 10px !important;
+}
+
+/* 6. Hover Bridge */
+#masthead .kadence-header-cart {
+    padding-bottom: 20px !important;
+    margin-bottom: -20px !important;
+}
+
+
+
+/* 1. Fix the "Added to cart" message */
+.woocommerce-message {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background-color: #F8FAFC !important;
+    color: #102A35 !important;
+    border-top: 3px solid #00A896 !important;
+    border-radius: 8px !important;
+    padding: 15px 20px !important;
+    margin-bottom: 30px !important;
+    box-shadow: 0 4px 15px rgba(16,42,53,0.05) !important;
+}
+.woocommerce-message .button {
+    background: #00A896 !important;
+    color: #FFF !important;
+    margin-left: 15px !important;
+    white-space: nowrap !important;
+}
+
+/* 2. The Cart Badge (Number of items) */
+#masthead .kadence-header-cart .cart-total,
+#masthead .kadence-header-cart .header-cart-total {
+    display: flex !important;
+    position: absolute !important;
+    top: -5px !important;
+    right: -8px !important;
+    background: #00A896 !important;
+    color: #FFFFFF !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 50% !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 2px solid #FFFFFF !important;
+    z-index: 10 !important;
+    pointer-events: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 3. The Mini-Cart Popup Base (Hidden by default) */
+#masthead .kadence-header-cart .widget_shopping_cart_content,
+#masthead .kadence-header-cart .header-cart-dropdown {
+    display: none !important; /* Force hide by default */
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    width: 340px !important;
+    min-width: 340px !important;
+    max-height: 480px !important;
+    flex-direction: column !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 15px 40px rgba(16, 42, 53, 0.15) !important;
+    padding: 20px !important;
+    margin-top: 15px !important;
+    z-index: 9999999 !important;
+    text-align: left !important;
+}
+
+/* 4. Show Popup on Hover ONLY */
+#masthead .kadence-header-cart:hover .widget_shopping_cart_content,
+#masthead .kadence-header-cart:hover .header-cart-dropdown {
+    display: flex !important; /* Show as flexbox on hover */
+}
+
+/* 5. Scrollable Product List */
+#masthead .widget_shopping_cart_content ul.woocommerce-mini-cart {
+    max-height: 280px !important;
+    overflow-y: auto !important;
+    flex-grow: 1 !important;
+    margin-bottom: 15px !important;
+    padding-right: 5px !important;
+    padding-left: 0 !important;
+    list-style: none !important;
+}
+
+/* Custom Scrollbar */
+#masthead .widget_shopping_cart_content ul.woocommerce-mini-cart::-webkit-scrollbar {
+    width: 4px !important;
+}
+#masthead .widget_shopping_cart_content ul.woocommerce-mini-cart::-webkit-scrollbar-thumb {
+    background: #00A896 !important;
+    border-radius: 10px !important;
+}
+
+/* 6. Ensure Cart Wrapper is Relative */
+#masthead .kadence-header-cart {
+    position: relative !important;
+    padding-bottom: 15px !important;
+    margin-bottom: -15px !important;
+}
+
+/* 7. Force Checkout/Cart pages to not break the popup */
+body.woocommerce-cart #masthead,
+body.woocommerce-checkout #masthead,
+body.woocommerce-cart .site-header,
+body.woocommerce-checkout .site-header,
+body.woocommerce-cart .site-header-row-container,
+body.woocommerce-checkout .site-header-row-container {
+    overflow: visible !important;
+    transform: none !important;
+    z-index: 999999 !important;
+}
+
+
+
+
+/* 1. Premium "Added to cart" Message Box */
+.woocommerce-message {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background-color: #F8FAFC !important;
+    color: #102A35 !important;
+    border-top: 3px solid #00A896 !important;
+    border-radius: 8px !important;
+    padding: 15px 20px !important;
+    margin-bottom: 30px !important;
+    box-shadow: 0 4px 15px rgba(16,42,53,0.05) !important;
+    font-weight: 600 !important;
+}
+.woocommerce-message .button {
+    background: #00A896 !important;
+    color: #FFF !important;
+    margin-left: 15px !important;
+    white-space: nowrap !important;
+    padding: 8px 16px !important;
+    border-radius: 6px !important;
+}
+
+/* 2. The Cart Badge (Number of items) */
+#masthead .kadence-header-cart .cart-total,
+#masthead .kadence-header-cart .header-cart-total {
+    display: flex !important;
+    position: absolute !important;
+    top: -6px !important;
+    right: -8px !important;
+    background: #00A896 !important;
+    color: #FFFFFF !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 50% !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 2px solid #FFFFFF !important;
+    z-index: 10 !important;
+    pointer-events: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 3. Cart Wrapper */
+#masthead .kadence-header-cart {
+    position: relative !important;
+}
+
+/* 4. The Dropdown (Hidden by default) */
+#masthead .kadence-header-cart .header-cart-dropdown,
+#masthead .kadence-header-cart .widget_shopping_cart_content {
+    display: none !important; /* Hide by default */
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    left: auto !important;
+    width: 340px !important;
+    min-width: 340px !important;
+    max-height: 450px !important;
+    flex-direction: column !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 15px 40px rgba(16, 42, 53, 0.15) !important;
+    padding: 20px !important;
+    margin-top: 15px !important;
+    z-index: 9999999 !important;
+    text-align: left !important;
+}
+
+/* 5. Show on Hover (Bypass Kadence JS) */
+#masthead .kadence-header-cart:hover .header-cart-dropdown,
+#masthead .kadence-header-cart:hover .widget_shopping_cart_content {
+    display: flex !important;
+}
+
+/* 6. Scrollable Product List inside Popup */
+#masthead .widget_shopping_cart_content ul.woocommerce-mini-cart {
+    max-height: 280px !important;
+    overflow-y: auto !important;
+    margin-bottom: 15px !important;
+    padding-right: 5px !important;
+    padding-left: 0 !important;
+    list-style: none !important;
+}
+
+/* Custom Scrollbar */
+#masthead .widget_shopping_cart_content ul.woocommerce-mini-cart::-webkit-scrollbar {
+    width: 4px !important;
+}
+#masthead .widget_shopping_cart_content ul.woocommerce-mini-cart::-webkit-scrollbar-thumb {
+    background: #00A896 !important;
+    border-radius: 10px !important;
+}
+
+/* 7. CRITICAL FIX: Force Header wrappers to allow popup over page content */
+#masthead, 
+#masthead .site-header, 
+#masthead .site-header-row-container, 
+#masthead .site-header-row-container-inner,
+body.woocommerce-cart .site-container,
+body.woocommerce-checkout .site-container {
+    overflow: visible !important;
+    transform: none !important;
+}
+
+/* 8. Hide Kadence's weird tooltip */
+.kadence-cart-tooltip {
+    display: none !important;
+}
+
+
+
+/* 1. Fix "Added to cart" Message (Without breaking flexbox) */
+.woocommerce-message {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    background-color: #F8FAFC !important;
+    color: #102A35 !important;
+    border-top: 3px solid #00A896 !important;
+    border-radius: 8px !important;
+    padding: 15px 20px !important;
+    margin-bottom: 30px !important;
+}
+.woocommerce-message .button {
+    background: #00A896 !important;
+    color: #FFF !important;
+    border-radius: 6px !important;
+    white-space: nowrap !important;
+}
+
+/* 2. Cart Badge (App Style) */
+.kadence-header-cart .cart-total,
+.kadence-header-cart .header-cart-total {
+    position: absolute !important;
+    top: -5px !important;
+    right: -8px !important;
+    background: #00A896 !important;
+    color: #FFF !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 2px solid #FFF !important;
+    z-index: 10 !important;
+}
+
+/* 3. Glassmorphism Design for Dropdown (Let Kadence handle open/close) */
+.kadence-header-cart .header-cart-dropdown {
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 15px 40px rgba(16, 42, 53, 0.15) !important;
+    padding: 20px !important;
+    margin-top: 15px !important;
+    z-index: 99999 !important;
+}
+
+/* Hide Kadence's weird tooltip */
+.kadence-cart-tooltip {
+    display: none !important;
+}
+
+
+
+/* 1. Notification Message Fix (Woocommerce Notice) */
+.woocommerce-message {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+    background-color: #F8FAFC !important;
+    color: #102A35 !important;
+    border-top: 3px solid #00A896 !important;
+    border-radius: 8px !important;
+    padding: 15px 20px !important;
+    margin-bottom: 30px !important;
+    box-shadow: 0 4px 15px rgba(16,42,53,0.05) !important;
+    font-weight: 600 !important;
+}
+.woocommerce-message .button {
+    background: #00A896 !important;
+    color: #FFF !important;
+    border-radius: 6px !important;
+    padding: 8px 16px !important;
+    white-space: nowrap !important;
+    margin-left: auto !important;
+}
+
+/* 2. App-Style Badge */
+.kadence-header-cart {
+    position: relative !important;
+    width: auto !important; /* Prevent stretching */
+    flex-shrink: 0 !important;
+}
+.kadence-header-cart .cart-total,
+.kadence-header-cart .header-cart-total {
+    position: absolute !important;
+    top: -5px !important;
+    right: -8px !important;
+    background: #00A896 !important;
+    color: #FFF !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 2px solid #FFF !important;
+    z-index: 10 !important;
+    pointer-events: none !important;
+}
+
+/* 3. Kadence Native Popup Styling */
+.kadence-header-cart .header-cart-dropdown,
+.kadence-header-cart .site-header-cart-popup {
+    /* Let Kadence handle the display/position (absolute/top) */
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 15px 40px rgba(16, 42, 53, 0.15) !important;
+    padding: 20px !important;
+    width: 340px !important; /* Force width */
+    z-index: 999999 !important;
+}
+
+/* Hide tooltip */
+.kadence-cart-tooltip {
+    display: none !important;
+}
+/* =========================================================
+   SAFE KADENCE CART UI (NO LAYOUT BREAKING)
+   ========================================================= */
+
+/* 1. Notification Message Fix */
+.woocommerce-message {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background-color: #F8FAFC !important;
+    color: #102A35 !important;
+    border-top: 3px solid #00A896 !important;
+    border-radius: 8px !important;
+    padding: 15px 20px !important;
+    margin-bottom: 30px !important;
+}
+.woocommerce-message .button {
+    background: #00A896 !important;
+    color: #FFF !important;
+    border-radius: 6px !important;
+    white-space: nowrap !important;
+}
+
+/* 2. App-Style Badge */
+.kadence-header-cart .cart-total,
+.kadence-header-cart .header-cart-total {
+    position: absolute !important;
+    top: -5px !important;
+    right: -8px !important;
+    background: #00A896 !important;
+    color: #FFF !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 2px solid #FFF !important;
+    z-index: 10 !important;
+}
+
+/* 3. Premium Glass Effect (Only on the inner widget, not the wrapper) */
+.kadence-header-cart .widget_shopping_cart_content {
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 15px 40px rgba(16, 42, 53, 0.15) !important;
+    padding: 20px !important;
+}
+
+/* Hide Kadence's weird tooltip */
+.kadence-cart-tooltip {
+    display: none !important;
+}
+
+/* =========================================================
+   PREMIUM THANK YOU / ORDER CONFIRMATION PAGE
+   ========================================================= */
+body.woocommerce-order-received { background-color: #F8F9FA !important; }
+.fit-thankyou-wrapper { max-width: 1000px; margin: 40px auto; padding: 0 20px; font-family: 'Inter', sans-serif; }
+
+/* Hero Section */
+.fit-thankyou-hero {
+    text-align: center;
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 50px 30px;
+    box-shadow: 0 10px 40px rgba(16,42,53,0.04);
+    margin-bottom: 40px;
+    border: 1px solid #EAEAEA;
+}
+.fit-thankyou-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(0, 168, 150, 0.1);
+    color: #00A896;
+    margin-bottom: 20px;
+}
+.fit-thankyou-icon svg { width: 40px; height: 40px; }
+.fit-thankyou-failed .fit-thankyou-icon { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+.fit-thankyou-hero h1 { font-size: 2.2rem; font-weight: 800; color: #102A35; margin-bottom: 15px; letter-spacing: -0.5px; }
+.fit-thankyou-hero p { font-size: 1.1rem; color: #6C757D; max-width: 600px; margin: 0 auto 30px auto; line-height: 1.6; }
+.fit-thankyou-actions { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+
+/* Details Grid */
+.fit-thankyou-details-grid { display: flex; flex-direction: column; gap: 30px; }
+
+/* Order Details Card */
+.fit-thankyou-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 4px 20px rgba(16,42,53,0.03);
+    border: 1px solid #EAEAEA;
+}
+.fit-thankyou-card h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #102A35;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #F1F5F9;
+}
+
+/* Overview List */
+ul.woocommerce-order-overview {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+    gap: 20px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+}
+ul.woocommerce-order-overview li {
+    font-size: 0.9rem !important;
+    color: #6C757D !important;
+    border: none !important;
+    border-right: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+ul.woocommerce-order-overview li strong {
+    display: block !important;
+    font-size: 1.1rem !important;
+    color: #102A35 !important;
+    font-weight: 700 !important;
+    margin-top: 5px !important;
+}
+
+/* Order Details Table Styling */
+.fit-thankyou-card .woocommerce-table--order-details {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 0 !important;
+}
+.fit-thankyou-card .woocommerce-table--order-details th {
+    text-align: left !important;
+    font-size: 0.85rem !important;
+    text-transform: uppercase !important;
+    color: #64748B !important;
+    padding: 15px 0 !important;
+    border-bottom: 2px solid #F1F5F9 !important;
+}
+.fit-thankyou-card .woocommerce-table--order-details td {
+    padding: 15px 0 !important;
+    border-bottom: 1px dashed #E2E8F0 !important;
+    color: #102A35 !important;
+    font-size: 1rem !important;
+}
+.fit-thankyou-card .woocommerce-table--order-details tfoot th,
+.fit-thankyou-card .woocommerce-table--order-details tfoot td {
+    border-bottom: 1px solid #F1F5F9 !important;
+    font-weight: 700 !important;
+    color: #102A35 !important;
+}
+.fit-thankyou-card .woocommerce-table--order-details tfoot tr.order-total th,
+.fit-thankyou-card .woocommerce-table--order-details tfoot tr.order-total td {
+    font-size: 1.3rem !important;
+    color: #00A896 !important;
+    border-bottom: none !important;
+    padding-top: 25px !important;
+}
+
+/* Customer Details (Address) */
+.fit-thankyou-card .woocommerce-customer-details address {
+    border: none !important;
+    padding: 0 !important;
+    font-style: normal !important;
+    color: #102A35 !important;
+    line-height: 1.6 !important;
+}
+
+@media (max-width: 768px) {
+    .fit-thankyou-hero { padding: 30px 20px; }
+    .fit-thankyou-hero h1 { font-size: 1.8rem; }
+    .fit-thankyou-actions { flex-direction: column; }
+    .fit-thankyou-actions a { width: 100%; text-align: center; margin-left: 0 !important; margin-bottom: 10px; }
+    ul.woocommerce-order-overview { grid-template-columns: 1fr 1fr !important; }
+    .fit-thankyou-card { padding: 20px; }
+}
+
+/* =========================================================
+   PREMIUM ORDER DETAILS & ADDRESS STYLING (THANK YOU PAGE)
+   ========================================================= */
+
+/* 1. Premium Order Details Table */
+.woocommerce-order-details {
+    background: #FFFFFF !important;
+    border-radius: 16px !important;
+    padding: 30px !important;
+    box-shadow: 0 4px 20px rgba(16,42,53,0.03) !important;
+    border: 1px solid #EAEAEA !important;
+    margin-bottom: 30px !important;
+}
+.woocommerce-order-details h2 {
+    font-size: 1.4rem !important;
+    font-weight: 800 !important;
+    color: #102A35 !important;
+    margin-bottom: 20px !important;
+    padding-bottom: 15px !important;
+    border-bottom: 2px solid #F1F5F9 !important;
+}
+.woocommerce-table--order-details {
+    width: 100% !important;
+    border-collapse: collapse !important;
+}
+.woocommerce-table--order-details th {
+    text-align: left !important;
+    font-size: 0.85rem !important;
+    text-transform: uppercase !important;
+    color: #64748B !important;
+    padding: 12px 0 !important;
+    border-bottom: 2px solid #F1F5F9 !important;
+}
+.woocommerce-table--order-details td {
+    padding: 15px 0 !important;
+    border-bottom: 1px dashed #E2E8F0 !important;
+    color: #102A35 !important;
+    font-size: 1rem !important;
+}
+/* Subtotal, Shipping, Payment method rows */
+.woocommerce-table--order-details tfoot th, 
+.woocommerce-table--order-details tfoot td {
+    padding: 12px 0 !important;
+    border-bottom: 1px solid #F1F5F9 !important;
+    font-weight: 600 !important;
+    color: #102A35 !important;
+}
+/* Total Row */
+.woocommerce-table--order-details tfoot tr:last-child th,
+.woocommerce-table--order-details tfoot tr:last-child td {
+    font-size: 1.3rem !important;
+    font-weight: 800 !important;
+    color: #00A896 !important;
+    border-bottom: none !important;
+    padding-top: 20px !important;
+}
+
+/* 2. Premium Billing & Shipping Address */
+.woocommerce-customer-details {
+    background: #FFFFFF !important;
+    border-radius: 16px !important;
+    padding: 30px !important;
+    box-shadow: 0 4px 20px rgba(16,42,53,0.03) !important;
+    border: 1px solid #EAEAEA !important;
+    margin-bottom: 30px !important;
+}
+.woocommerce-customer-details h2 {
+    font-size: 1.4rem !important;
+    font-weight: 800 !important;
+    color: #102A35 !important;
+    margin-bottom: 20px !important;
+    padding-bottom: 15px !important;
+    border-bottom: 2px solid #F1F5F9 !important;
+}
+.woocommerce-columns--addresses {
+    display: flex !important;
+    gap: 40px !important;
+    flex-wrap: wrap !important;
+}
+.woocommerce-column--billing-address, 
+.woocommerce-column--shipping-address {
+    flex: 1 1 300px !important;
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+}
+.woocommerce-column__title {
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: #102A35 !important;
+    margin-bottom: 15px !important;
+    display: block !important;
+}
+/* Address text formatting */
+.woocommerce-customer-details address {
+    border: none !important;
+    padding: 0 !important;
+    font-style: normal !important;
+    color: #475569 !important;
+    line-height: 1.6 !important;
+    font-size: 0.95rem !important;
+}
+
+/* 3. Hide "Shipping Address: N/A" if it's the same as billing or empty */
+.woocommerce-column--shipping-address {
+    /* If you want to completely hide the shipping address block because you use billing as shipping, uncomment the line below: */
+    /* display: none !important; */
+}
+
+/* 4. Style the Thank You Message (Order Received Message) */
+.woocommerce-thankyou-order-received {
+    background: rgba(0, 168, 150, 0.1) !important;
+    color: #00A896 !important;
+    padding: 20px !important;
+    border-radius: 12px !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    margin-bottom: 30px !important;
+    border: 1px dashed #00A896 !important;
 }
