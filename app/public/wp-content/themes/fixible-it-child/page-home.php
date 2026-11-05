@@ -35,21 +35,23 @@ get_header(); ?>
     background-size: cover;
     background-position: center;
     opacity: 0;
-    animation: fitFadeSlider 25s infinite; /* ৫টি ছবি, প্রতি ৫ সেকেন্ডে পরিবর্তন */
+    animation: fitFadeSlider 42s infinite; /* ৫টি ছবি, প্রতি ৫ সেকেন্ডে পরিবর্তন */
 }
 .fit-slide:nth-child(1) { animation-delay: 0s; }
-.fit-slide:nth-child(2) { animation-delay: 5s; }
-.fit-slide:nth-child(3) { animation-delay: 10s; }
-.fit-slide:nth-child(4) { animation-delay: 15s; }
-.fit-slide:nth-child(5) { animation-delay: 20s; }
+    .fit-slide:nth-child(2) { animation-delay: 6s; }
+    .fit-slide:nth-child(3) { animation-delay: 12s; }
+    .fit-slide:nth-child(4) { animation-delay: 18s; }
+    .fit-slide:nth-child(5) { animation-delay: 24s; }
+    .fit-slide:nth-child(6) { animation-delay: 30s; }
+    .fit-slide:nth-child(7) { animation-delay: 36s; }
 
 @keyframes fitFadeSlider {
-    0% { opacity: 0; transform: scale(1); }
-    4% { opacity: 1; }
-    20% { opacity: 1; transform: scale(1.05); } /* হালকা জুম ইফেক্ট */
-    24% { opacity: 0; }
-    100% { opacity: 0; }
-}
+        0% { opacity: 0; transform: scale(1); }
+        1% { opacity: 1; }
+        13% { opacity: 1; transform: scale(1.05); }
+        14.28% { opacity: 0; }
+        100% { opacity: 0; }
+    }
 .fit-hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -177,9 +179,11 @@ get_header(); ?>
         <div class="fit-hero-slider">
             <div class="fit-slide" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ui/ID-004__fixibleit-pc-builder-rgb-build-02.jpg');"></div>
             <div class="fit-slide" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ui/ID-043__fixibleit-service-network-switch-cabling.jpg');"></div>
-            <div class="fit-slide" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ui/ID-042__fixibleit-service-computer-repair.jpg');"></div>
-            <div class="fit-slide" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ui/ID-010__fixibleit-about-company-environment.jpg');"></div>
-            <div class="fit-slide" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ui/ID-038__fixibleit-about-customer-approach.jpg');"></div>
+            <div class="fit-slide" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ui/ID-016__fixibleit-pc-builder-white-build-detail-01.jpg');"></div>
+            <div class="fit-slide" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ui/ID-029__fixibleit-networking-server-rack.jpg');"></div>
+            <div class="fit-slide" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ui/ID-050__fixibleit-service-hardware-installation.jpg');"></div>
+            <div class="fit-slide" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ui/ID-060__fixibleit-service-router-connectivity.jpg');"></div>
+            <div class="fit-slide" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ui/ID-007__fixibleit-pc-builder-liquid-cooling.jpg');"></div>
         </div>
 
         <!-- Dark Overlay -->

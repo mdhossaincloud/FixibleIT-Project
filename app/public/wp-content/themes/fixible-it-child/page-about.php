@@ -92,7 +92,7 @@ get_header(); ?>
         </div>
         <div class="fit-about-image">
             <!-- ID-063: Technology Vision -->
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ui/ID-063__fixibleit-about-technology-vision.jpg" alt="Technology Vision" loading="lazy">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/ui/ID-063__fixibleit-about-technology-vision.png" alt="Technology Vision" loading="lazy">
         </div>
     </section>
 
