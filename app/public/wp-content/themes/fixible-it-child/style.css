@@ -5509,3 +5509,147 @@ body.woocommerce-account .woocommerce {
 @media (max-width: 768px) {
     .fit-return-grid { grid-template-columns: 1fr; }
 }
+
+/* Hide Cart Badge when the number is empty */
+#masthead .kadence-header-cart .header-cart-total:empty,
+#masthead .kadence-header-cart .cart-total:empty,
+#masthead .kadence-header-cart .kadence-cart-total:empty {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* =========================================================
+   FIX MY ACCOUNT BUTTON + CART BADGE CACHE BUSTER
+   ========================================================= */
+
+/* 1. My Account Button - Force Visible Colors */
+#masthead .header-account,
+#masthead .kadence-header-account,
+#masthead .header-account-inner,
+#masthead .kadence-header-account-inner,
+#masthead .header-navigation-account,
+#masthead a.header-account-icon {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+#masthead .header-account svg,
+#masthead .kadence-header-account svg,
+#masthead .header-account-inner svg,
+#masthead .kadence-header-account-inner svg,
+#masthead .header-account a,
+#masthead .kadence-header-account a {
+    color: #102A35 !important;
+    fill: #102A35 !important;
+    stroke: #102A35 !important;
+}
+
+#masthead .header-account:hover svg,
+#masthead .kadence-header-account:hover svg,
+#masthead .header-account-inner:hover svg,
+#masthead .kadence-header-account-inner:hover svg {
+    fill: #00A896 !important;
+    stroke: #00A896 !important;
+}
+
+/* 2. Account icon link alignment */
+#masthead .header-account,
+#masthead .kadence-header-account {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50% !important;
+    background: rgba(16, 42, 53, 0.05) !important;
+    transition: all 0.3s ease !important;
+}
+
+#masthead .header-account:hover,
+#masthead .kadence-header-account:hover {
+    background: #00A896 !important;
+}
+
+#masthead .header-account:hover svg,
+#masthead .kadence-header-account:hover svg {
+    fill: #FFFFFF !important;
+    stroke: #FFFFFF !important;
+}
+
+/* 3. Ensure text labels in account button remain dark */
+#masthead .header-account span,
+#masthead .kadence-header-account span,
+#masthead .header-account .header-account-label {
+    color: #102A35 !important;
+}
+#masthead .header-account:hover span,
+#masthead .kadence-header-account:hover span {
+    color: #FFFFFF !important;
+}
+
+/* 4. Hide empty cart badge (Double protection) */
+#masthead .header-cart-total:empty,
+#masthead .cart-total:empty,
+#masthead .kadence-header-cart .cart-total:empty {
+    display: none !important;
+}
+
+/* =========================================================
+   ULTIMATE FIX: CART BADGE (0 HIDE) & ACCOUNT BUTTON (WHITE BUG)
+   ========================================================= */
+
+/* 1. Fix My Account Button (Make it Visible Again) */
+#masthead .kadence-header-account,
+#masthead .header-account,
+#masthead .kadence-header-account-inner {
+    background-color: transparent !important; /* Remove white background */
+}
+
+#masthead .kadence-header-account svg,
+#masthead .header-account svg,
+#masthead .kadence-header-account a {
+    color: #102A35 !important; /* Force dark navy text/icon */
+    fill: #102A35 !important;
+}
+
+#masthead .kadence-header-account:hover svg,
+#masthead .header-account:hover svg,
+#masthead .kadence-header-account:hover a {
+    color: #00A896 !important; /* Hover Teal */
+    fill: #00A896 !important;
+}
+
+/* 2. Fix Cart Badge (Only show if NOT 0) */
+/* Hide the badge if it contains the text '0' (using a clever CSS trick) */
+#masthead .kadence-header-cart .header-cart-total:empty,
+#masthead .kadence-header-cart .cart-total:empty {
+    display: none !important;
+}
+
+/* If the PHP filter didn't empty it, use a tiny fallback */
+#masthead .kadence-header-cart .header-cart-total[data-count="0"],
+#masthead .kadence-header-cart .cart-total[data-count="0"] {
+    display: none !important;
+}
+
+/* Style the badge properly for count > 0 */
+#masthead .kadence-header-cart .header-cart-total,
+#masthead .kadence-header-cart .cart-total {
+    position: absolute !important;
+    top: -5px !important;
+    right: -8px !important;
+    background: #00A896 !important;
+    color: #FFFFFF !important;
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 2px solid #FFFFFF !important;
+    z-index: 10 !important;
+    pointer-events: none !important;
+}

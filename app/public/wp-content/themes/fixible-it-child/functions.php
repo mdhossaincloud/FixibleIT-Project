@@ -610,3 +610,11 @@ add_action( 'woocommerce_account_return-request_endpoint', 'fit_render_return_re
 function fit_render_return_request_endpoint() {
     wc_get_template( 'myaccount/return-request.php' );
 }
+
+// =========================================
+// HIDE CART BADGE WHEN EMPTY (PHP FILTER)
+// =========================================
+add_filter( 'woocommerce_cart_contents_count', 'fit_hide_empty_cart_count', 99 );
+function fit_hide_empty_cart_count( $count ) {
+    return ( $count == 0 ) ? '' : $count;
+}

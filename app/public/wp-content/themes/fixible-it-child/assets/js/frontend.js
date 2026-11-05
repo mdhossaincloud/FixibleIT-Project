@@ -156,3 +156,52 @@ jQuery(document).ready(function($) {
     });
 
 });
+// ==========================================
+// HIDE CART BADGE IF ZERO
+// ==========================================
+jQuery(document).ready(function($) {
+    function updateCartBadgeUI() {
+        let badge = $('.kadence-header-cart .header-cart-total, .kadence-header-cart .cart-total');
+        if (badge.length > 0) {
+            let count = parseInt(badge.first().text().trim(), 10);
+            if (isNaN(count) || count === 0) {
+                badge.css({'display': 'none', 'visibility': 'hidden', 'opacity': '0'});
+            } else {
+                badge.css({'display': 'flex', 'visibility': 'visible', 'opacity': '1'});
+            }
+        }
+    }
+
+    // Initial load
+    updateCartBadgeUI();
+
+    // Run on WooCommerce AJAX updates
+    $(document.body).on('added_to_cart wc_fragments_refreshed wc_fragments_loaded updated_wc_div', function() {
+        setTimeout(updateCartBadgeUI, 100);
+    });
+});
+
+// ==========================================
+// FORCE HIDE 0 BADGE (AJAX SAFE)
+// ==========================================
+jQuery(document).ready(function($) {
+    function checkCartBadge() {
+        let badge = $('.kadence-header-cart .header-cart-total, .kadence-header-cart .cart-total');
+        if (badge.length > 0) {
+            let text = badge.first().text().trim();
+            if (text === '0' || text === '') {
+                badge.css({'display': 'none', 'visibility': 'hidden'});
+            } else {
+                badge.css({'display': 'flex', 'visibility': 'visible'});
+            }
+        }
+    }
+    
+    // Check on page load
+    checkCartBadge();
+    
+    // Check when WooCommerce updates the cart via AJAX
+    $(document.body).on('added_to_cart wc_fragments_refreshed wc_fragments_loaded updated_wc_div', function() {
+        setTimeout(checkCartBadge, 100);
+    });
+});
