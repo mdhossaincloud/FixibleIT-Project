@@ -1911,3 +1911,1072 @@ body.admin-bar #masthead.site-header {
         grid-template-columns: 1fr !important;
     }
 }
+
+/* =========================================================
+   PHASE 02: MOBILE RESPONSIVENESS QA (HEADER & HERO SLIDER)
+   ========================================================= */
+
+/* =========================================
+   1. HEADER MOBILE FIXES
+   ========================================= */
+@media (max-width: 768px) {
+    /* হেডারের উচ্চতা এবং প্যাডিং কমানো */
+    #masthead .site-header-row-container-inner {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
+
+    /* মোবাইল মেনু (হ্যামবার্গার) টাচ টার্গেট বাড়ানো */
+    #masthead .mobile-toggle-open-container .menu-toggle {
+        padding: 10px !important;
+        font-size: 24px !important; /* আইকন একটু বড় */
+    }
+
+    /* কার্ট আইকনের টাচ টার্গেট */
+    #masthead .site-header .header-cart {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    #masthead .site-header .header-cart svg {
+        width: 18px !important;
+        height: 18px !important;
+    }
+}
+
+/* =========================================
+   2. HERO SLIDER MOBILE FIXES
+   ========================================= */
+@media (max-width: 768px) {
+    /* স্লাইডারের উচ্চতা কমানো যাতে নিচের কন্টেন্ট সহজে দেখা যায় */
+    .fit-hero-slider-section {
+        height: 75vh !important; /* ৭৫% স্ক্রিন হাইট */
+        min-height: 450px !important; 
+        max-height: 600px !important;
+        margin-bottom: 30px !important;
+    }
+
+    /* টেক্সট কন্টেইনার সেন্টার করা এবং প্যাডিং বাড়ানো */
+    .fit-hero-content-box {
+        margin-left: 0 !important;
+        text-align: center !important;
+        padding: 0 20px !important;
+    }
+
+    /* ওভারলে আরও ডার্ক করা যাতে ছবির ওপর লেখা স্পষ্ট দেখা যায় */
+    .fit-hero-overlay {
+        background: rgba(16, 42, 53, 0.85) !important;
+    }
+
+    /* হেডিং ফন্ট সাইজ ছোট করা */
+    .fit-hero-title {
+        font-size: 2.2rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* সাবটাইটেল ফন্ট সাইজ ছোট করা */
+    .fit-hero-subtitle {
+        font-size: 1rem !important;
+        margin-bottom: 30px !important;
+        line-height: 1.5 !important;
+    }
+
+    /* বাটনগুলোকে ফুল-উইডথ করা এবং সুন্দরভাবে স্ট্যাক করা */
+    .fit-hero-actions {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+        width: 100% !important;
+        max-width: 300px !important;
+        margin: 0 auto !important;
+    }
+
+    .fit-hero-actions .fit-btn {
+        width: 100% !important;
+        text-align: center !important;
+        padding: 14px 20px !important;
+    }
+}
+
+/* =========================================
+   3. EXTRA SMALL DEVICES (320px - 390px)
+   ========================================= */
+@media (max-width: 430px) {
+    /* আরও ছোট ফোনের জন্য হাইট আরও অ্যাডজাস্ট করা */
+    .fit-hero-slider-section {
+        height: 80vh !important;
+        min-height: 400px !important;
+    }
+    
+    .fit-hero-title {
+        font-size: 1.8rem !important; /* ৩২০px স্ক্রিনেও লেখা সুন্দরভাবে ফিট হবে */
+    }
+
+    .fit-hero-eyebrow {
+        font-size: 0.7rem !important;
+        padding: 6px 12px !important;
+    }
+}
+
+/* =========================================================
+   PHASE 02: MOBILE COMPACTION & GRID OPTIMIZATION
+   ========================================================= */
+
+@media (max-width: 768px) {
+    
+    /* 1. SHOP PAGE: ২ কলামের গ্রিড */
+    .fit-v3-main ul.products {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; /* ১টির বদলে ২টি কলাম */
+        gap: 12px !important; /* গ্যাপ কমানো */
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* প্রোডাক্ট কার্ডের ভেতরের স্পেসিং ও ফন্ট ছোট করা */
+    .fit-v3-card {
+        padding: 0 !important;
+    }
+    .fit-v3-image {
+        padding: 10px !important;
+    }
+    .fit-v3-content {
+        padding: 10px !important;
+    }
+    .fit-v3-title {
+        font-size: 0.85rem !important;
+        min-height: 2.4em !important; /* টাইটেল ২ লাইনেই সীমাবদ্ধ থাকবে */
+        margin-bottom: 5px !important;
+    }
+    .fit-v3-price {
+        font-size: 0.95rem !important;
+        margin-bottom: 10px !important;
+    }
+    .fit-v3-actions .button {
+        padding: 8px !important;
+        font-size: 0.8rem !important;
+    }
+
+    /* 2. HOMEPAGE: সেকশন প্যাডিং ও ফন্ট ছোট করা */
+    .fit-section {
+        padding: 40px 15px !important; /* ৯০px এর বদলে ৪০px */
+    }
+    .fit-section-header {
+        margin-bottom: 30px !important;
+    }
+    .fit-section-title {
+        font-size: 1.6rem !important; /* ছোট হেডিং */
+        margin-bottom: 10px !important;
+    }
+    .fit-section-subtitle {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+    }
+
+    /* 3. HOMEPAGE CATEGORY GRID: ২ কলাম */
+    .fit-v2-category-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+    .fit-v2-cat-card {
+        padding: 15px 10px !important;
+    }
+    .fit-v2-cat-card h3 {
+        font-size: 0.9rem !important;
+    }
+
+    /* 4. HOMEPAGE SERVICES GRID: ১ কলাম কিন্তু কমপ্যাক্ট */
+    .fit-v2-services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+    .fit-v2-service-card {
+        padding: 20px !important;
+    }
+    .fit-v2-service-card h3 {
+        font-size: 1.1rem !important;
+    }
+
+    /* 5. HOMEPAGE FEATURED PRODUCTS: ২ কলাম */
+    .fit-featured-products-wrap ul.products {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+    }
+    .fit-featured-products-wrap ul.products li.product .woocommerce-loop-product__title {
+        font-size: 0.85rem !important;
+        padding: 0 10px !important;
+        min-height: 2.4em !important;
+    }
+    .fit-featured-products-wrap ul.products li.product .price {
+        font-size: 0.95rem !important;
+        padding: 0 10px !important;
+    }
+    .fit-featured-products-wrap ul.products li.product .button {
+        margin: 0 10px !important;
+        width: calc(100% - 20px) !important;
+        padding: 8px !important;
+        font-size: 0.8rem !important;
+    }
+
+    /* 6. TRUST BADGES: ছোট করা */
+    .fit-v2-trust {
+        padding: 15px !important;
+        gap: 10px !important;
+    }
+    .fit-v2-trust-item {
+        font-size: 0.85rem !important;
+    }
+
+    /* 7. ENQUIRY SECTION: প্যাডিং কমানো */
+    .fit-v2-enquiry-wrap {
+        padding: 30px 15px !important;
+    }
+    .fit-v2-enquiry-wrap h2 {
+        font-size: 1.5rem !important;
+    }
+    .fit-v2-enquiry-wrap p {
+        font-size: 0.95rem !important;
+    }
+    .fit-v2-enquiry-tags {
+        gap: 8px !important;
+    }
+    .fit-v2-enquiry-tag {
+        font-size: 0.8rem !important;
+        padding: 6px 12px !important;
+    }
+
+    /* 8. PC BUILDER SECTION: ছোট করা */
+    .fit-v2-pc-builder-content {
+        padding: 20px !important;
+    }
+    .fit-v2-pc-builder-content h2 {
+        font-size: 1.6rem !important;
+    }
+    .fit-v2-pc-builder-content p {
+        font-size: 0.95rem !important;
+    }
+}
+
+/* =========================================================
+   PHASE 02: SHOP PAGE MOBILE (3 COLUMNS)
+   ========================================================= */
+
+@media (max-width: 768px) {
+    
+    /* 1. Force 3 Columns on Shop Page */
+    body.post-type-archive-product .fit-v3-main ul.products,
+    body.woocommerce-shop .fit-v3-main ul.products {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 8px !important; /* ৩ কলামের জন্য গ্যাপ একদম কম */
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* 2. Card Container */
+    body.post-type-archive-product .fit-v3-card,
+    body.woocommerce-shop .fit-v3-card {
+        padding: 0 !important;
+        border-radius: 8px !important;
+    }
+
+    /* 3. Image Area */
+    body.post-type-archive-product .fit-v3-image,
+    body.woocommerce-shop .fit-v3-image {
+        padding: 5px !important;
+    }
+
+    /* 4. Content Area */
+    body.post-type-archive-product .fit-v3-content,
+    body.woocommerce-shop .fit-v3-content {
+        padding: 8px !important;
+    }
+
+    /* 5. Title Typography */
+    body.post-type-archive-product .fit-v3-title,
+    body.woocommerce-shop .fit-v3-title {
+        font-size: 0.75rem !important;
+        line-height: 1.2 !important;
+        min-height: 2.4em !important; 
+        margin-bottom: 4px !important;
+        -webkit-line-clamp: 2 !important;
+    }
+
+    /* 6. Price Typography */
+    body.post-type-archive-product .fit-v3-price,
+    body.woocommerce-shop .fit-v3-price {
+        font-size: 0.8rem !important;
+        margin-bottom: 8px !important;
+    }
+
+    /* 7. Buttons (Add to Cart & Compare) */
+    body.post-type-archive-product .fit-v3-actions .button,
+    body.woocommerce-shop .fit-v3-actions .button {
+        padding: 6px 2px !important;
+        font-size: 0.7rem !important;
+        margin-bottom: 5px !important;
+    }
+
+    body.post-type-archive-product .fit-v3-actions .fit-add-to-compare,
+    body.woocommerce-shop .fit-v3-actions .fit-add-to-compare {
+        padding: 5px 2px !important;
+        font-size: 0.65rem !important;
+    }
+
+    /* 8. Fix for hidden Add to Cart on Mobile (Hover Action) */
+    body.post-type-archive-product .fit-v3-hover-action,
+    body.woocommerce-shop .fit-v3-hover-action {
+        position: static !important;
+        opacity: 1 !important;
+        background: transparent !important;
+        padding: 0 !important;
+        margin-top: auto !important;
+    }
+}
+
+/* 9. Extra Small Devices (320px - 390px) Optimization */
+@media (max-width: 390px) {
+    body.post-type-archive-product .fit-v3-title,
+    body.woocommerce-shop .fit-v3-title {
+        font-size: 0.7rem !important; /* আরও একটু ছোট */
+    }
+    body.post-type-archive-product .fit-v3-price,
+    body.woocommerce-shop .fit-v3-price {
+        font-size: 0.75rem !important;
+    }
+    body.post-type-archive-product .fit-v3-actions .button,
+    body.woocommerce-shop .fit-v3-actions .button {
+        font-size: 0.65rem !important;
+        padding: 5px 1px !important;
+    }
+}
+
+/* =========================================================
+   PHASE 02: FINAL SHOP MOBILE (FORCE 3 COLUMNS)
+   ========================================================= */
+
+@media (max-width: 768px) {
+    
+    /* 1. Force 3 Columns on Shop Page */
+    body.woocommerce-shop ul.products,
+    body.post-type-archive-product ul.products,
+    .fit-v3-main ul.products,
+    .fit-shop-main ul.products {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important; /* ৩ কলাম লক করা হলো */
+        gap: 8px !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* 2. Reset WooCommerce / Kadence default floats and widths */
+    body.woocommerce-shop ul.products li.product,
+    body.post-type-archive-product ul.products li.product,
+    .fit-v3-main ul.products li.product {
+        width: 100% !important;
+        float: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        clear: none !important;
+    }
+
+    /* 3. Ultra-Compact Card Design for 3 Columns */
+    .fit-v3-card {
+        border-radius: 6px !important;
+    }
+    
+    .fit-v3-image {
+        padding: 3px !important;
+    }
+    
+    .fit-v3-content {
+        padding: 6px !important;
+    }
+    
+    .fit-v3-title {
+        font-size: 0.65rem !important; /* ছোট ফন্ট যাতে ৩ কলামে ফিট হয় */
+        line-height: 1.2 !important;
+        min-height: 2.4em !important; 
+        margin-bottom: 3px !important;
+        -webkit-line-clamp: 2 !important;
+    }
+    
+    .fit-v3-price {
+        font-size: 0.7rem !important;
+        margin-bottom: 5px !important;
+    }
+    
+    .fit-v3-actions .button {
+        padding: 4px 2px !important;
+        font-size: 0.6rem !important;
+        margin-bottom: 3px !important;
+        border-radius: 4px !important;
+    }
+
+    .fit-v3-actions .fit-add-to-compare {
+        padding: 4px 2px !important;
+        font-size: 0.55rem !important;
+        border-radius: 4px !important;
+    }
+
+    /* 4. Remove Hover requirement for mobile */
+    .fit-v3-hover-action {
+        position: static !important;
+        opacity: 1 !important;
+        background: transparent !important;
+        padding: 0 !important;
+    }
+}
+
+/* 5. Override the 480px 1-column rule */
+@media (max-width: 480px) {
+    body.woocommerce-shop ul.products,
+    body.post-type-archive-product ul.products,
+    .fit-v3-main ul.products,
+    .fit-shop-main ul.products {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important; /* ছোট ফোনেও ৩ কলাম থাকবে */
+    }
+}
+
+/* =========================================================
+   PHASE 02: FIX MOBILE ADD TO CART BUTTON SIZE
+   ========================================================= */
+
+@media (max-width: 768px) {
+    /* শপ পেজের ৩ কলামের জন্য বাটনের সাইজ ছোট করা */
+    body.woocommerce-shop .fit-v3-actions .button,
+    body.post-type-archive-product .fit-v3-actions .button,
+    body.woocommerce-shop .fit-v3-actions .add_to_cart_button,
+    body.post-type-archive-product .fit-v3-actions .add_to_cart_button {
+        padding: 5px 2px !important; /* গ্লোবাল ১৪px এর বদলে ৫px */
+        font-size: 0.65rem !important; /* ফন্ট সাইজ ছোট */
+        line-height: 1.2 !important;
+        min-height: auto !important;
+        height: auto !important;
+        margin-top: 4px !important;
+        margin-bottom: 4px !important;
+        border-radius: 4px !important;
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Compare বাটনটিও যাতে সামঞ্জস্যপূর্ণ থাকে */
+    body.woocommerce-shop .fit-v3-actions .fit-add-to-compare,
+    body.post-type-archive-product .fit-v3-actions .fit-add-to-compare {
+        padding: 5px 2px !important;
+        font-size: 0.6rem !important;
+        margin-bottom: 0 !important;
+    }
+}
+
+/* =========================================================
+   PHASE 02: ULTIMATE MOBILE BUTTON FIX (SHOP PAGE)
+   ========================================================= */
+@media (max-width: 768px) {
+    
+    /* 1. ইমেজ কন্টেইনার রিসেট (যাতে বাটন বিশাল না হয়) */
+    body.woocommerce-shop .fit-v3-image,
+    body.post-type-archive-product .fit-v3-image {
+        display: flex !important;
+        flex-direction: column !important;
+        aspect-ratio: auto !important;
+        padding: 10px 5px !important;
+        min-height: 140px !important;
+    }
+
+    /* 2. ইমেজের সাইজ ফিক্স */
+    body.woocommerce-shop .fit-v3-image > a,
+    body.post-type-archive-product .fit-v3-image > a {
+        height: 90px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
+    body.woocommerce-shop .fit-v3-image img,
+    body.post-type-archive-product .fit-v3-image img {
+        max-height: 100% !important;
+        object-fit: contain !important;
+    }
+
+    /* 3. Hover Action (যেখানে বাটনটি আছে) কে নিচে নামানো */
+    body.woocommerce-shop .fit-v3-hover-action,
+    body.post-type-archive-product .fit-v3-hover-action {
+        position: static !important;
+        opacity: 1 !important;
+        background: transparent !important;
+        padding: 5px 0 0 0 !important;
+        width: 100% !important;
+        margin-top: auto !important;
+    }
+
+    /* 4. বাটনকে ছোট এবং সুন্দর করা (গ্লোবাল CSS ওভাররাইড) */
+    body.woocommerce-shop .fit-v3-hover-action .button,
+    body.post-type-archive-product .fit-v3-hover-action .button {
+        padding: 6px 2px !important;
+        font-size: 0.6rem !important;
+        line-height: 1.2 !important;
+        min-height: 28px !important;
+        height: 28px !important;
+        width: 100% !important;
+        white-space: nowrap !important; /* লেখা ভাঙবে না */
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        border-radius: 4px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 0 !important;
+    }
+
+    /* 5. Kadence-এর বাড়তি আইকন থাকলে লুকানো */
+    body.woocommerce-shop .fit-v3-hover-action .button::before,
+    body.post-type-archive-product .fit-v3-hover-action .button::before {
+        display: none !important;
+    }
+}
+
+/* =========================================================
+   PHASE 03: PREMIUM GLASSMORPHISM SHOP CARDS (ZERO HTML CHANGE)
+   ========================================================= */
+
+/* 1. Premium Glass Card Base */
+.fit-v3-card {
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(12px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 32px rgba(16, 42, 53, 0.04) !important;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    margin: 0 !important;
+}
+
+.fit-v3-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 15px 40px rgba(16, 42, 53, 0.1) !important;
+    border-color: rgba(0, 168, 150, 0.4) !important;
+}
+
+/* 2. Image Section */
+.fit-v3-image {
+    position: relative !important;
+    background: transparent !important;
+    padding: 20px !important;
+    aspect-ratio: 1 / 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+}
+
+.fit-v3-image img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    transition: transform 0.5s ease !important;
+    mix-blend-mode: multiply !important; /* White background remove korbe */
+}
+
+.fit-v3-card:hover .fit-v3-image img {
+    transform: scale(1.08) !important;
+}
+
+/* 3. Sale Badge */
+.fit-v3-badge {
+    position: absolute !important;
+    top: 12px !important;
+    left: 12px !important;
+    background: #00A896 !important;
+    color: #FFF !important;
+    padding: 4px 10px !important;
+    border-radius: 20px !important;
+    font-size: 0.7rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    z-index: 2 !important;
+}
+
+/* 4. Hover Action (Add to Cart Button) */
+.fit-v3-hover-action {
+    position: absolute !important;
+    bottom: -60px !important;
+    left: 0 !important;
+    width: 100% !important;
+    padding: 15px !important;
+    background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 80%, transparent 100%) !important;
+    opacity: 0 !important;
+    transition: all 0.3s ease !important;
+    z-index: 3 !important;
+}
+
+.fit-v3-card:hover .fit-v3-hover-action {
+    bottom: 0 !important;
+    opacity: 1 !important;
+}
+
+.fit-v3-hover-action .button {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    background: #102A35 !important;
+    color: #FFF !important;
+    padding: 10px !important;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    transition: 0.2s !important;
+    border: none !important;
+    text-decoration: none !important;
+}
+
+.fit-v3-hover-action .button:hover {
+    background: #00A896 !important;
+}
+
+/* 5. Content Area */
+.fit-v3-content {
+    padding: 15px 20px 20px 20px !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
+}
+
+.fit-v3-title {
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    margin: 0 0 10px 0 !important;
+    min-height: 2.8em !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+.fit-v3-title a {
+    color: #102A35 !important;
+    text-decoration: none !important;
+}
+
+.fit-v3-title a:hover {
+    color: #00A896 !important;
+}
+
+.fit-v3-price {
+    font-size: 1.2rem !important;
+    font-weight: 800 !important;
+    color: #00A896 !important;
+    margin-top: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: baseline !important;
+    gap: 5px !important;
+    flex-wrap: wrap !important;
+}
+
+.fit-v3-price del {
+    color: #a0a0a0 !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    text-decoration: line-through !important;
+}
+
+.fit-v3-price ins {
+    text-decoration: none !important;
+}
+
+/* =========================================================
+   MOBILE OVERRIDES (Strictly maintaining the 3-Column Layout)
+   ========================================================= */
+@media (max-width: 768px) {
+    /* Force grid to not break */
+    body.woocommerce-shop ul.products,
+    body.post-type-archive-product ul.products,
+    .fit-v3-main ul.products,
+    .fit-shop-main ul.products {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 6px !important;
+        width: 100% !important;
+    }
+
+    /* Make card solid white on mobile for better readability & performance */
+    .fit-v3-card {
+        background: #FFFFFF !important;
+        border-radius: 8px !important;
+        border: 1px solid #EAEAEA !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.02) !important;
+    }
+
+    .fit-v3-image {
+        padding: 5px !important;
+        display: flex !important;
+        flex-direction: column !important; /* Stack image and button */
+        aspect-ratio: auto !important;
+        min-height: 120px !important;
+    }
+
+    /* Show Add to cart button statically under image */
+    .fit-v3-hover-action {
+        position: static !important;
+        opacity: 1 !important;
+        background: transparent !important;
+        padding: 5px 0 0 0 !important;
+        width: 100% !important;
+        margin-top: auto !important;
+    }
+
+    .fit-v3-hover-action .button {
+        padding: 4px 2px !important;
+        font-size: 0.6rem !important;
+        border-radius: 4px !important;
+        min-height: 24px !important;
+        height: 24px !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    .fit-v3-content {
+        padding: 6px !important;
+    }
+
+    .fit-v3-title {
+        font-size: 0.7rem !important;
+        min-height: 2.4em !important;
+        margin-bottom: 4px !important;
+    }
+
+    .fit-v3-price {
+        font-size: 0.8rem !important;
+        gap: 2px !important;
+    }
+
+    .fit-v3-price del {
+        font-size: 0.65rem !important;
+    }
+
+    .fit-v3-badge {
+        font-size: 0.5rem !important;
+        padding: 2px 5px !important;
+        top: 5px !important;
+        left: 5px !important;
+    }
+}
+
+/* =========================================================
+   PHASE 04: PREMIUM SINGLE PRODUCT PAGE (GLASS & ELEGANT)
+   ========================================================= */
+
+/* 1. Main Layout Container */
+.fit-v3-single-wrapper {
+    max-width: 1200px !important;
+    margin: 40px auto !important;
+    padding: 0 20px !important;
+}
+
+/* Target standard WooCommerce Single Product wrapper */
+.fit-v3-single-wrapper .product {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 50px !important;
+    background: #FFFFFF !important;
+    border-radius: 24px !important;
+    padding: 40px !important;
+    box-shadow: 0 10px 40px rgba(16, 42, 53, 0.04) !important;
+    border: 1px solid #F1F5F9 !important;
+    margin-bottom: 40px !important;
+}
+
+/* 2. Product Gallery */
+.fit-v3-single-wrapper .woocommerce-product-gallery {
+    flex: 1 1 45% !important;
+    max-width: 45% !important;
+    float: none !important;
+    margin: 0 !important;
+}
+
+.fit-v3-single-wrapper .woocommerce-product-gallery__image img {
+    border-radius: 16px !important;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06) !important;
+}
+
+.fit-v3-single-wrapper .flex-control-thumbs {
+    display: flex !important;
+    gap: 12px !important;
+    margin-top: 20px !important;
+}
+
+.fit-v3-single-wrapper .flex-control-thumbs li {
+    width: 20% !important;
+    margin: 0 !important;
+}
+
+.fit-v3-single-wrapper .flex-control-thumbs img {
+    border-radius: 10px !important;
+    border: 2px solid transparent !important;
+    transition: all 0.3s ease !important;
+    opacity: 0.6 !important;
+}
+
+.fit-v3-single-wrapper .flex-control-thumbs img:hover,
+.fit-v3-single-wrapper .flex-control-thumbs img.flex-active {
+    border-color: #00A896 !important;
+    opacity: 1 !important;
+}
+
+/* 3. Product Summary (Info Section) */
+.fit-v3-single-wrapper .summary.entry-summary {
+    flex: 1 1 50% !important;
+    max-width: 50% !important;
+    float: none !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+.fit-v3-single-wrapper .product_title {
+    font-size: 2.4rem !important;
+    font-weight: 800 !important;
+    color: #102A35 !important;
+    line-height: 1.2 !important;
+    margin-bottom: 15px !important;
+    letter-spacing: -0.5px !important;
+}
+
+/* Price Hierarchy */
+.fit-v3-single-wrapper .summary .price {
+    font-size: 2rem !important;
+    color: #00A896 !important;
+    font-weight: 800 !important;
+    margin-bottom: 20px !important;
+    display: flex !important;
+    align-items: baseline !important;
+    gap: 12px !important;
+}
+
+.fit-v3-single-wrapper .summary .price del {
+    color: #a0a0a0 !important;
+    font-size: 1.2rem !important;
+    font-weight: 500 !important;
+    text-decoration: line-through !important;
+}
+
+.fit-v3-single-wrapper .summary .price ins {
+    text-decoration: none !important;
+}
+
+/* Short Description */
+.fit-v3-single-wrapper .woocommerce-product-details__short-description {
+    color: #4B5563 !important;
+    font-size: 1.05rem !important;
+    line-height: 1.7 !important;
+    margin-bottom: 30px !important;
+    padding-bottom: 30px !important;
+    border-bottom: 1px solid #F1F5F9 !important;
+}
+
+/* 4. Cart Form (Quantity, Add to Cart, Buy Now, Compare) */
+.fit-v3-single-wrapper form.cart {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    align-items: center !important;
+    margin-bottom: 30px !important;
+}
+
+/* Buttons */
+.fit-v3-single-wrapper form.cart .button,
+.fit-v3-single-wrapper form.cart .fit-buy-now-btn,
+.fit-v3-single-wrapper form.cart .fit-add-to-compare {
+    height: 50px !important;
+    border-radius: 10px !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 25px !important;
+    transition: all 0.3s ease !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Add to Cart Button */
+.fit-v3-single-wrapper form.cart .button {
+    background: #102A35 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    flex-grow: 1 !important;
+}
+.fit-v3-single-wrapper form.cart .button:hover {
+    background: #00A896 !important;
+}
+
+/* Buy Now Button */
+.fit-v3-single-wrapper form.cart .fit-buy-now-btn {
+    background: #00A896 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    flex-grow: 1 !important;
+}
+.fit-v3-single-wrapper form.cart .fit-buy-now-btn:hover {
+    background: #007A6D !important;
+}
+
+/* Compare Button */
+.fit-v3-single-wrapper form.cart .fit-add-to-compare {
+    background: #F8FAFB !important;
+    color: #102A35 !important;
+    border: 1px solid #E7ECEF !important;
+}
+.fit-v3-single-wrapper form.cart .fit-add-to-compare:hover {
+    background: #FFFFFF !important;
+    border-color: #00A896 !important;
+    color: #00A896 !important;
+}
+
+/* 5. Trust Badges (Genuine, Warranty, Delivery) */
+.fit-v3-trust {
+    display: flex !important;
+    gap: 20px !important;
+    padding: 20px !important;
+    background: #F8FAFB !important;
+    border-radius: 12px !important;
+    border: 1px solid #F1F5F9 !important;
+    flex-wrap: wrap !important;
+}
+
+.fit-v3-trust-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-size: 0.9rem !important;
+    color: #102A35 !important;
+    font-weight: 600 !important;
+}
+
+.fit-v3-trust-item span {
+    font-size: 1.4rem !important;
+}
+
+/* 6. Tabs Section */
+.fit-v3-tabs-box {
+    background: #FFFFFF !important;
+    border-radius: 20px !important;
+    padding: 40px !important;
+    box-shadow: 0 10px 40px rgba(16, 42, 53, 0.04) !important;
+    border: 1px solid #F1F5F9 !important;
+}
+
+.fit-v3-tabs-box .woocommerce-tabs ul.tabs {
+    padding: 0 !important;
+    margin: 0 0 30px 0 !important;
+    border-bottom: 2px solid #F1F5F9 !important;
+    display: flex !important;
+    gap: 30px !important;
+}
+
+.fit-v3-tabs-box .woocommerce-tabs ul.tabs::before {
+    display: none !important;
+}
+
+.fit-v3-tabs-box .woocommerce-tabs ul.tabs li {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.fit-v3-tabs-box .woocommerce-tabs ul.tabs li a {
+    padding: 15px 0 !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: #6C757D !important;
+    border-bottom: 3px solid transparent !important;
+    transition: all 0.3s ease !important;
+}
+
+.fit-v3-tabs-box .woocommerce-tabs ul.tabs li.active a {
+    color: #00A896 !important;
+    border-bottom-color: #00A896 !important;
+}
+
+.fit-v3-tabs-box .woocommerce-tabs .panel {
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1.8 !important;
+    color: #4B5563 !important;
+    font-size: 1rem !important;
+}
+
+/* =========================================
+   Mobile Responsiveness
+   ========================================= */
+@media (max-width: 768px) {
+    .fit-v3-single-wrapper .product {
+        flex-direction: column !important;
+        padding: 20px !important;
+        gap: 30px !important;
+        border-radius: 16px !important;
+    }
+    
+    .fit-v3-single-wrapper .woocommerce-product-gallery,
+    .fit-v3-single-wrapper .summary.entry-summary {
+        flex: 1 1 100% !important;
+        max-width: 100% !important;
+    }
+
+    .fit-v3-single-wrapper .product_title {
+        font-size: 1.8rem !important;
+    }
+
+    .fit-v3-single-wrapper .summary .price {
+        font-size: 1.5rem !important;
+    }
+
+    .fit-v3-single-wrapper form.cart {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    .fit-v3-single-wrapper form.cart .button,
+    .fit-v3-single-wrapper form.cart .fit-buy-now-btn,
+    .fit-v3-single-wrapper form.cart .fit-add-to-compare {
+        width: 100% !important;
+        height: 45px !important;
+    }
+
+    .fit-v3-trust {
+        flex-direction: column !important;
+        gap: 12px !important;
+        padding: 15px !important;
+    }
+
+    .fit-v3-tabs-box {
+        padding: 20px !important;
+        border-radius: 16px !important;
+    }
+
+    .fit-v3-tabs-box .woocommerce-tabs ul.tabs {
+        gap: 15px !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        padding-bottom: 5px !important;
+    }
+
+    .fit-v3-tabs-box .woocommerce-tabs ul.tabs li a {
+        font-size: 0.95rem !important;
+    }
+}
+
