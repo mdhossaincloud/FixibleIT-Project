@@ -33,7 +33,7 @@ jQuery(document).ready(function($) {
         compareList.push(productId);
         localStorage.setItem('fit_compare', JSON.stringify(compareList));
         
-        btn.text('? Added').css({'background': '#00A896', 'color': '#fff', 'border-color': '#00A896'});
+        btn.text('✓ Added').css({'background': '#00A896', 'color': '#fff', 'border-color': '#00A896'});
         updateCompareUI();
     });
 
@@ -114,22 +114,45 @@ jQuery(document).ready(function($) {
         $input.val(val + 1).trigger('change');
     });
 
-});
-// ==========================================
-// FORCE CART BADGE UPDATE (WooCommerce AJAX)
-// ==========================================
-jQuery(document).ready(function($) {
-    // Listen to WooCommerce AJAX events
-    $(document.body).on('added_to_cart wc_fragments_refreshed wc_fragments_loaded', function() {
-        // Find the count from the refreshed fragments or the hidden input
-        var cartCount = $('.woocommerce-cart-count').text() || $('.header-cart-total').text();
-        
-        // If WooCommerce doesn't output it natively, we parse it from the fragment
-        // Fallback: just let the theme handle it, but ensure our element is not empty
-        if (!cartCount || cartCount === '') {
-             // Sometimes the count is stored in a data attribute or hidden element
-             var total = $('.kadence-header-cart .cart-total').text();
-             if (total) { $('.header-cart-total').text(total); }
+    // ==========================================
+    // 4. SMART TRACKING LOGIC (WO & REF)
+    // ==========================================
+    $('#fit-track-form').on('submit', function(e) {
+        e.preventDefault();
+        let btn = $(this).find('button');
+        let ref = $('#track_ref').val().trim();
+        let action = 'fit_track_request';
+        let cleanRef = ref.replace('#', '');
+
+        // If input is purely numeric, treat as WooCommerce Order ID
+        if (/^\d+$/.test(cleanRef)) {
+            action = 'fit_track_wc_order';
         }
+
+        btn.text('Searching...').prop('disabled', true);
+        $('#fit-track-result').html('<p style="text-align:center;">Loading...</p>');
+
+        $.ajax({
+            url: fit_ajax.url, type: 'POST', dataType: 'json',
+            data: { action: action, _ajax_nonce: fit_ajax.nonce, ref_no: ref, order_id: cleanRef }
+        }).done(function(res) {
+            if(res.success) {
+                let html = `<div class="fit-track-result-box">
+                    <h3>${res.data.type} Found</h3>
+                    <p><strong>Reference:</strong> ${ref}</p>
+                    <p><strong>Customer:</strong> ${res.data.name}</p>
+                    <p><strong>Date:</strong> ${res.data.date}</p>
+                    <p><strong>Status:</strong> <span class="fit-track-status">${res.data.status}</span></p>
+                </div>`;
+                $('#fit-track-result').html(html);
+            } else {
+                $('#fit-track-result').html('<p style="color:#e63946; text-align:center; font-weight:600; padding: 20px; background: #FEE2E2; border-radius: 8px;">' + res.data.message + '</p>');
+            }
+            btn.text('Track Now').prop('disabled', false);
+        }).fail(function() {
+            $('#fit-track-result').html('<p style="color:#e63946; text-align:center;">Server Error.</p>');
+            btn.text('Track Now').prop('disabled', false);
+        });
     });
+
 });

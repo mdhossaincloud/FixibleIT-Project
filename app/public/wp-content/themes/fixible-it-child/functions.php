@@ -466,3 +466,72 @@ function fit_force_division_ajax_update( $fields ) {
     }
     return $fields;
 }
+
+// =========================================
+// CUSTOMER PORTAL: CUSTOM MENU LINKS
+// =========================================
+add_filter( 'woocommerce_account_menu_items', 'fit_add_portal_menu_links' );
+function fit_add_portal_menu_links( $items ) {
+    $new_items = array();
+    foreach ( $items as $key => $value ) {
+        $new_items[ $key ] = $value;
+        // Insert after Orders
+        if ( 'orders' === $key ) {
+            $new_items['track_order'] = 'Track Order';
+            $new_items['support_center'] = 'Support Center';
+        }
+    }
+    return $new_items;
+}
+
+add_action( 'template_redirect', 'fit_redirect_portal_links' );
+function fit_redirect_portal_links() {
+    if ( is_account_page() ) {
+        global $wp;
+        if ( isset( $wp->query_vars['track_order'] ) ) {
+            wp_safe_redirect( home_url( '/track-order/' ) );
+            exit;
+        }
+        if ( isset( $wp->query_vars['support_center'] ) ) {
+            wp_safe_redirect( home_url( '/support/' ) );
+            exit;
+        }
+    }
+}
+
+// Safe URL filter for custom menu items (No 404 errors)
+add_filter( 'woocommerce_get_endpoint_url', 'fit_custom_portal_links', 10, 4 );
+function fit_custom_portal_links( $url, $endpoint, $value, $permalink ) {
+    if ( 'track_order' === $endpoint ) {
+        return home_url( '/track-order/' );
+    }
+    if ( 'support_center' === $endpoint ) {
+        return home_url( '/support/' );
+    }
+    return $url;
+}
+
+// =========================================
+// SMART TRACKING: WOOCOMMERCE ORDER ID
+// =========================================
+add_action( 'wp_ajax_nopriv_fit_track_wc_order', 'fit_track_wc_order_callback' );
+add_action( 'wp_ajax_fit_track_wc_order', 'fit_track_wc_order_callback' );
+function fit_track_wc_order_callback() {
+    check_ajax_referer( 'fit_ajax_nonce', '_ajax_nonce' );
+    $order_id = isset($_POST['order_id']) ? absint($_POST['order_id']) : 0;
+    
+    if ( ! $order_id ) {
+        wp_send_json_error( array( 'message' => 'Invalid Order ID.' ) );
+    }
+    $order = wc_get_order( $order_id );
+    if ( ! $order ) {
+        wp_send_json_error( array( 'message' => 'Order not found. Please check your Order ID.' ) );
+    }
+    
+    wp_send_json_success( array(
+        'type' => 'WooCommerce Order',
+        'name' => $order->get_billing_first_name() . ' ' . $order->get_billing_last_name(),
+        'date' => wc_format_datetime( $order->get_date_created() ),
+        'status' => wc_get_order_status_name( $order->get_status() ),
+    ) );
+}
