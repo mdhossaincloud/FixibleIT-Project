@@ -4,35 +4,39 @@ get_header(); ?>
 
 <style>
 /* =========================================================
-   PREMIUM PC BUILDER V2 (Compact Dropdown UI)
+   FIXIBLE IT — V6 ADVANCED WORLD-CLASS PC BUILDER
    ========================================================= */
 body.page-template-page-pc-builder {
     background-color: #F8F9FA !important;
 }
 
 .fit-pcb-wrapper {
-    max-width: 1280px !important;
-    margin: 40px auto !important;
+    max-width: 1320px !important;
+    margin: 50px auto !important;
     padding: 0 20px !important;
     width: 100% !important;
     box-sizing: border-box !important;
+    font-family: 'Inter', sans-serif !important;
 }
 
+/* Header */
 .fit-pcb-header {
     text-align: center !important;
-    margin-bottom: 40px !important;
+    margin-bottom: 50px !important;
 }
 .fit-pcb-header h1 {
-    font-size: 2.4rem !important;
+    font-size: 2.8rem !important;
     font-weight: 800 !important;
     color: #102A35 !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 15px !important;
+    letter-spacing: -0.5px !important;
 }
 .fit-pcb-header p {
-    font-size: 1.1rem !important;
-    color: #6C757D !important;
-    max-width: 600px !important;
+    font-size: 1.15rem !important;
+    color: #64748B !important;
+    max-width: 650px !important;
     margin: 0 auto !important;
+    line-height: 1.6 !important;
 }
 
 /* Flex Layout */
@@ -40,7 +44,7 @@ body.page-template-page-pc-builder {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
-    gap: 30px !important;
+    gap: 40px !important;
     align-items: flex-start !important;
     width: 100% !important;
 }
@@ -54,15 +58,17 @@ body.page-template-page-pc-builder {
 /* Step Card */
 .fit-pcb-step-card {
     background: #FFFFFF !important;
-    border: 1px solid #EAEAEA !important;
-    border-radius: 12px !important;
-    margin-bottom: 20px !important;
-    box-shadow: 0 2px 10px rgba(16,42,53,0.03) !important;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 16px !important;
+    margin-bottom: 25px !important;
+    box-shadow: 0 4px 20px rgba(16,42,53,0.03) !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    overflow: hidden !important;
 }
 .fit-pcb-step-card:hover {
-    border-color: #00A896 !important;
-    box-shadow: 0 4px 15px rgba(0,168,150,0.08) !important;
+    border-color: rgba(0, 168, 150, 0.4) !important;
+    box-shadow: 0 10px 30px rgba(16,42,53,0.06) !important;
+    transform: translateY(-2px) !important;
 }
 
 /* Step Header */
@@ -70,104 +76,116 @@ body.page-template-page-pc-builder {
     display: flex !important;
     align-items: center !important;
     gap: 15px !important;
-    padding: 18px 20px !important;
-    border-bottom: 1px solid #F3F4F6 !important;
-    background: #FAFAFA !important;
-    border-radius: 12px 12px 0 0 !important;
+    padding: 20px 25px !important;
+    border-bottom: 1px solid #F1F5F9 !important;
+    background: #FFFFFF !important;
 }
 .fit-pcb-step-num {
-    background: #102A35 !important;
-    color: #FFF !important;
-    width: 28px !important;
-    height: 28px !important;
+    background: rgba(0, 168, 150, 0.1) !important;
+    color: #00A896 !important;
+    width: 32px !important;
+    height: 32px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     border-radius: 50% !important;
-    font-size: 0.85rem !important;
-    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    font-weight: 800 !important;
     flex-shrink: 0 !important;
+    transition: all 0.3s ease !important;
+}
+.fit-pcb-step-card:hover .fit-pcb-step-num {
+    background: #00A896 !important;
+    color: #FFFFFF !important;
 }
 .fit-pcb-step-header img {
-    width: 24px !important;
-    height: 24px !important;
+    width: 28px !important;
+    height: 28px !important;
     object-fit: contain !important;
     opacity: 0.8 !important;
 }
 .fit-pcb-step-header h3 {
     margin: 0 !important;
-    font-size: 1.1rem !important;
+    font-size: 1.15rem !important;
     font-weight: 700 !important;
     color: #102A35 !important;
+    letter-spacing: -0.3px !important;
 }
 
 /* Step Body */
 .fit-pcb-step-body {
-    padding: 20px !important;
+    padding: 25px !important;
+    background: #F8FAFC !important; /* Subtle contrast */
 }
 
 /* Select Row */
 .fit-pcb-select-row {
     display: flex !important;
-    gap: 12px !important;
-    margin-bottom: 12px !important;
+    gap: 15px !important;
+    margin-bottom: 15px !important;
     align-items: center !important;
 }
 
 /* Premium Dropdown */
 .fit-pc-select {
     width: 100% !important;
-    height: 50px !important;
-    padding: 0 16px !important;
-    border: 1px solid #D1D5DB !important;
-    border-radius: 8px !important;
+    height: 54px !important;
+    padding: 0 20px !important;
+    border: 1px solid #CBD5E1 !important;
+    border-radius: 10px !important;
     background-color: #FFFFFF !important;
     color: #102A35 !important;
     font-size: 0.95rem !important;
+    font-weight: 500 !important;
     font-family: inherit !important;
     appearance: none !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236C757D'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E") !important;
+    -webkit-appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2300A896'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E") !important;
     background-repeat: no-repeat !important;
-    background-position: right 16px center !important;
-    background-size: 18px !important;
+    background-position: right 18px center !important;
+    background-size: 20px !important;
     cursor: pointer !important;
-    transition: border-color 0.2s, box-shadow 0.2s !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02) !important;
 }
 .fit-pc-select:focus {
     outline: none !important;
     border-color: #00A896 !important;
-    box-shadow: 0 0 0 3px rgba(0,168,150,0.15) !important;
+    box-shadow: 0 0 0 4px rgba(0,168,150,0.15) !important;
 }
 .fit-pc-select:disabled {
-    background-color: #F3F4F6 !important;
-    color: #9CA3AF !important;
+    background-color: #F1F5F9 !important;
+    color: #94A3B8 !important;
     cursor: not-allowed !important;
 }
 
 /* Buttons */
 .fit-pcb-add-btn, .fit-pcb-remove-btn {
     background: #FFFFFF !important;
-    border: 1px solid #D1D5DB !important;
+    border: 1px solid #CBD5E1 !important;
     color: #102A35 !important;
-    padding: 0 16px !important;
-    height: 50px !important;
-    border-radius: 8px !important;
+    padding: 0 20px !important;
+    height: 54px !important;
+    border-radius: 10px !important;
     font-weight: 600 !important;
     font-size: 0.9rem !important;
     cursor: pointer !important;
-    transition: all 0.2s !important;
+    transition: all 0.2s ease !important;
     white-space: nowrap !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 .fit-pcb-add-btn {
     width: 100% !important;
     margin-top: 10px !important;
-    background: #F8F9FA !important;
+    background: #FFFFFF !important;
     border-style: dashed !important;
+    color: #00A896 !important;
 }
 .fit-pcb-add-btn:hover {
-    background: #E6F7F5 !important;
+    background: rgba(0, 168, 150, 0.05) !important;
     border-color: #00A896 !important;
-    color: #00A896 !important;
 }
 .fit-pcb-remove-btn:hover {
     background: #FEE2E2 !important;
@@ -177,139 +195,221 @@ body.page-template-page-pc-builder {
 
 /* Compatibility Message */
 .fit-pc-compat-msg {
-    margin-top: 10px !important;
-    padding: 10px 15px !important;
-    border-radius: 6px !important;
-    font-size: 0.85rem !important;
+    margin-top: 12px !important;
+    padding: 12px 18px !important;
+    border-radius: 8px !important;
+    font-size: 0.9rem !important;
     font-weight: 600 !important;
     display: none;
 }
 .fit-pc-compat-error {
-    background: #FEE2E2 !important; color: #991B1B !important; display: block !important;
+    background: #FEE2E2 !important; 
+    color: #991B1B !important; 
+    border: 1px solid #FCA5A5 !important;
+    display: block !important;
 }
 
-/* Right Column: Summary */
+/* Right Column: Premium Summary (Glass Navy) */
 .fit-pcb-summary {
-    flex: 0 0 380px !important;
-    width: 380px !important;
+    flex: 0 0 400px !important;
+    width: 400px !important;
     position: sticky !important;
-    top: 30px !important;
+    top: 120px !important;
+    
+    /* Deep Navy Glass */
     background: #102A35 !important;
-    border-radius: 16px !important;
-    box-shadow: 0 10px 30px rgba(16,42,53,0.15) !important;
-    padding: 30px !important;
+    background-image: linear-gradient(145deg, #102A35 0%, #163b4a 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 50px rgba(16,42,53,0.25) !important;
+    padding: 35px !important;
     box-sizing: border-box !important;
     color: #ffffff !important;
 }
 .fit-pcb-summary h3 {
-    font-size: 1.3rem !important;
+    font-size: 1.4rem !important;
     color: #ffffff !important;
-    margin: 0 0 20px 0 !important;
-    padding-bottom: 15px !important;
+    margin: 0 0 25px 0 !important;
+    padding-bottom: 20px !important;
     border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.5px !important;
 }
 
 .fit-pcb-summary-list {
-    max-height: 400px !important;
+    max-height: 380px !important;
     overflow-y: auto !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 25px !important;
     padding-right: 10px !important;
 }
 .fit-pcb-summary-list::-webkit-scrollbar { width: 6px; }
-.fit-pcb-summary-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+.fit-pcb-summary-list::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 10px; }
+.fit-pcb-summary-list::-webkit-scrollbar-thumb { background: rgba(0, 168, 150, 0.5); border-radius: 10px; }
+.fit-pcb-summary-list::-webkit-scrollbar-thumb:hover { background: rgba(0, 168, 150, 0.8); }
 
 .fit-pcb-summary-item {
     display: flex !important;
     justify-content: space-between !important;
-    font-size: 0.9rem !important;
-    padding: 10px 0 !important;
+    font-size: 0.95rem !important;
+    padding: 12px 0 !important;
     border-bottom: 1px dashed rgba(255,255,255,0.1) !important;
-    color: #D1D5DB !important;
+    color: #94A3B8 !important;
+    line-height: 1.4 !important;
+}
+.fit-pcb-summary-item span:first-child {
+    max-width: 65%;
 }
 .fit-pcb-summary-item span:last-child {
-    font-weight: 600 !important;
+    font-weight: 700 !important;
     color: #ffffff !important;
+    white-space: nowrap !important;
 }
 
 .fit-pcb-total-row {
     display: flex !important;
     justify-content: space-between !important;
-    font-size: 1.4rem !important;
+    align-items: center !important;
+    font-size: 1.8rem !important;
     font-weight: 800 !important;
     color: #00A896 !important;
-    padding: 20px 0 !important;
+    padding: 25px 0 !important;
     border-top: 2px solid rgba(255,255,255,0.1) !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 25px !important;
 }
 
 .fit-pcb-save-btn {
     width: 100% !important;
     background: #00A896 !important;
     color: #FFF !important;
-    padding: 18px !important;
+    padding: 20px !important;
     font-size: 1.1rem !important;
-    font-weight: 700 !important;
+    font-weight: 800 !important;
     border: none !important;
-    border-radius: 8px !important;
+    border-radius: 12px !important;
     cursor: pointer !important;
-    transition: background 0.2s !important;
+    transition: all 0.3s ease !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
+    box-shadow: 0 8px 25px rgba(0, 168, 150, 0.3) !important;
 }
 .fit-pcb-save-btn:hover {
     background: #007A6D !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 30px rgba(0, 168, 150, 0.4) !important;
 }
 
-/* Modal */
+/* Premium Modal */
 .fit-pcb-modal {
     display: none;
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(16,42,53,0.8);
+    background: rgba(16, 42, 53, 0.85);
     z-index: 9999;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 20px;
+    box-sizing: border-box;
 }
 .fit-pcb-modal.active { display: flex; }
+
+/* Premium Modal Content */
 .fit-pcb-modal-content {
-    background: #FFF;
+    background: #FFFFFF;
     width: 100%;
-    max-width: 500px;
-    padding: 30px;
-    border-radius: 16px;
+    max-width: 540px;
+    padding: 40px;
+    border-radius: 24px;
     position: relative;
     max-height: 90vh;
     overflow-y: auto;
+    box-shadow: 0 25px 50px -12px rgba(16, 42, 53, 0.25);
+    border: 1px solid #E2E8F0;
+    font-family: 'Inter', sans-serif;
 }
+.fit-pcb-modal-content::-webkit-scrollbar { width: 6px; }
+.fit-pcb-modal-content::-webkit-scrollbar-track { background: transparent; }
+.fit-pcb-modal-content::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
+
+/* Modal Input Fields */
+#fit-q-name, #fit-q-phone {
+    width: 100% !important;
+    height: 52px !important;
+    padding: 0 18px !important;
+    border: 1px solid #CBD5E1 !important;
+    border-radius: 10px !important;
+    background-color: #F8FAFC !important;
+    color: #102A35 !important;
+    font-size: 1rem !important;
+    transition: all 0.2s ease !important;
+    box-sizing: border-box !important;
+}
+#fit-q-name:focus, #fit-q-phone:focus {
+    outline: none !important;
+    background-color: #FFFFFF !important;
+    border-color: #00A896 !important;
+    box-shadow: 0 0 0 4px rgba(0, 168, 150, 0.15) !important;
+}
+
+/* Fix Browser Autofill Blue Background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #F8FAFC inset !important;
+    -webkit-text-fill-color: #102A35 !important;
+}
+
+/* Modal Scrollable Recap Box */
+#fit-modal-recap {
+    background: #F8FAFC !important;
+    border: 1px solid #E2E8F0 !important;
+    padding: 20px !important;
+    border-radius: 12px !important;
+    margin-bottom: 25px !important;
+    max-height: 180px !important;
+    overflow-y: auto !important;
+    font-size: 0.95rem !important;
+    color: #334155 !important;
+    line-height: 1.6 !important;
+}
+#fit-modal-recap::-webkit-scrollbar { width: 4px; }
+#fit-modal-recap::-webkit-scrollbar-track { background: transparent; }
+#fit-modal-recap::-webkit-scrollbar-thumb { background: #00A896; border-radius: 10px; }
 
 /* Responsive */
 @media (max-width: 992px) {
     .fit-pcb-layout {
         flex-direction: column !important;
         flex-wrap: wrap !important;
+        gap: 30px !important;
     }
     .fit-pcb-summary {
         flex: 1 1 100% !important;
         width: 100% !important;
         position: static !important;
+        padding: 25px !important;
     }
+    .fit-pcb-header h1 { font-size: 2.2rem !important; }
+    .fit-pcb-step-body { padding: 15px !important; }
+    .fit-pc-select { height: 48px !important; font-size: 0.9rem !important; }
 }
 </style>
 
 <div class="fit-pcb-wrapper">
-    
+
     <div class="fit-pcb-header">
         <h1>Advanced PC Builder</h1>
         <p>Select components to see live pricing and check compatibility instantly.</p>
     </div>
 
     <div class="fit-pcb-layout">
-        
+
         <!-- Left: Configuration Steps -->
         <div class="fit-pcb-steps">
-            
-            <?php 
+
+            <?php
             // Components array with Icons
             $components = [
                 'Processors (CPU)' => ['id' => 'cpu', 'max' => 1, 'icon' => 'icon-cpu.svg'],
@@ -318,15 +418,15 @@ body.page-template-page-pc-builder {
                 'Graphics Cards (GPU)' => ['id' => 'gpu', 'max' => 1, 'icon' => 'icon-gpu.svg'],
                 'Internal Storage (SSD / HDD)' => ['id' => 'storage', 'max' => 4, 'icon' => 'icon-hdd.svg'],
                 'Power Supplies (PSU)' => ['id' => 'psu', 'max' => 1, 'icon' => 'icon-psu.svg'],
-                'Casings' => ['id' => 'case', 'max' => 1, 'icon' => 'icon-casings.svg'],
-                'CPU Coolers, Fans & Thermal' => ['id' => 'cooler', 'max' => 1, 'icon' => 'icon-cooler.svg'],
-                'Monitors' => ['id' => 'monitor', 'max' => 3, 'icon' => 'icon-monitors.svg'],
-                'Keyboards, Mice & Combos' => ['id' => 'peripherals', 'max' => 3, 'icon' => 'icon-keyboards-mouse.svg'],
-                'UPS & Power Protection' => ['id' => 'ups', 'max' => 2, 'icon' => 'icon-ups.svg']
+                'Casings' => ['id' => 'case', 'max' => 4, 'icon' => 'icon-casings.svg'],
+                'CPU Coolers, Fans & Thermal' => ['id' => 'cooler', 'max' => 4, 'icon' => 'icon-cooler.svg'],
+                'Monitors' => ['id' => 'monitor', 'max' => 4, 'icon' => 'icon-monitors.svg'],
+                'Keyboards, Mice & Combos' => ['id' => 'peripherals', 'max' => 4, 'icon' => 'icon-keyboards-mouse.svg'],
+                'UPS & Power Protection' => ['id' => 'ups', 'max' => 4, 'icon' => 'icon-ups.svg']
             ];
 
             $step_num = 1;
-            foreach($components as $cat_name => $data) : 
+            foreach($components as $cat_name => $data) :
                 $is_multiple = $data['max'] > 1;
             ?>
                 <div class="fit-pcb-step-card" data-step="<?php echo $data['id']; ?>">
@@ -337,14 +437,14 @@ body.page-template-page-pc-builder {
                     </div>
                     <div class="fit-pcb-step-body">
                         <div class="fit-multi-select-group" data-max="<?php echo $data['max']; ?>" id="group-<?php echo $data['id']; ?>">
-                            
+
                             <div class="fit-pcb-select-row">
                                 <select class="fit-pc-select fit-<?php echo $data['id']; ?>-select" name="<?php echo $data['id']; ?>">
                                     <option value="0" data-name="" data-price="0">Select <?php echo $cat_name; ?></option>
                                     <?php
                                     $args = array(
-                                        'post_type' => 'product', 
-                                        'posts_per_page' => -1, 
+                                        'post_type' => 'product',
+                                        'posts_per_page' => -1,
                                         'tax_query' => array(array('taxonomy' => 'product_cat', 'field' => 'name', 'terms' => $cat_name))
                                     );
                                     $q = new WP_Query($args);
@@ -352,14 +452,14 @@ body.page-template-page-pc-builder {
                                         $socket = get_post_meta(get_the_ID(), '_fit_socket', true) ?: $product->get_attribute('socket');
                                         $ram = get_post_meta(get_the_ID(), '_fit_ram_type', true) ?: $product->get_attribute('memory type');
                                         $wattage = get_post_meta(get_the_ID(), '_fit_wattage', true) ?: $product->get_attribute('wattage');
-                                        $price = $product->get_price(); 
+                                        $price = $product->get_price();
                                         if(empty($price)) continue;
                                     ?>
-                                        <option value="<?php echo esc_attr(get_the_ID()); ?>" 
-                                                data-name="<?php echo esc_attr(get_the_title()); ?>" 
-                                                data-socket="<?php echo esc_attr($socket); ?>" 
-                                                data-ram="<?php echo esc_attr($ram); ?>" 
-                                                data-wattage="<?php echo esc_attr($wattage); ?>" 
+                                        <option value="<?php echo esc_attr(get_the_ID()); ?>"
+                                                data-name="<?php echo esc_attr(get_the_title()); ?>"
+                                                data-socket="<?php echo esc_attr($socket); ?>"
+                                                data-ram="<?php echo esc_attr($ram); ?>"
+                                                data-wattage="<?php echo esc_attr($wattage); ?>"
                                                 data-price="<?php echo esc_attr($price); ?>">
                                             <?php echo esc_html(get_the_title()); ?> (BDT <?php echo number_format($price); ?>)
                                         </option>
@@ -367,20 +467,20 @@ body.page-template-page-pc-builder {
                                 </select>
                                 <button type="button" class="fit-pcb-remove-btn" style="display:none;">−</button>
                             </div>
-                            
+
                             <?php if($is_multiple): ?>
                                 <button type="button" class="fit-pcb-add-btn fit-add-more-btn" data-target="<?php echo $data['id']; ?>">+ Add Another <?php echo explode('(', $cat_name)[0]; ?></button>
                             <?php endif; ?>
                         </div>
-                        
+
                         <?php if($data['id'] == 'mb' || $data['id'] == 'ram' || $data['id'] == 'psu'): ?>
                             <div class="fit-pc-compat-msg" id="msg-<?php echo $data['id']; ?>"></div>
                         <?php endif; ?>
                     </div>
                 </div>
-            <?php 
+            <?php
                 $step_num++;
-            endforeach; 
+            endforeach;
             ?>
 
         </div>
@@ -403,30 +503,34 @@ body.page-template-page-pc-builder {
 <!-- Modal (Hidden by default) -->
 <div id="fit-quote-modal" class="fit-pcb-modal">
     <div class="fit-pcb-modal-content">
-        <span class="fit-modal-close" style="position:absolute; right:20px; top:20px; cursor:pointer; font-size:1.5rem;">&times;</span>
-        <h2 style="font-size: 1.4rem; margin-bottom: 5px; color:#102A35;">Request Quotation</h2>
-        <p style="color: #6C757D; font-size: 0.9rem; margin-bottom: 20px;">Review your configuration and submit your details.</p>
-        
-        <div id="fit-modal-recap" style="background: #F8F9FA; padding: 15px; border-radius: 8px; margin-bottom: 20px; max-height: 150px; overflow-y: auto; font-size: 0.9rem; color: #4B5563;"></div>
+        <span class="fit-modal-close" style="position:absolute; right:25px; top:25px; cursor:pointer; font-size:1.8rem; color: #64748B; transition: 0.2s;">&times;</span>
+        <h2 style="font-size: 1.6rem; margin-bottom: 10px; color:#102A35; font-weight: 800;">Request Quotation</h2>
+        <p style="color: #64748B; font-size: 0.95rem; margin-bottom: 25px;">Review your configuration and submit your details. We will contact you shortly.</p>
 
-        <div style="margin-bottom:15px;">
-            <label style="display:block; margin-bottom:5px; font-weight:600; font-size:0.9rem; color: #102A35;">Your Name *</label>
-            <input type="text" id="fit-q-name" style="width:100%; height:44px; padding:0 15px; border:1px solid #ddd; border-radius:6px;" placeholder="e.g., Rahim Uddin" required>
-        </div>
+        <div id="fit-modal-recap" style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 20px; border-radius: 12px; margin-bottom: 25px; max-height: 180px; overflow-y: auto; font-size: 0.95rem; color: #334155; line-height: 1.6;"></div>
+
         <div style="margin-bottom:20px;">
-            <label style="display:block; margin-bottom:5px; font-weight:600; font-size:0.9rem; color: #102A35;">Mobile Number *</label>
-            <input type="tel" id="fit-q-phone" style="width:100%; height:44px; padding:0 15px; border:1px solid #ddd; border-radius:6px;" placeholder="017XXXXXXXX" required>
+            <label style="display:block; margin-bottom:8px; font-weight:600; font-size:0.9rem; color: #102A35;">Your Name *</label>
+            <input type="text" id="fit-q-name" style="width:100%; height:50px; padding:0 16px; border:1px solid #CBD5E1; border-radius:8px; font-size: 1rem; color: #102A35;" placeholder="e.g., Rahim Uddin" required>
         </div>
-        
-        <button class="fit-pcb-save-btn" id="fit-submit-quote-btn" style="width:100%; padding:14px;">Submit Request</button>
-        <p id="fit-quote-status" style="text-align:center; margin-top:15px; font-weight: 600; color:#00A896;"></p>
+        <div style="margin-bottom:30px;">
+            <label style="display:block; margin-bottom:8px; font-weight:600; font-size:0.9rem; color: #102A35;">Mobile Number *</label>
+            <input type="tel" id="fit-q-phone" style="width:100%; height:50px; padding:0 16px; border:1px solid #CBD5E1; border-radius:8px; font-size: 1rem; color: #102A35;" placeholder="017XXXXXXXX" required>
+        </div>
+
+        <div style="margin-bottom:30px;">
+            <label style="display:block; margin-bottom:8px; font-weight:600; font-size:0.9rem; color: #102A35;">Email Address</label>
+            <input type="email" id="fit-q-email" style="width:100%; height:50px; padding:0 16px; border:1px solid #CBD5E1; border-radius:8px; font-size: 1rem; color: #102A35;" placeholder="example@email.com">
+        </div>
+        <button class="fit-pcb-save-btn" id="fit-submit-quote-btn" style="width:100%; padding:16px; font-size: 1rem;">Submit Request</button>
+        <p id="fit-quote-status" style="text-align:center; margin-top:20px; font-weight: 700; color:#00A896; font-size: 1.05rem;"></p>
     </div>
 </div>
 
-<!-- JavaScript Logic (Preserved & Adapted for Dropdowns) -->
+<!-- JavaScript Logic (Preserved & Unchanged) -->
 <script>
 jQuery(document).ready(function($) {
-    
+
     // Function to calculate total and update summary
     function updateSummary() {
         let total = 0;
@@ -446,9 +550,9 @@ jQuery(document).ready(function($) {
                 if(val !== '0' && val !== '' && name) {
                     total += price;
                     selectedItems.push(val);
-                    
+
                     summaryHtml += `<div class="fit-pcb-summary-item"><span>${name}</span><span>BDT ${price.toLocaleString()}</span></div>`;
-                    modalRecap += `<div style="padding:5px 0; border-bottom:1px solid #eee;">${name}</div>`;
+                    modalRecap += `<div style="padding:8px 0; border-bottom:1px solid #E2E8F0;">${name}</div>`;
                 }
             });
 
@@ -493,7 +597,7 @@ jQuery(document).ready(function($) {
             }
         } else {
             mbMsg.hide();
-            $('.fit-mb-select').css('border-color', '#D1D5DB');
+            $('.fit-mb-select').css('border-color', '#CBD5E1');
         }
 
         // Motherboard -> RAM Check
@@ -511,7 +615,7 @@ jQuery(document).ready(function($) {
             }
         } else {
             ramMsg.hide();
-            $('.fit-ram-select').css('border-color', '#D1D5DB');
+            $('.fit-ram-select').css('border-color', '#CBD5E1');
         }
     }
 
@@ -531,25 +635,36 @@ jQuery(document).ready(function($) {
         let newRow = originalRow.clone();
         newRow.find('select').val('0');
         newRow.find('.fit-pcb-remove-btn').show();
-        
+
         $(this).before(newRow);
     });
 
-    // Remove Row Logic
+    // Remove Row Logic (Fixed: First row cannot be deleted)
     $(document).on('click', '.fit-pcb-remove-btn', function() {
-        $(this).closest('.fit-pcb-select-row').remove();
+        let row = $(this).closest('.fit-pcb-select-row');
+        let group = $(this).closest('.fit-multi-select-group');
+        let rowCount = group.find('.fit-pcb-select-row').length;
+
+        if (rowCount > 1) {
+            // যদি একাধিক রো থাকে, তবেই ডিলিট হবে
+            row.remove();
+        } else {
+            // যদি এটি প্রথম বা একমাত্র রো হয়, তবে ডিলিট হবে না, শুধু রিসেট হবে
+            row.find('select').val('0').trigger('change');
+            $(this).hide();
+        }
         updateSummary();
     });
-
+    
     // Modal Open
     $('.fit-save-build-btn').on('click', function() {
         let totalText = document.getElementById('fit-total-price').innerText;
-        let numericString = totalText.replace(/[^0-9.]/g, ''); 
+        let numericString = totalText.replace(/[^0-9.]/g, '');
         let total = parseFloat(numericString) || 0;
-        
-        if(total === 0) { 
-            alert('Please select at least one component before requesting a quote.'); 
-            return; 
+
+        if(total === 0) {
+            alert('Please select at least one component before requesting a quote.');
+            return;
         }
         $('#fit-quote-modal').addClass('active');
     });
@@ -563,6 +678,7 @@ jQuery(document).ready(function($) {
     $('#fit-submit-quote-btn').on('click', function() {
         let name = $('#fit-q-name').val();
         let phone = $('#fit-q-phone').val();
+        let email = $('#fit-q-email').val();
         if(!name || !phone) {
             alert('Please enter your name and phone number.');
             return;
@@ -579,6 +695,7 @@ jQuery(document).ready(function($) {
                 _ajax_nonce: fit_ajax.nonce,
                 name: name,
                 phone: phone,
+                email: email,
                 build: window.selectedBuild,
                 total: window.currentTotal
             },

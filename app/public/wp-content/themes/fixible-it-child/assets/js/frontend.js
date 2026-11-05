@@ -115,3 +115,21 @@ jQuery(document).ready(function($) {
     });
 
 });
+// ==========================================
+// FORCE CART BADGE UPDATE (WooCommerce AJAX)
+// ==========================================
+jQuery(document).ready(function($) {
+    // Listen to WooCommerce AJAX events
+    $(document.body).on('added_to_cart wc_fragments_refreshed wc_fragments_loaded', function() {
+        // Find the count from the refreshed fragments or the hidden input
+        var cartCount = $('.woocommerce-cart-count').text() || $('.header-cart-total').text();
+        
+        // If WooCommerce doesn't output it natively, we parse it from the fragment
+        // Fallback: just let the theme handle it, but ensure our element is not empty
+        if (!cartCount || cartCount === '') {
+             // Sometimes the count is stored in a data attribute or hidden element
+             var total = $('.kadence-header-cart .cart-total').text();
+             if (total) { $('.header-cart-total').text(total); }
+        }
+    });
+});
