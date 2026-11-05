@@ -169,3 +169,198 @@ function fit_professional_compare_dock() {
     </a>
     <?php
 }
+// =========================================
+// REMOVE COUNTRY FIELD FROM CHECKOUT
+// =========================================
+add_filter( 'woocommerce_checkout_fields', 'fit_remove_checkout_country_field' );
+function fit_remove_checkout_country_field( $fields ) {
+    // Remove Billing Country
+    unset( $fields['billing']['billing_country'] );
+    
+    // Remove Shipping Country
+    unset( $fields['shipping']['shipping_country'] );
+    
+    return $fields;
+}
+
+// =========================================
+// PREMIUM CHECKOUT: DIVISION DROPDOWN
+// =========================================
+add_filter( 'woocommerce_checkout_fields', 'fit_custom_bd_divisions_checkout_fields', 20 );
+function fit_custom_bd_divisions_checkout_fields( $fields ) {
+    // Define the 8 Divisions of Bangladesh
+    $divisions = array(
+        ''           => 'Select Division',
+        'Dhaka'      => 'Dhaka',
+        'Chattogram' => 'Chattogram',
+        'Rajshahi'   => 'Rajshahi',
+        'Khulna'     => 'Khulna',
+        'Barishal'   => 'Barishal',
+        'Sylhet'     => 'Sylhet',
+        'Rangpur'    => 'Rangpur',
+        'Mymensingh' => 'Mymensingh'
+    );
+
+    // 1. Billing Division Dropdown
+    if ( isset( $fields['billing']['billing_state'] ) ) {
+        $fields['billing']['billing_state']['type'] = 'select';
+        $fields['billing']['billing_state']['options'] = $divisions;
+        $fields['billing']['billing_state']['label'] = 'Division (Billing)';
+        $fields['billing']['billing_state']['required'] = true;
+        $fields['billing']['billing_state']['priority'] = 60; // Move it up slightly
+    }
+
+    // 2. Shipping Division Dropdown
+    if ( isset( $fields['shipping']['shipping_state'] ) ) {
+        $fields['shipping']['shipping_state']['type'] = 'select';
+        $fields['shipping']['shipping_state']['options'] = $divisions;
+        $fields['shipping']['shipping_state']['label'] = 'Division (Shipping)';
+        $fields['shipping']['shipping_state']['required'] = true;
+        $fields['shipping']['shipping_state']['priority'] = 60;
+    }
+
+    return $fields;
+}
+
+
+add_filter( 'woocommerce_package_rates', 'fit_custom_shipping_rates_v2', 99, 2 );
+function fit_custom_shipping_rates_v2( $rates, $package ) {
+    if ( is_admin() && ! defined( 'DOING_AJAX' ) ) { return $rates; }
+    
+    // Get selected Division
+    $division = WC()->customer->get_shipping_state();
+    if ( empty( $division ) ) {
+        $division = WC()->customer->get_billing_state();
+    }
+    
+    $division_clean = strtolower( trim( (string) $division ) );
+    $is_dhaka = ( $division_clean === 'dhaka' || $division_clean === 'bd-13' || strpos( $division_clean, 'dhaka' ) !== false );
+    
+    // Clear ALL existing default shipping rates (removes 'Flat Rate' completely)
+    $new_rates = array();
+    
+    // If a division is selected, apply our custom rate
+    if ( ! empty( $division ) ) {
+        $cost  = $is_dhaka ? 80 : 150;
+        $label = $is_dhaka ? 'Inside Dhaka (Home Delivery)' : 'Outside Dhaka (Courier)';
+        
+        $rate_id = 'fit_custom_rate';
+        $new_rates[$rate_id] = new WC_Shipping_Rate(
+            $rate_id,
+            $label,
+            $cost,
+            array(),
+            'fit_custom_method',
+            0
+        );
+    }
+    
+    return $new_rates;
+}
+
+
+// =========================================
+// PREMIUM SHIPPING LOGIC: DELIVERY CHARGE
+// =========================================
+add_filter( 'woocommerce_package_rates', 'fit_bulletproof_shipping_rates', 9999, 2 );
+function fit_bulletproof_shipping_rates( $rates, $package ) {
+    if ( is_admin() && ! defined( 'DOING_AJAX' ) ) { return $rates; }
+    
+    $division = WC()->customer->get_shipping_state();
+    if ( empty( $division ) ) {
+        $division = WC()->customer->get_billing_state();
+    }
+    
+    $division_clean = strtolower( trim( (string) $division ) );
+    $is_dhaka = ( $division_clean === 'dhaka' || $division_clean === 'bd-13' || strpos( $division_clean, 'dhaka' ) !== false );
+    
+    // Forcefully clear ALL default WooCommerce shipping rates
+    $new_rates = array();
+    
+    // If Division is selected, create our custom Delivery Charge
+    if ( ! empty( $division ) ) {
+        $cost  = $is_dhaka ? 80 : 150;
+        $label = $is_dhaka ? 'Delivery Charge (Inside Dhaka)' : 'Delivery Charge (Outside Dhaka)';
+        
+        $rate_id = 'fit_delivery_charge';
+        $new_rates[$rate_id] = new WC_Shipping_Rate(
+            $rate_id,
+            $label,
+            $cost,
+            array(),
+            'fit_custom_method',
+            0
+        );
+    }
+    
+    return $new_rates;
+}
+
+// =========================================
+// PREMIUM CHECKOUT LOGIC (V3 - BULLETPROOF)
+// =========================================
+
+// 1. Division Dropdown with AJAX update class
+add_filter( 'woocommerce_checkout_fields', 'fit_custom_bd_divisions_checkout_fields_v3', 20 );
+function fit_custom_bd_divisions_checkout_fields_v3( $fields ) {
+    $divisions = array(
+        ''           => 'Select Division',
+        'Dhaka'      => 'Dhaka',
+        'Chattogram' => 'Chattogram',
+        'Rajshahi'   => 'Rajshahi',
+        'Khulna'     => 'Khulna',
+        'Barishal'   => 'Barishal',
+        'Sylhet'     => 'Sylhet',
+        'Rangpur'    => 'Rangpur',
+        'Mymensingh' => 'Mymensingh'
+    );
+
+    if ( isset( $fields['billing']['billing_state'] ) ) {
+        $fields['billing']['billing_state']['type'] = 'select';
+        $fields['billing']['billing_state']['options'] = $divisions;
+        $fields['billing']['billing_state']['label'] = 'Division (Billing)';
+        $fields['billing']['billing_state']['class'] = array( 'form-row-wide', 'update_totals_on_change' ); // AJAX trigger
+        $fields['billing']['billing_state']['required'] = true;
+    }
+    if ( isset( $fields['shipping']['shipping_state'] ) ) {
+        $fields['shipping']['shipping_state']['type'] = 'select';
+        $fields['shipping']['shipping_state']['options'] = $divisions;
+        $fields['shipping']['shipping_state']['label'] = 'Division (Shipping)';
+        $fields['shipping']['shipping_state']['class'] = array( 'form-row-wide', 'update_totals_on_change' ); // AJAX trigger
+        $fields['shipping']['shipping_state']['required'] = true;
+    }
+    return $fields;
+}
+
+// 2. Force Custom Shipping Rate (Delivery Charge)
+add_filter( 'woocommerce_package_rates', 'fit_bulletproof_shipping_rates_v3', 9999, 2 );
+function fit_bulletproof_shipping_rates_v3( $rates, $package ) {
+    if ( is_admin() && ! defined( 'DOING_AJAX' ) ) { return $rates; }
+    
+    $division = WC()->customer->get_shipping_state();
+    if ( empty( $division ) ) {
+        $division = WC()->customer->get_billing_state();
+    }
+    
+    $division_clean = strtolower( trim( (string) $division ) );
+    $is_dhaka = ( $division_clean === 'dhaka' || $division_clean === 'bd-13' || strpos( $division_clean, 'dhaka' ) !== false );
+    
+    // Clear ALL default rates (removes Flat Rate)
+    $new_rates = array();
+    
+    if ( ! empty( $division ) ) {
+        $cost  = $is_dhaka ? 80 : 150;
+        $label = $is_dhaka ? 'Inside Dhaka' : 'Outside Dhaka';
+        
+        $rate_id = 'fit_delivery_charge';
+        $new_rates[$rate_id] = new WC_Shipping_Rate(
+            $rate_id,
+            $label,
+            $cost,
+            array(),
+            'fit_custom_method',
+            0
+        );
+    }
+    return $new_rates;
+}
